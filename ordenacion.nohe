@@ -1,0 +1,96 @@
+/*
+Programa que realiza la ordenacion de un arreglo de 10 elementos
+ 
+*/
+
+/* 
+	Realizado por Harvin Toledo Polanco
+	Fecha: Viernes 25 de Mayo de 2012
+	e-mail: harvintoledo@gmail.com
+	Ilustra algunos elementos del lenguaje NOHEMI
+	Para proyecto Compilador HAMAT
+*/
+programa ordenacion; /* el programa ejecutable tendra el mismo nombre que
+						la palabra que le precede al programa */
+
+
+// var entero x[10]; declaracion antigua
+
+var x : arreglo de entero[10]; 
+var u, v, w: entero;
+
+funcion minloc ( entero a[], entero peq, entero gra) : entero
+{
+	entero i;
+	entero x;
+	entero k;
+	
+	k = peq;
+	x = a[peq];
+	
+	i = peq + 1;
+	
+	mientras ( i < gra )
+	{
+		si ( a[i] < x )
+		{
+			x = a[i];
+			k = i;
+		}
+		
+		i = i + 1;
+	}
+	
+	retornar k;
+}
+
+/* 	ordenar los elementos de un arreglo
+	usando el algoritmo de burbuja 
+	*/
+void ordenar( entero a[], entero peq, entero gra)
+{
+	entero i;
+	entero k;
+	
+	i = peq;
+	
+	mientras ( i < gra - 1)
+	{
+		entero t;
+		k = minloc(a, i, gra);
+		/* intercambiar los valores de menor a mayor */
+		t = a[k];
+		a[k] = a[i];
+		a[i] = t;
+		
+		i = i +1;
+	}
+}
+void principal( void )
+{
+	int i;
+	i = 0;
+	
+	mientras ( i < 10 )
+	{
+		escribir "Ingrese numero ", i + 1 " para arreglo ";
+		x[i] = entrar();
+		i = i + 1;
+		
+	}
+	
+	ordenar(x, 0, 10);
+	
+	i = 0;
+	
+	escribir "Los valores en orden son: ";
+	mientras ( i < 10 )
+	{
+		escribir " val ", i, " = ";
+		salida(x[i]);
+		escribir SALTODELINEA; /* salto de linea esta definido en una libreria de salidas */
+	}
+	
+	/* espera pulsacion de tecla pero no deja nada en el buffer */
+	esperar();
+}

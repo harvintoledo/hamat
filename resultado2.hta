@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>programa1.nohemi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="Analizador y Coloreador de Gramaticas - COMPILADOR HAMAT" />
+<meta name="author" content="Harvin Manuel Toledo Polanco" />
+<meta name="keywords" content="harvin,toledo, compiladores, nohemi, analizador, parsing, sintatico, semantico" />
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #FFFFFF; }
+.nohemi-ensamblador { color: #000000; }
+.nohemi-caracter { color: #000000; }
+.nohemi-comentario { color: #008000; }
+.nohemi-flotante { color: #000000; }
+.nohemi-hexadecimal { color: #000000; }
+.nohemi-identificador { color: #002200; font-weight: bold; }
+.nohemi-caracterilegal { color: #FF0000; }
+.nohemi-numero { color: #000000; }
+.nohemi-octal { color: #000000; }
+.nohemi-preprocesador { color: #0000FF; }
+.nohemi-palabrareservada { color: #0000FF; font-weight: bold;  }
+.nohemi-espacio { background-color: #FFFFFF; }
+.nohemi-cadena { color: #FF00FF; font-weight: bold; }
+.nohemi-simbolo { color: #000000; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code>
+<span style="font:12pt Courier New "<span class="nohemi-comentario">/**  Fecha de Registro de Compilacion: </span><br>
+<span class="nohemi-comentario">Domingo 24 de Noviembre de 2013</span><br>
+<span class="nohemi-comentario">/**  Hora  de Registro de Compilacion: </span><br><span class="nohemi-comentario">21:6'8"*/</span><br>
+
+<span class="nohemi-comentario">/* Compilacion de lenguaje nohemi<br>
+<span class="nohemi-comentario">/*
+Programa que resuelve la ecuación cuadrática dados
+los tres coeficientes a, b, c
+ 
+*/</span><br><br>
+<br>
+<span class="nohemi-comentario">/* 
+	Realizado por Harvin Toledo Polanco
+	Fecha: Martes 26 de Junio de 2012
+	e-mail: harvintoledo@gmail.com
+	Ilustra algunos elementos del lenguaje NOHEMI
+	Para proyecto Compilador HAMAT
+*/</span><br><br>
+<span class="nohemi-palabrareservada">programa</span> <span class="nohemi-identificador">trinomio</span>; <span class="nohemi-comentario">/* el programa ejecutable tendra el mismo nombre que
+						la palabra que le precede al programa */</span><br><br>
+<br>
+<span class="nohemi-palabrareservada">procedimiento</span> <span class="nohemi-identificador">principal</span><br>
+{<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">a</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">b</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">c</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">D</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">x</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">x1</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">x2</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">re1</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">re2</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">im1</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">im2</span>;<br>
+<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese a: &quot;</span>);<br>
+<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">a</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese b: &quot;</span>);<br>
+<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">b</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese c: &quot;</span>);<br>
+<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">c</span>);<br>
+<br>
+<span class="nohemi-palabrareservada">si</span>( <span class="nohemi-identificador">a</span> == <span class="nohemi-numero">0</span> )<br>
+{<br>
+<span class="nohemi-identificador">x</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">c</span>)/<span class="nohemi-identificador">b</span>;<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;La solucion es unica\n&quot;</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x = &quot;</span>, <span class="nohemi-identificador">x</span>);<br>
+}<br>
+<span class="nohemi-palabrareservada">sino</span><br>
+{<br>
+<span class="nohemi-identificador">D</span> = <span class="nohemi-identificador">b</span>*<span class="nohemi-identificador">b</span> - <span class="nohemi-numero">4</span>*<span class="nohemi-identificador">a</span>*<span class="nohemi-identificador">c</span>;<br>
+<span class="nohemi-palabrareservada">si</span>( <span class="nohemi-identificador">D</span> &gt; <span class="nohemi-numero">0</span> )<br>
+{<br>
+<span class="nohemi-identificador">x1</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span> +<span class="nohemi-identificador">raizcuadrada</span>(<span class="nohemi-identificador">D</span>))/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
+<span class="nohemi-identificador">x2</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span> -<span class="nohemi-identificador">raizcuadrada</span>(<span class="nohemi-identificador">D</span>))/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Las dos soluciones son reales\n&quot;</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x1 = &quot;</span>, <span class="nohemi-identificador">x1</span>, <span class="nohemi-cadena">&quot; x2 = &quot;</span>, <span class="nohemi-identificador">x2</span>);<br>
+}<br>
+<span class="nohemi-palabrareservada">sino</span><br>
+<span class="nohemi-palabrareservada">si</span>( <span class="nohemi-identificador">D</span> == <span class="nohemi-numero">0</span> )<br>
+{<br>
+<span class="nohemi-identificador">x1</span> = <span class="nohemi-identificador">x2</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span>) / (<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Una solucion unica\n&quot;</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x1 = x2 &quot;</span>, <span class="nohemi-identificador">x1</span>);<br>
+<br>
+}<br>
+<span class="nohemi-palabrareservada">sino</span><br>
+{<br>
+<span class="nohemi-identificador">D</span> = <span class="nohemi-numero">4</span>*<span class="nohemi-identificador">a</span>*<span class="nohemi-identificador">c</span> - <span class="nohemi-identificador">b</span>*<span class="nohemi-identificador">b</span>;<br>
+<span class="nohemi-identificador">re1</span> = <span class="nohemi-identificador">re2</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span>)/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>); <span class="nohemi-comentario">/* esta es solo para ejemplo de formato */</span><br><br>
+<span class="nohemi-identificador">im1</span> = <span class="nohemi-identificador">im2</span> = <span class="nohemi-identificador">raizcuadrada</span>(<span class="nohemi-identificador">D</span>)/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x1 = &quot;</span>, <span class="nohemi-identificador">re1</span>, <span class="nohemi-cadena">&quot; + &quot;</span>, <span class="nohemi-identificador">im1</span>, <span class="nohemi-cadena">&quot;i\n&quot;</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x2 = &quot;</span>, <span class="nohemi-identificador">re2</span>, <span class="nohemi-cadena">&quot; - &quot;</span>, <span class="nohemi-identificador">im2</span>, <span class="nohemi-cadena">&quot;i\n&quot;</span>);<br>
+}<br>
+}<br>
+<br>
+<span class="nohemi-identificador">sistema</span>(<span class="nohemi-identificador">PONER_EN_PAUSA</span>);<br>
+<span class="nohemi-identificador">sistema</span>(<span class="nohemi-identificador">SALIR_INDICANDO_ERROR</span>);<br>
+}EOF
+Registro del analisis sintactico y lexico para lenguaje nohemi */</span><br>
+  Programa: trinomio
+    procedimiento: principal
+      Variable
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Declaracion Global
+          Tipo Variable: real
+        Expresion Sentencia
+          Expresion
+            Argumentos: Ingrese a: 
+              Expresion
+                Cadena: Ingrese a: 
+        Expresion Sentencia
+          Expresion
+            Argumentos: a
+              Expresion
+                Variable: a
+        Expresion Sentencia
+          Expresion
+            Argumentos: Ingrese b: 
+              Expresion
+                Cadena: Ingrese b: 
+        Expresion Sentencia
+          Expresion
+            Argumentos: b
+              Expresion
+                Variable: b
+        Expresion Sentencia
+          Expresion
+            Argumentos: Ingrese c: 
+              Expresion
+                Cadena: Ingrese c: 
+        Expresion Sentencia
+          Expresion
+            Argumentos: c
+              Expresion
+                Variable: c
+        Si
+          Op: ==            Variable: a
+            const: 0
+          Sentencia Compuesta
+            Expresion Sentencia
+              Expresion
+                Variable: x
+                Expresion
+                  Op: /                    Expresion
+                      Op: -                        const: 0
+                        Variable: c
+                    Variable: b
+            Expresion Sentencia
+              Expresion
+                Argumentos: La solucion es unica\n
+                  Expresion
+                    Cadena: La solucion es unica\n
+            Expresion Sentencia
+              Expresion
+                Argumentos: x = 
+                  Expresion
+                    Cadena: x = 
+                  Expresion
+                    Variable: x
+          Sentencia Compuesta
+            Expresion Sentencia
+              Expresion
+                Variable: D
+                Expresion
+                  Op: -                    Op: *                      Variable: b
+                      Variable: b
+                    Op: *                      Op: *                        const: 4
+                        Variable: a
+                      Variable: c
+            Si
+              Op: &gt;                Variable: D
+                const: 0
+              Sentencia Compuesta
+                Expresion Sentencia
+                  Expresion
+                    Variable: x1
+                    Expresion
+                      Op: /                        Expresion
+                          Op: +                            Op: -                              const: 0
+                              Variable: b
+                            Argumentos: D
+                              Expresion
+                                Variable: D
+                        Expresion
+                          Op: *                            const: 2
+                            Variable: a
+                Expresion Sentencia
+                  Expresion
+                    Variable: x2
+                    Expresion
+                      Op: /                        Expresion
+                          Op: -                            Op: -                              const: 0
+                              Variable: b
+                            Argumentos: D
+                              Expresion
+                                Variable: D
+                        Expresion
+                          Op: *                            const: 2
+                            Variable: a
+                Expresion Sentencia
+                  Expresion
+                    Argumentos: Las dos soluciones son reales\n
+                      Expresion
+                        Cadena: Las dos soluciones son reales\n
+                Expresion Sentencia
+                  Expresion
+                    Argumentos: x1 = 
+                      Expresion
+                        Cadena: x1 = 
+                      Expresion
+                        Variable: x1
+                      Expresion
+                        Cadena:  x2 = 
+                      Expresion
+                        Variable: x2
+              Si
+                Op: ==                  Variable: D
+                  const: 0
+                Sentencia Compuesta
+                  Expresion Sentencia
+                    Expresion
+                      Variable: x1
+                      Expresion
+                        Variable: x2
+                        Expresion
+                          Op: /                            Expresion
+                              Op: -                                const: 0
+                                Variable: b
+                            Expresion
+                              Op: *                                const: 2
+                                Variable: a
+                  Expresion Sentencia
+                    Expresion
+                      Argumentos: Una solucion unica\n
+                        Expresion
+                          Cadena: Una solucion unica\n
+                  Expresion Sentencia
+                    Expresion
+                      Argumentos: x1 = x2 
+                        Expresion
+                          Cadena: x1 = x2 
+                        Expresion
+                          Variable: x1
+                Sentencia Compuesta
+                  Expresion Sentencia
+                    Expresion
+                      Variable: D
+                      Expresion
+                        Op: -                          Op: *                            Op: *                              const: 4
+                              Variable: a
+                            Variable: c
+                          Op: *                            Variable: b
+                            Variable: b
+                  Expresion Sentencia
+                    Expresion
+                      Variable: re1
+                      Expresion
+                        Variable: re2
+                        Expresion
+                          Op: /                            Expresion
+                              Op: -                                const: 0
+                                Variable: b
+                            Expresion
+                              Op: *                                const: 2
+                                Variable: a
+                  Expresion Sentencia
+                    Expresion
+                      Variable: im1
+                      Expresion
+                        Variable: im2
+                        Expresion
+                          Op: /                            Argumentos: D
+                              Expresion
+                                Variable: D
+                            Expresion
+                              Op: *                                const: 2
+                                Variable: a
+                  Expresion Sentencia
+                    Expresion
+                      Argumentos: x1 = 
+                        Expresion
+                          Cadena: x1 = 
+                        Expresion
+                          Variable: re1
+                        Expresion
+                          Cadena:  + 
+                        Expresion
+                          Variable: im1
+                        Expresion
+                          Cadena: i\n
+                  Expresion Sentencia
+                    Expresion
+                      Argumentos: x2 = 
+                        Expresion
+                          Cadena: x2 = 
+                        Expresion
+                          Variable: re2
+                        Expresion
+                          Cadena:  - 
+                        Expresion
+                          Variable: im2
+                        Expresion
+                          Cadena: i\n
+          Expresion Sentencia
+            Expresion
+              Argumentos: PONER_EN_PAUSA
+                Expresion
+                  Variable: PONER_EN_PAUSA
+          Expresion Sentencia
+            Expresion
+              Argumentos: SALIR_INDICANDO_ERROR
+                Expresion
+                  Variable: SALIR_INDICANDO_ERROR
+</code>
+</pre>
+</body></xml>

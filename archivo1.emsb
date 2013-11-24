@@ -1,0 +1,8 @@
+* Compilacion de Maquina hipotetica para Nohemi
+* Archivo: archivo1.emsb
+* Preludio estandar
+  0:     LD  6, 0(0) 	cargar maxaddress de la localizacion 0
+  1:     ST  0, 0(0) 	borrar localización 0
+* Fin del preludio estándar
+* Fin de ejecucion
+  2:  HALT 0, 0, 0	

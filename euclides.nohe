@@ -1,0 +1,40 @@
+/*
+Programa para realizar un algoritmo de Euclides
+para calcular el M.C.D. (Máximo Común Divisor) 
+*/
+
+/* 
+	Realizado por Harvin Toledo Polanco
+	Fecha: Viernes 25 de Mayo de 2012
+	e-mail: harvintoledo@gmail.com
+	Ilustra algunos elementos del lenguaje NOHEMI
+	Para proyecto Compilador HAMAT
+*/
+programa euclides;
+
+entero mcm( entero u, entero v)
+{
+	si ( v== 0 )
+		retornar u;
+	sino
+		retornar gcd(v, u-v/v*v);
+	/* u-u/v*v == u mod v */
+}
+
+void principal( void )
+{
+	int x;
+	int y;
+	
+	escribir "Ingrese el primer numero\n";
+	x = entrar();
+	
+	escribir "Ingrese el segundo numero\n";
+	y = entrar();
+	
+	escribir "El maximo comun divisor es ";
+	salida(mcm(x,y));
+	
+	/* espera pulsacion de tecla pero no deja nada en el buffer */
+	esperar();
+}

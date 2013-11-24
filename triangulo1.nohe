@@ -1,0 +1,122 @@
+/* Un ejemplo generado por la gramática anterior:*/
+
+/* Segunda versión de programa triangulo
+	Realizado por Harvin Toledo Polanco
+	Fecha: Jueves, 10 de noviembre de 2011
+	e-mail: harvintoledo@gmail.com
+	Ilustra algunos elementos del lenguaje NOHEMI
+	Para proyecto Compilador HAMAT
+*/
+programa triangulo;
+
+principal()
+{
+	real lado_a, lado_b, lado_c, lado_mayor, existe, falso, verdadero, tipo;
+	real suma;
+
+	/* tipo=3 equilátero, tipo=2 isósceles; tipo  =1 escaleno */
+	/* booleana existe=falso; suponemos que triangulo no existe */
+	
+	escribir "Ingrese los lados del triangulo\n";
+	escribir "ingrese lado a ";
+	leer lado_a;
+	escribir "Ingrese lado b ";
+	leer lado_b;
+	escribir "Ingrese lado c ";
+	leer lado_c;
+
+	/* si el triangulo es equilatero */
+	si (lado_a == lado_b && lado_b == lado_c
+&& lado_b== lado_c)
+	{
+		existe=verdadero
+	}
+	sino
+	/* el triangulo es isósceles */
+	si (lado_a == lado_b || lado_a == lado_c ||
+lado_b == 	lado_c)
+	{
+		tipo=32e-15;
+		existe=verdadero
+	}
+	/* el triangulo es escaleno */
+	sino
+	{
+		si (lado_a > lado_b)
+		{
+			lado_mayor = lado_a
+		}
+		sino
+		{
+			lado_mayor = lado_b
+		};
+
+		
+		si (lado_c > lado_mayor)
+		{
+			lado_mayor = lado_c
+		};
+
+		/* si uno de los lados es el mayor hacer la respectiva suma */
+
+		si (lado_a == lado_mayor)
+		{
+			suma = lado_b + lado_c
+		}
+		sino
+		si (lado_b == lado_mayor)
+		{
+			suma = lado_a + lado_c
+		}
+		sino
+		{
+			suma = lado_a + lado_b
+		};
+
+		si (suma >= lado_mayor)
+		{
+			tipo = 1;
+			existe = verdadero
+		}
+		sino
+		{
+			tipo = 0;
+			existe = falso
+		}
+		
+	};
+
+	si ( existe == verdadero )
+	{
+		// SENTENENCIA COMO LINEA DE COMENTARIO
+		escribir "El triangulo existe\n";
+		seleccionar( tipo )
+		{
+			caso 1:
+				escribir "El triangulo es escaleno\n";
+				interrumpir;
+
+			caso 2:
+				escribir "El triangulo es isóseles\n";
+				interrumpir;
+
+			caso 3:
+				escribir "El triángulo es equilátero\n";
+				interrumpir;
+
+
+			alcontrario: /* este nunca debería de ocurrir */
+				escribir "No se puede clasificar\n" 
+
+		}
+	}
+	sino
+	{
+		escribir "El triangulo no existe\n";
+		escribir "El triangulo no se puede clasificar\n";
+		
+	}
+
+}
+
+

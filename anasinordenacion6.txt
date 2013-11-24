@@ -1,0 +1,1356 @@
+
+Registro de recorrido sintactico recursivo
+Realizado por Harvin Manuel Toledo Polanco
+harvintoledo@gmail.com
+PROGRAMA -->
+lexema: 20 linea numero: 14 valor cadena: programa
+DECLARACION -->
+lexema: 19 linea numero: 17 valor cadena: procedimiento
+PROCEDIMIENTO-DECLARACION -->
+lexema: 19 linea numero: 17 valor cadena: procedimiento
+SENTENCIA-COMPUESTA -->
+lexema: 49 linea numero: 18 valor cadena: {
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 19 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 19 valor cadena: real
+DECLARACION-LOCAL -->
+lexema: 21 linea numero: 20 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 20 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 20 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 21 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 21 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 22 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 22 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 23 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 23 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 24 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 24 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 25 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 25 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 26 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 26 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 27 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 27 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 28 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 28 valor cadena: real
+VARIABLE-DECLARACION -->
+lexema: 21 linea numero: 29 valor cadena: real
+TIPO-VARIABLE -->
+lexema: 21 linea numero: 29 valor cadena: real
+SENTENCIA -->
+lexema: 32 linea numero: 31 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 31 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 31 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 31 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 31 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 31 valor cadena: Ingrese a: 
+EXPRESION -->
+lexema: 34 linea numero: 31 valor cadena: Ingrese a: 
+FACTOR -->
+lexema: 34 linea numero: 31 valor cadena: Ingrese a: 
+TERMINO -->
+lexema: 46 linea numero: 31 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 31 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 31 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 31 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 31 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 31 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 31 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 31 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 31 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 32 linea numero: 32 valor cadena: leer
+SENTENCIA -->
+lexema: 32 linea numero: 32 valor cadena: leer
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 32 valor cadena: leer
+EXPRESION -->
+lexema: 32 linea numero: 32 valor cadena: leer
+FACTOR -->
+lexema: 32 linea numero: 32 valor cadena: leer
+LLAMADA -->
+lexema: 32 linea numero: 32 valor cadena: leer
+ARGUMENTOS -->
+lexema: 32 linea numero: 32 valor cadena: a
+EXPRESION -->
+lexema: 32 linea numero: 32 valor cadena: a
+FACTOR -->
+lexema: 32 linea numero: 32 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 32 valor cadena: a
+TERMINO -->
+lexema: 46 linea numero: 32 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 32 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 32 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 32 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 32 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 32 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 32 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 32 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 32 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 33 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 33 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 33 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 33 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 33 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 33 valor cadena: Ingrese b: 
+EXPRESION -->
+lexema: 34 linea numero: 33 valor cadena: Ingrese b: 
+FACTOR -->
+lexema: 34 linea numero: 33 valor cadena: Ingrese b: 
+TERMINO -->
+lexema: 46 linea numero: 33 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 33 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 33 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 33 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 33 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 33 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 33 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 33 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 33 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 34 valor cadena: leer
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 34 valor cadena: leer
+EXPRESION -->
+lexema: 32 linea numero: 34 valor cadena: leer
+FACTOR -->
+lexema: 32 linea numero: 34 valor cadena: leer
+LLAMADA -->
+lexema: 32 linea numero: 34 valor cadena: leer
+ARGUMENTOS -->
+lexema: 32 linea numero: 34 valor cadena: b
+EXPRESION -->
+lexema: 32 linea numero: 34 valor cadena: b
+FACTOR -->
+lexema: 32 linea numero: 34 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 34 valor cadena: b
+TERMINO -->
+lexema: 46 linea numero: 34 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 34 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 34 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 34 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 34 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 34 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 34 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 34 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 34 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 35 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 35 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 35 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 35 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 35 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 35 valor cadena: Ingrese c: 
+EXPRESION -->
+lexema: 34 linea numero: 35 valor cadena: Ingrese c: 
+FACTOR -->
+lexema: 34 linea numero: 35 valor cadena: Ingrese c: 
+TERMINO -->
+lexema: 46 linea numero: 35 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 35 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 35 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 35 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 35 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 35 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 35 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 35 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 35 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 36 valor cadena: leer
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 36 valor cadena: leer
+EXPRESION -->
+lexema: 32 linea numero: 36 valor cadena: leer
+FACTOR -->
+lexema: 32 linea numero: 36 valor cadena: leer
+LLAMADA -->
+lexema: 32 linea numero: 36 valor cadena: leer
+ARGUMENTOS -->
+lexema: 32 linea numero: 36 valor cadena: c
+EXPRESION -->
+lexema: 32 linea numero: 36 valor cadena: c
+FACTOR -->
+lexema: 32 linea numero: 36 valor cadena: c
+VARIABLE -->
+lexema: 32 linea numero: 36 valor cadena: c
+TERMINO -->
+lexema: 46 linea numero: 36 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 36 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 36 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 36 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 36 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 36 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 36 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 36 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 36 valor cadena: ;
+SENTENCIA -->
+lexema: 23 linea numero: 38 valor cadena: si
+SELECCION-SENTENCIA -->
+lexema: 23 linea numero: 38 valor cadena: si
+FACTOR -->
+lexema: 32 linea numero: 38 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 38 valor cadena: a
+TERMINO -->
+lexema: 36 linea numero: 38 valor cadena: ==
+EXPRESION-ADITIVA -->
+lexema: 36 linea numero: 38 valor cadena: ==
+EXPRESION-COMPARACION -->
+lexema: 36 linea numero: 38 valor cadena: ==
+FACTOR -->
+lexema: 33 linea numero: 38 valor cadena: 0
+TERMINO -->
+lexema: 46 linea numero: 38 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 38 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 38 valor cadena: )
+SENTENCIA -->
+lexema: 49 linea numero: 39 valor cadena: {
+SENTENCIA-COMPUESTA -->
+lexema: 49 linea numero: 39 valor cadena: {
+SENTENCIA -->
+lexema: 32 linea numero: 40 valor cadena: x
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 40 valor cadena: x
+EXPRESION -->
+lexema: 32 linea numero: 40 valor cadena: x
+VARIABLE -->
+lexema: 32 linea numero: 40 valor cadena: x
+EXPRESION -->
+lexema: 47 linea numero: 40 valor cadena: (
+FACTOR -->
+lexema: 47 linea numero: 40 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 40 valor cadena: 0
+FACTOR -->
+lexema: 33 linea numero: 40 valor cadena: 0
+TERMINO -->
+lexema: 43 linea numero: 40 valor cadena: -
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 40 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 40 valor cadena: c
+VARIABLE -->
+lexema: 32 linea numero: 40 valor cadena: c
+TERMINO -->
+lexema: 46 linea numero: 40 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 40 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 40 valor cadena: )
+TERMINO -->
+lexema: 45 linea numero: 40 valor cadena: 
+FACTOR -->
+lexema: 32 linea numero: 40 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 40 valor cadena: b
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 40 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 40 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 40 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 32 linea numero: 41 valor cadena: escribir
+SENTENCIA -->
+lexema: 32 linea numero: 41 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 41 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 41 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 41 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 41 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 41 valor cadena: La solucion es unica\n
+EXPRESION -->
+lexema: 34 linea numero: 41 valor cadena: La solucion es unica\n
+FACTOR -->
+lexema: 34 linea numero: 41 valor cadena: La solucion es unica\n
+TERMINO -->
+lexema: 46 linea numero: 41 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 41 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 41 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 41 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 41 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 41 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 41 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 41 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 41 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 42 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 42 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 42 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 42 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 42 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 42 valor cadena: x = 
+EXPRESION -->
+lexema: 34 linea numero: 42 valor cadena: x = 
+FACTOR -->
+lexema: 34 linea numero: 42 valor cadena: x = 
+TERMINO -->
+lexema: 52 linea numero: 42 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 42 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 42 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 42 valor cadena: ,
+LISTA-ARGUMENTOS -->
+lexema: 52 linea numero: 42 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 42 valor cadena: x
+FACTOR -->
+lexema: 32 linea numero: 42 valor cadena: x
+VARIABLE -->
+lexema: 32 linea numero: 42 valor cadena: x
+TERMINO -->
+lexema: 46 linea numero: 42 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 42 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 42 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 42 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 42 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 42 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 42 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 42 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 24 linea numero: 44 valor cadena: sino
+SENTENCIA -->
+lexema: 49 linea numero: 45 valor cadena: {
+SENTENCIA-COMPUESTA -->
+lexema: 49 linea numero: 45 valor cadena: {
+SENTENCIA -->
+lexema: 32 linea numero: 46 valor cadena: D
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 46 valor cadena: D
+EXPRESION -->
+lexema: 32 linea numero: 46 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 46 valor cadena: D
+EXPRESION -->
+lexema: 32 linea numero: 46 valor cadena: b
+FACTOR -->
+lexema: 32 linea numero: 46 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 46 valor cadena: b
+TERMINO -->
+lexema: 44 linea numero: 46 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 46 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 46 valor cadena: b
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 46 valor cadena: -
+FACTOR -->
+lexema: 33 linea numero: 46 valor cadena: 4
+TERMINO -->
+lexema: 44 linea numero: 46 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 46 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 46 valor cadena: a
+FACTOR -->
+lexema: 32 linea numero: 46 valor cadena: c
+VARIABLE -->
+lexema: 32 linea numero: 46 valor cadena: c
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 46 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 46 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 23 linea numero: 47 valor cadena: si
+SENTENCIA -->
+lexema: 23 linea numero: 47 valor cadena: si
+SELECCION-SENTENCIA -->
+lexema: 23 linea numero: 47 valor cadena: si
+FACTOR -->
+lexema: 32 linea numero: 47 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 47 valor cadena: D
+TERMINO -->
+lexema: 38 linea numero: 47 valor cadena: >
+EXPRESION-ADITIVA -->
+lexema: 38 linea numero: 47 valor cadena: >
+EXPRESION-COMPARACION -->
+lexema: 38 linea numero: 47 valor cadena: >
+FACTOR -->
+lexema: 33 linea numero: 47 valor cadena: 0
+TERMINO -->
+lexema: 46 linea numero: 47 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 47 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 47 valor cadena: )
+SENTENCIA -->
+lexema: 49 linea numero: 48 valor cadena: {
+SENTENCIA-COMPUESTA -->
+lexema: 49 linea numero: 48 valor cadena: {
+SENTENCIA -->
+lexema: 32 linea numero: 49 valor cadena: x1
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 49 valor cadena: x1
+EXPRESION -->
+lexema: 32 linea numero: 49 valor cadena: x1
+VARIABLE -->
+lexema: 32 linea numero: 49 valor cadena: x1
+EXPRESION -->
+lexema: 47 linea numero: 49 valor cadena: (
+FACTOR -->
+lexema: 47 linea numero: 49 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 49 valor cadena: 0
+FACTOR -->
+lexema: 33 linea numero: 49 valor cadena: 0
+TERMINO -->
+lexema: 43 linea numero: 49 valor cadena: -
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 49 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 49 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 49 valor cadena: b
+TERMINO -->
+lexema: 42 linea numero: 49 valor cadena: +
+FACTOR -->
+lexema: 32 linea numero: 49 valor cadena: raizcuadrada
+LLAMADA -->
+lexema: 32 linea numero: 49 valor cadena: raizcuadrada
+ARGUMENTOS -->
+lexema: 32 linea numero: 49 valor cadena: D
+EXPRESION -->
+lexema: 32 linea numero: 49 valor cadena: D
+FACTOR -->
+lexema: 32 linea numero: 49 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 49 valor cadena: D
+TERMINO -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 49 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 49 valor cadena: )
+TERMINO -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 49 valor cadena: )
+TERMINO -->
+lexema: 45 linea numero: 49 valor cadena: 
+FACTOR -->
+lexema: 47 linea numero: 49 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 49 valor cadena: 2
+FACTOR -->
+lexema: 33 linea numero: 49 valor cadena: 2
+TERMINO -->
+lexema: 44 linea numero: 49 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 49 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 49 valor cadena: a
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 49 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 49 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 49 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 49 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 32 linea numero: 50 valor cadena: x2
+SENTENCIA -->
+lexema: 32 linea numero: 50 valor cadena: x2
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 50 valor cadena: x2
+EXPRESION -->
+lexema: 32 linea numero: 50 valor cadena: x2
+VARIABLE -->
+lexema: 32 linea numero: 50 valor cadena: x2
+EXPRESION -->
+lexema: 47 linea numero: 50 valor cadena: (
+FACTOR -->
+lexema: 47 linea numero: 50 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 50 valor cadena: 0
+FACTOR -->
+lexema: 33 linea numero: 50 valor cadena: 0
+TERMINO -->
+lexema: 43 linea numero: 50 valor cadena: -
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 50 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 50 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 50 valor cadena: b
+TERMINO -->
+lexema: 43 linea numero: 50 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 50 valor cadena: raizcuadrada
+LLAMADA -->
+lexema: 32 linea numero: 50 valor cadena: raizcuadrada
+ARGUMENTOS -->
+lexema: 32 linea numero: 50 valor cadena: D
+EXPRESION -->
+lexema: 32 linea numero: 50 valor cadena: D
+FACTOR -->
+lexema: 32 linea numero: 50 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 50 valor cadena: D
+TERMINO -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 50 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 50 valor cadena: )
+TERMINO -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 50 valor cadena: )
+TERMINO -->
+lexema: 45 linea numero: 50 valor cadena: 
+FACTOR -->
+lexema: 47 linea numero: 50 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 50 valor cadena: 2
+FACTOR -->
+lexema: 33 linea numero: 50 valor cadena: 2
+TERMINO -->
+lexema: 44 linea numero: 50 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 50 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 50 valor cadena: a
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 50 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 50 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 50 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 50 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 51 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 51 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 51 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 51 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 51 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 51 valor cadena: Las dos soluciones son reales\n
+EXPRESION -->
+lexema: 34 linea numero: 51 valor cadena: Las dos soluciones son reales\n
+FACTOR -->
+lexema: 34 linea numero: 51 valor cadena: Las dos soluciones son reales\n
+TERMINO -->
+lexema: 46 linea numero: 51 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 51 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 51 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 51 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 51 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 51 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 51 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 51 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 51 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 52 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 52 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 52 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 52 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 52 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 52 valor cadena: x1 = 
+EXPRESION -->
+lexema: 34 linea numero: 52 valor cadena: x1 = 
+FACTOR -->
+lexema: 34 linea numero: 52 valor cadena: x1 = 
+TERMINO -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 52 valor cadena: ,
+LISTA-ARGUMENTOS -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 52 valor cadena: x1
+FACTOR -->
+lexema: 32 linea numero: 52 valor cadena: x1
+VARIABLE -->
+lexema: 32 linea numero: 52 valor cadena: x1
+TERMINO -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION -->
+lexema: 34 linea numero: 52 valor cadena:  x2 = 
+FACTOR -->
+lexema: 34 linea numero: 52 valor cadena:  x2 = 
+TERMINO -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 52 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 52 valor cadena: x2
+FACTOR -->
+lexema: 32 linea numero: 52 valor cadena: x2
+VARIABLE -->
+lexema: 32 linea numero: 52 valor cadena: x2
+TERMINO -->
+lexema: 46 linea numero: 52 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 52 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 52 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 52 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 52 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 52 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 52 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 52 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 24 linea numero: 54 valor cadena: sino
+SENTENCIA -->
+lexema: 23 linea numero: 55 valor cadena: si
+SELECCION-SENTENCIA -->
+lexema: 23 linea numero: 55 valor cadena: si
+FACTOR -->
+lexema: 32 linea numero: 55 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 55 valor cadena: D
+TERMINO -->
+lexema: 36 linea numero: 55 valor cadena: ==
+EXPRESION-ADITIVA -->
+lexema: 36 linea numero: 55 valor cadena: ==
+EXPRESION-COMPARACION -->
+lexema: 36 linea numero: 55 valor cadena: ==
+FACTOR -->
+lexema: 33 linea numero: 55 valor cadena: 0
+TERMINO -->
+lexema: 46 linea numero: 55 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 55 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 55 valor cadena: )
+SENTENCIA -->
+lexema: 49 linea numero: 56 valor cadena: {
+SENTENCIA-COMPUESTA -->
+lexema: 49 linea numero: 56 valor cadena: {
+SENTENCIA -->
+lexema: 32 linea numero: 57 valor cadena: x1
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 57 valor cadena: x1
+EXPRESION -->
+lexema: 32 linea numero: 57 valor cadena: x1
+VARIABLE -->
+lexema: 32 linea numero: 57 valor cadena: x1
+EXPRESION -->
+lexema: 32 linea numero: 57 valor cadena: x2
+VARIABLE -->
+lexema: 32 linea numero: 57 valor cadena: x2
+EXPRESION -->
+lexema: 47 linea numero: 57 valor cadena: (
+FACTOR -->
+lexema: 47 linea numero: 57 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 57 valor cadena: 0
+FACTOR -->
+lexema: 33 linea numero: 57 valor cadena: 0
+TERMINO -->
+lexema: 43 linea numero: 57 valor cadena: -
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 57 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 57 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 57 valor cadena: b
+TERMINO -->
+lexema: 46 linea numero: 57 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 57 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 57 valor cadena: )
+TERMINO -->
+lexema: 45 linea numero: 57 valor cadena: 
+FACTOR -->
+lexema: 47 linea numero: 57 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 57 valor cadena: 2
+FACTOR -->
+lexema: 33 linea numero: 57 valor cadena: 2
+TERMINO -->
+lexema: 44 linea numero: 57 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 57 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 57 valor cadena: a
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 57 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 57 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 57 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 57 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 57 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 57 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 32 linea numero: 58 valor cadena: escribir
+SENTENCIA -->
+lexema: 32 linea numero: 58 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 58 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 58 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 58 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 58 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 58 valor cadena: Una solucion unica\n
+EXPRESION -->
+lexema: 34 linea numero: 58 valor cadena: Una solucion unica\n
+FACTOR -->
+lexema: 34 linea numero: 58 valor cadena: Una solucion unica\n
+TERMINO -->
+lexema: 46 linea numero: 58 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 58 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 58 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 58 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 58 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 58 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 58 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 58 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 58 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 59 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 59 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 59 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 59 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 59 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 59 valor cadena: x1 = x2 
+EXPRESION -->
+lexema: 34 linea numero: 59 valor cadena: x1 = x2 
+FACTOR -->
+lexema: 34 linea numero: 59 valor cadena: x1 = x2 
+TERMINO -->
+lexema: 52 linea numero: 59 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 59 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 59 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 59 valor cadena: ,
+LISTA-ARGUMENTOS -->
+lexema: 52 linea numero: 59 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 59 valor cadena: x1
+FACTOR -->
+lexema: 32 linea numero: 59 valor cadena: x1
+VARIABLE -->
+lexema: 32 linea numero: 59 valor cadena: x1
+TERMINO -->
+lexema: 46 linea numero: 59 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 59 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 59 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 59 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 59 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 59 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 59 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 59 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 24 linea numero: 62 valor cadena: sino
+SENTENCIA -->
+lexema: 49 linea numero: 63 valor cadena: {
+SENTENCIA-COMPUESTA -->
+lexema: 49 linea numero: 63 valor cadena: {
+SENTENCIA -->
+lexema: 32 linea numero: 64 valor cadena: D
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 64 valor cadena: D
+EXPRESION -->
+lexema: 32 linea numero: 64 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 64 valor cadena: D
+EXPRESION -->
+lexema: 33 linea numero: 64 valor cadena: 4
+FACTOR -->
+lexema: 33 linea numero: 64 valor cadena: 4
+TERMINO -->
+lexema: 44 linea numero: 64 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 64 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 64 valor cadena: a
+FACTOR -->
+lexema: 32 linea numero: 64 valor cadena: c
+VARIABLE -->
+lexema: 32 linea numero: 64 valor cadena: c
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 64 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 64 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 64 valor cadena: b
+TERMINO -->
+lexema: 44 linea numero: 64 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 64 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 64 valor cadena: b
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 64 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 64 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 32 linea numero: 65 valor cadena: re1
+SENTENCIA -->
+lexema: 32 linea numero: 65 valor cadena: re1
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 65 valor cadena: re1
+EXPRESION -->
+lexema: 32 linea numero: 65 valor cadena: re1
+VARIABLE -->
+lexema: 32 linea numero: 65 valor cadena: re1
+EXPRESION -->
+lexema: 32 linea numero: 65 valor cadena: re2
+VARIABLE -->
+lexema: 32 linea numero: 65 valor cadena: re2
+EXPRESION -->
+lexema: 47 linea numero: 65 valor cadena: (
+FACTOR -->
+lexema: 47 linea numero: 65 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 65 valor cadena: 0
+FACTOR -->
+lexema: 33 linea numero: 65 valor cadena: 0
+TERMINO -->
+lexema: 43 linea numero: 65 valor cadena: -
+EXPRESION-ADITIVA -->
+lexema: 43 linea numero: 65 valor cadena: -
+FACTOR -->
+lexema: 32 linea numero: 65 valor cadena: b
+VARIABLE -->
+lexema: 32 linea numero: 65 valor cadena: b
+TERMINO -->
+lexema: 46 linea numero: 65 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 65 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 65 valor cadena: )
+TERMINO -->
+lexema: 45 linea numero: 65 valor cadena: 
+FACTOR -->
+lexema: 47 linea numero: 65 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 65 valor cadena: 2
+FACTOR -->
+lexema: 33 linea numero: 65 valor cadena: 2
+TERMINO -->
+lexema: 44 linea numero: 65 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 65 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 65 valor cadena: a
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 65 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 65 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 65 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 65 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 65 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 65 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 66 valor cadena: im1
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 66 valor cadena: im1
+EXPRESION -->
+lexema: 32 linea numero: 66 valor cadena: im1
+VARIABLE -->
+lexema: 32 linea numero: 66 valor cadena: im1
+EXPRESION -->
+lexema: 32 linea numero: 66 valor cadena: im2
+VARIABLE -->
+lexema: 32 linea numero: 66 valor cadena: im2
+EXPRESION -->
+lexema: 32 linea numero: 66 valor cadena: raizcuadrada
+FACTOR -->
+lexema: 32 linea numero: 66 valor cadena: raizcuadrada
+LLAMADA -->
+lexema: 32 linea numero: 66 valor cadena: raizcuadrada
+ARGUMENTOS -->
+lexema: 32 linea numero: 66 valor cadena: D
+EXPRESION -->
+lexema: 32 linea numero: 66 valor cadena: D
+FACTOR -->
+lexema: 32 linea numero: 66 valor cadena: D
+VARIABLE -->
+lexema: 32 linea numero: 66 valor cadena: D
+TERMINO -->
+lexema: 46 linea numero: 66 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 66 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 66 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 66 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 66 valor cadena: )
+TERMINO -->
+lexema: 45 linea numero: 66 valor cadena: 
+FACTOR -->
+lexema: 47 linea numero: 66 valor cadena: (
+EXPRESION -->
+lexema: 33 linea numero: 66 valor cadena: 2
+FACTOR -->
+lexema: 33 linea numero: 66 valor cadena: 2
+TERMINO -->
+lexema: 44 linea numero: 66 valor cadena: *
+FACTOR -->
+lexema: 32 linea numero: 66 valor cadena: a
+VARIABLE -->
+lexema: 32 linea numero: 66 valor cadena: a
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 66 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 66 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 66 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 66 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 66 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 66 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 67 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 67 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 67 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 67 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 67 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 67 valor cadena: x1 = 
+EXPRESION -->
+lexema: 34 linea numero: 67 valor cadena: x1 = 
+FACTOR -->
+lexema: 34 linea numero: 67 valor cadena: x1 = 
+TERMINO -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 67 valor cadena: ,
+LISTA-ARGUMENTOS -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 67 valor cadena: re1
+FACTOR -->
+lexema: 32 linea numero: 67 valor cadena: re1
+VARIABLE -->
+lexema: 32 linea numero: 67 valor cadena: re1
+TERMINO -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION -->
+lexema: 34 linea numero: 67 valor cadena:  + 
+FACTOR -->
+lexema: 34 linea numero: 67 valor cadena:  + 
+TERMINO -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 67 valor cadena: im1
+FACTOR -->
+lexema: 32 linea numero: 67 valor cadena: im1
+VARIABLE -->
+lexema: 32 linea numero: 67 valor cadena: im1
+TERMINO -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 67 valor cadena: ,
+EXPRESION -->
+lexema: 34 linea numero: 67 valor cadena: i\n
+FACTOR -->
+lexema: 34 linea numero: 67 valor cadena: i\n
+TERMINO -->
+lexema: 46 linea numero: 67 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 67 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 67 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 67 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 67 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 67 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 67 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 67 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 68 valor cadena: escribir
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 68 valor cadena: escribir
+EXPRESION -->
+lexema: 32 linea numero: 68 valor cadena: escribir
+FACTOR -->
+lexema: 32 linea numero: 68 valor cadena: escribir
+LLAMADA -->
+lexema: 32 linea numero: 68 valor cadena: escribir
+ARGUMENTOS -->
+lexema: 34 linea numero: 68 valor cadena: x2 = 
+EXPRESION -->
+lexema: 34 linea numero: 68 valor cadena: x2 = 
+FACTOR -->
+lexema: 34 linea numero: 68 valor cadena: x2 = 
+TERMINO -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 68 valor cadena: ,
+LISTA-ARGUMENTOS -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 68 valor cadena: re2
+FACTOR -->
+lexema: 32 linea numero: 68 valor cadena: re2
+VARIABLE -->
+lexema: 32 linea numero: 68 valor cadena: re2
+TERMINO -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION -->
+lexema: 34 linea numero: 68 valor cadena:  - 
+FACTOR -->
+lexema: 34 linea numero: 68 valor cadena:  - 
+TERMINO -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION -->
+lexema: 32 linea numero: 68 valor cadena: im2
+FACTOR -->
+lexema: 32 linea numero: 68 valor cadena: im2
+VARIABLE -->
+lexema: 32 linea numero: 68 valor cadena: im2
+TERMINO -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-ADITIVA -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-COMPARACION -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION-SIMPLE -->
+lexema: 52 linea numero: 68 valor cadena: ,
+EXPRESION -->
+lexema: 34 linea numero: 68 valor cadena: i\n
+FACTOR -->
+lexema: 34 linea numero: 68 valor cadena: i\n
+TERMINO -->
+lexema: 46 linea numero: 68 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 68 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 68 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 68 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 68 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 68 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 68 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 68 valor cadena: ;
+LISTA-SENTENCIA -->
+lexema: 48 linea numero: 70 valor cadena: }
+LISTA-SENTENCIA -->
+lexema: 48 linea numero: 70 valor cadena: }
+LISTA-SENTENCIA -->
+lexema: 32 linea numero: 72 valor cadena: sistema
+SENTENCIA -->
+lexema: 32 linea numero: 72 valor cadena: sistema
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 72 valor cadena: sistema
+EXPRESION -->
+lexema: 32 linea numero: 72 valor cadena: sistema
+FACTOR -->
+lexema: 32 linea numero: 72 valor cadena: sistema
+LLAMADA -->
+lexema: 32 linea numero: 72 valor cadena: sistema
+ARGUMENTOS -->
+lexema: 32 linea numero: 72 valor cadena: PONER_EN_PAUSA
+EXPRESION -->
+lexema: 32 linea numero: 72 valor cadena: PONER_EN_PAUSA
+FACTOR -->
+lexema: 32 linea numero: 72 valor cadena: PONER_EN_PAUSA
+VARIABLE -->
+lexema: 32 linea numero: 72 valor cadena: PONER_EN_PAUSA
+TERMINO -->
+lexema: 46 linea numero: 72 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 72 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 72 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 72 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 72 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 72 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 72 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 72 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 72 valor cadena: ;
+SENTENCIA -->
+lexema: 32 linea numero: 73 valor cadena: sistema
+EXPRESION-SENTENCIA -->
+lexema: 32 linea numero: 73 valor cadena: sistema
+EXPRESION -->
+lexema: 32 linea numero: 73 valor cadena: sistema
+FACTOR -->
+lexema: 32 linea numero: 73 valor cadena: sistema
+LLAMADA -->
+lexema: 32 linea numero: 73 valor cadena: sistema
+ARGUMENTOS -->
+lexema: 32 linea numero: 73 valor cadena: SALIR_INDICANDO_ERROR
+EXPRESION -->
+lexema: 32 linea numero: 73 valor cadena: SALIR_INDICANDO_ERROR
+FACTOR -->
+lexema: 32 linea numero: 73 valor cadena: SALIR_INDICANDO_ERROR
+VARIABLE -->
+lexema: 32 linea numero: 73 valor cadena: SALIR_INDICANDO_ERROR
+TERMINO -->
+lexema: 46 linea numero: 73 valor cadena: )
+EXPRESION-ADITIVA -->
+lexema: 46 linea numero: 73 valor cadena: )
+EXPRESION-COMPARACION -->
+lexema: 46 linea numero: 73 valor cadena: )
+EXPRESION-SIMPLE -->
+lexema: 46 linea numero: 73 valor cadena: )
+LISTA-ARGUMENTOS -->
+lexema: 46 linea numero: 73 valor cadena: )
+TERMINO -->
+lexema: 53 linea numero: 73 valor cadena: ;
+EXPRESION-ADITIVA -->
+lexema: 53 linea numero: 73 valor cadena: ;
+EXPRESION-COMPARACION -->
+lexema: 53 linea numero: 73 valor cadena: ;
+EXPRESION-SIMPLE -->
+lexema: 53 linea numero: 73 valor cadena: ;
+LISTA-DECLARACION -->
+lexema: 1 linea numero: 75 valor cadena: 

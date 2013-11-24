@@ -1,0 +1,74 @@
+/*
+Programa que resuelve la ecuación cuadrática dados
+los tres coeficientes a, b, c
+ 
+*/
+
+/* 
+	Realizado por Harvin Toledo Polanco
+	Fecha: Martes 26 de Junio de 2012
+	e-mail: harvintoledo@gmail.com
+	Ilustra algunos elementos del lenguaje NOHEMI
+	Para proyecto Compilador HAMAT
+*/
+programa trinomio; /* el programa ejecutable tendra el mismo nombre que
+						la palabra que le precede al programa */
+
+procedimiento principal
+{
+	real a;
+	real b;
+	real c;
+	real D;
+	real x;
+	real x1;
+	real x2;
+	real re1;
+	real re2;
+	real im1;
+	real im2;
+	
+	escribir("Ingrese a: ");
+	leer(a);
+	escribir("Ingrese b: ");
+	leer(b);
+	escribir("Ingrese c: ");
+	leer(c);
+	
+	si( a == 0 )
+	{
+		x = (0-c)/b;
+		escribir("La solucion es unica\n");
+		escribir("x = ", x);
+	}
+	sino
+	{
+		D = b*b - 4*a*c;
+		si( D > 0 )
+		{
+			x1 = (0-b +raizcuadrada(D))/(2*a);
+			x2 = (0-b -raizcuadrada(D))/(2*a);
+			escribir("Las dos soluciones son reales\n");
+			escribir("x1 = ", x1, " x2 = ", x2);
+		}
+		sino
+		si( D == 0 )
+		{
+			x1 = x2 = (0-b) / (2*a);
+			escribir("Una solucion unica\n");
+			escribir("x1 = x2 ", x1);
+		
+		}
+		sino
+		{
+			D = 4*a*c - b*b;
+			re1 = re2 = (0-b)/(2*a); /* esta es solo para ejemplo de formato */
+			im1 = im2 = raizcuadrada(D)/(2*a);
+			escribir("x1 = ", re1, " + ", im1, "i\n");
+			escribir("x2 = ", re2, " - ", im2, "i\n");
+		}
+	}
+	
+	sistema(PONER_EN_PAUSA);
+	sistema(SALIR_INDICANDO_ERROR);
+}
