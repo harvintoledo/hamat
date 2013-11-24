@@ -88,22 +88,31 @@ static void parearCompleto(TipoLexema espectativa)
         
 }
 
-
+/* Parte principal de programa, aqui invocamos los reconocerderes,
+ programa() seria la primer parte del lenguaje
+ */
 static NodoArbol *programa( void )
 {
+    // Creamos el arbol para sentencia
     NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_PROGRAMA), *p=NULL;
     fprintf(pArchivoAnaSin, "\nPROGRAMA -->\n");
     fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
         lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
         lista->informacionLexema.informacion);
+        // como es la primera parte, todo programa tiene que contener la palabra programa
     parearCompleto(PROGRAMA);
+    // en el arbol temporal creamos el nombre de la informacion que tiene la tabla de símbolos lista
     temporal->atributo.nombre = lista->informacionLexema.informacion;
     
+    // No guardamos informaciòn del identificador de la funciòn y la hacemos coincidir
     parearCompleto(ID);
+    // hacemos coincidir con punto y coma
     parearCompleto(PUNTOYCOMA);
         
+    // Se logró reservar memoria
     if( temporal != NULL)
     {
+        // hijo de programa seran la lista de declaraciones
         temporal->hijo[0]=lista_declaracion();
     }
     
@@ -111,6 +120,9 @@ static NodoArbol *programa( void )
     return temporal;
 } /* fin de funcion programa_sentencia */
 
+/* Lista de declaraciones contiene la lista de posibles declaraciones de variables
+   ejemplo entero a; entero b; real x;
+   */
 static NodoArbol *lista_declaracion( void )
 {
     NodoArbol *temporal = declaracion();
@@ -1082,7 +1094,7 @@ static NodoArbol *llamada( void )
     parearCompleto(ID);
     parearCompleto(PAREN_IZQ);
     
-    temporal=argumentos();
+    temporal->hijo[0]=argumentos();
     
     parearCompleto(PAREN_DER);
     
