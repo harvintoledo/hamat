@@ -95,33 +95,13 @@ procedimiento principal
 	
 	si ( existe == verdadero )
 	{
-<<<<<<< HEAD
-		// SENTENCIA COMO LINEA DE COMENTARIO
-=======
-		// SENTENENCIA COMO LINEA DE COMENTARIO
->>>>>>> 613ed1c0007d7e8d402ddddca9fd1bfa86a403f4
+
 		escribir("El triangulo existe\n");
 		seleccionar( tipo )
 		{
 			caso 1:
-<<<<<<< HEAD
 			escribir ("El triangulo es escaleno\n");
 			interrumpir;
-
-			caso 2:
-			escribir ("El triangulo es isóseles\n");
-			interrumpir;
-
-			caso 3:
-			escribir ("El triángulo es equilátero\n");
-			interrumpir;
-
-
-alcontrario: /* este nunca debería de ocurrir */
-			escribir ("No se puede clasificar\n"); 
-=======
-				escribir ("El triangulo es escaleno\n");
-				interrumpir;
 
 			caso 2:
 				escribir ("El triangulo es isóseles\n");
@@ -130,11 +110,9 @@ alcontrario: /* este nunca debería de ocurrir */
 			caso 3:
 				escribir ("El triángulo es equilátero\n");
 				interrumpir;
-
-/*
+				
 			alcontrario: /* este nunca debería de ocurrir */
-				escribir ("No se puede clasificar\n"); */
->>>>>>> 613ed1c0007d7e8d402ddddca9fd1bfa86a403f4
+				escribir ("No se puede clasificar\n");
 
 		}
 	}

@@ -15,7 +15,7 @@ CursorCol=1
 CursorRow=36
 TopLine=11
 LeftChar=1
-Open=1
+Open=0
 Top=0
 [Editor_5]
 CursorCol=1
@@ -38,11 +38,12 @@ Order=4,6,10,0
 [Editor_0]
 Open=1
 Top=0
-CursorCol=36
-CursorRow=103
-TopLine=88
+CursorCol=1
+CursorRow=213
+TopLine=182
 =======
 Order=1,10,7,0
+LeftChar=1
 [Editor_0]
 Open=1
 Top=0
@@ -82,9 +83,9 @@ Top=0
 Open=1
 Top=1
 <<<<<<< HEAD
-CursorCol=46
-CursorRow=806
-TopLine=782
+CursorCol=1
+CursorRow=518
+TopLine=492
 =======
 CursorCol=9
 CursorRow=764

@@ -808,7 +808,9 @@ void imprimirArbol( NodoArbol *arbol )
                 case TIPOARBOL_SENTENCIA_CADENA:
                     fprintf(pArchivoDestino, "cadena\n");
                     break;
- 
+                case TIPOARBOL_SENTENCIA_ALCONTRARIO:
+                    fprintf(pArchivoDestino, "alcontrario\n");
+                    break;
                 default:
                     fprintf(pArchivoDestino, "Nodo o tipo de expresion desconocido\n" );
                     break;

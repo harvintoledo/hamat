@@ -1,36 +1,30 @@
-# Project: HAMAT
+# Project: HAMAT2
 # Makefile created by Dev-C++ 4.9.9.2
 
 CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
 RES  = 
-OBJ  = principal.o tabsimb.o utiles.o analex.o anasem.o anasin.o codigo.o gencod.o $(RES)
-LINKOBJ  = principal.o tabsimb.o utiles.o analex.o anasem.o anasin.o codigo.o gencod.o $(RES)
+OBJ  = utiles.o analex.o anasem.o anasin.o codigo.o gencod.o principal.o tabsimb.o $(RES)
+LINKOBJ  = utiles.o analex.o anasem.o anasin.o codigo.o gencod.o principal.o tabsimb.o $(RES)
 LIBS =  -L"C:/Dev-Cpp/lib"  
 INCS =  -I"C:/Dev-Cpp/include" 
 CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
-BIN  = HAMAT.exe
+BIN  = HAMAT2.exe
 CXXFLAGS = $(CXXINCS)  
 CFLAGS = $(INCS)  
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
 
-all: all-before HAMAT.exe all-after
+all: all-before HAMAT2.exe all-after
 
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(LINKOBJ) -o "HAMAT.exe" $(LIBS)
-
-principal.o: principal.c
-	$(CPP) -c principal.c -o principal.o $(CXXFLAGS)
-
-tabsimb.o: tabsimb.c
-	$(CPP) -c tabsimb.c -o tabsimb.o $(CXXFLAGS)
+	$(CPP) $(LINKOBJ) -o "HAMAT2.exe" $(LIBS)
 
 utiles.o: utiles.c
 	$(CPP) -c utiles.c -o utiles.o $(CXXFLAGS)
@@ -49,3 +43,9 @@ codigo.o: codigo.c
 
 gencod.o: gencod.c
 	$(CPP) -c gencod.c -o gencod.o $(CXXFLAGS)
+
+principal.o: principal.c
+	$(CPP) -c principal.c -o principal.o $(CXXFLAGS)
+
+tabsimb.o: tabsimb.c
+	$(CPP) -c tabsimb.c -o tabsimb.o $(CXXFLAGS)

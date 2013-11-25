@@ -92,7 +92,6 @@ static void parearCompleto(TipoLexema espectativa)
 }
 
 /* Parte principal de programa, aqui invocamos los reconocerderes,
-<<<<<<< HEAD
 programa() seria la primer parte del lenguaje
 */
 static NodoArbol *programa( void )
@@ -127,42 +126,6 @@ static NodoArbol *programa( void )
 /* Lista de declaraciones contiene la lista de posibles declaraciones de variables
 ejemplo entero a; entero b; real x;
 */
-=======
- programa() seria la primer parte del lenguaje
- */
-static NodoArbol *programa( void )
-{
-    // Creamos el arbol para sentencia
-    NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_PROGRAMA), *p=NULL;
-    fprintf(pArchivoAnaSin, "\nPROGRAMA -->\n");
-    fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
-        lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
-        lista->informacionLexema.informacion);
-        // como es la primera parte, todo programa tiene que contener la palabra programa
-    parearCompleto(PROGRAMA);
-    // en el arbol temporal creamos el nombre de la informacion que tiene la tabla de símbolos lista
-    temporal->atributo.nombre = lista->informacionLexema.informacion;
-    
-    // No guardamos informaciòn del identificador de la funciòn y la hacemos coincidir
-    parearCompleto(ID);
-    // hacemos coincidir con punto y coma
-    parearCompleto(PUNTOYCOMA);
-        
-    // Se logró reservar memoria
-    if( temporal != NULL)
-    {
-        // hijo de programa seran la lista de declaraciones
-        temporal->hijo[0]=lista_declaracion();
-    }
-    
-    
-    return temporal;
-} /* fin de funcion programa_sentencia */
-
-/* Lista de declaraciones contiene la lista de posibles declaraciones de variables
-   ejemplo entero a; entero b; real x;
-   */
->>>>>>> 613ed1c0007d7e8d402ddddca9fd1bfa86a403f4
 static NodoArbol *lista_declaracion( void )
 {
 	NodoArbol *temporal = declaracion();
@@ -593,7 +556,7 @@ static NodoArbol *lista_sentencia( void )
 	lista->informacionLexema.lexema != LLAVE_DER &&
 	lista->informacionLexema.lexema != SINO &&
 	lista->informacionLexema.lexema != REPETIR &&
-    lista->informacionLexema.lexema != INTERRUMPIR
+	lista->informacionLexema.lexema != INTERRUMPIR
 	) 
 	{
 		NodoArbol *q;
@@ -739,26 +702,33 @@ static NodoArbol *variable( void )
 
 static NodoArbol *expresion_simple( void )
 {
-	NodoArbol *temporal = expresion_comparacion();
+    NodoArbol *temporal = expresion_comparacion();
+	NodoArbol *p = temporal;
 	
 	fprintf(pArchivoAnaSin, "EXPRESION-SIMPLE -->\n");
 	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
-	lista->informacionLexema.informacion);
+	lista->informacionLexema.informacion);  
 	
-	while( lista->informacionLexema.lexema == AND || lista->informacionLexema.lexema == OR)
+	while( lista->informacionLexema.lexema == AND || lista->informacionLexema.lexema == OR) 
 	{
-		NodoArbol *auxtemporal = nuevoNodoExpresion(TIPOARBOL_OPERADOR);
+		NodoArbol *q;
 		
-		if( auxtemporal != NULL )
+		q = expresion_comparacion();
+		
+		if( q != NULL )
 		{
-			auxtemporal->hijo[0] = temporal;
-			auxtemporal->atributo.tipoLexemaOperador = lista->informacionLexema.lexema;
-			temporal = auxtemporal;
-			parearCompleto(lista->informacionLexema.lexema); // nota: esto podria causar un error 
-			temporal->hijo[1]= expresion_comparacion();
+			if( temporal == NULL)
+			temporal = p = q;
+			else /* en este instante p no puede ser null */
+			{
+				p->hijoextra = q;
+				p = q;
+			}
 		}
-	}
+		
+	} /* fin del while */
+	
 	return temporal;
 }
 
@@ -826,25 +796,25 @@ static NodoArbol *seleccionar_sentencia(void )
 }
 
 static NodoArbol *alcontrario_sentencia( void ) {
-       NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_ALCONTRARIO);
-    int pareja = FALSO;
+	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_ALCONTRARIO);
+	int pareja = FALSO;
 
-       fprintf(pArchivoAnaSin, "ALCONTRARIO-SENTENCIA -->\n");
-	   fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
-	   lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
-	   lista->informacionLexema.informacion);
+	fprintf(pArchivoAnaSin, "ALCONTRARIO-SENTENCIA -->\n");
+	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
+	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
+	lista->informacionLexema.informacion);
 	
-       parearCompleto(ALCONTRARIO);
-       parearCompleto(DOSPUNTOS);
-       if(lista->informacionLexema.lexema == LLAVE_IZQ) {
-            parearCompleto(LLAVE_IZQ);
-            pareja = VERDADERO;
-        }
-       temporal->hijo[0] = lista_sentencia();
-       if(pareja == VERDADERO);
-            parearCompleto(LLAVE_DER);
+	parearCompleto(ALCONTRARIO);
+	parearCompleto(DOSPUNTOS);
+	if(lista->informacionLexema.lexema == LLAVE_IZQ) {
+		parearCompleto(LLAVE_IZQ);
+		pareja = VERDADERO;
+	}
+	temporal->hijo[0] = lista_sentencia();
+	if(pareja == VERDADERO);
+	parearCompleto(LLAVE_DER);
 
-       return temporal;
+	return temporal;
 	
 }
 
@@ -858,7 +828,7 @@ static NodoArbol *lista_caso_sentencia( void ) {
 	lista->informacionLexema.informacion);   
 	
 	while( lista->informacionLexema.lexema != LLAVE_DER 
-            && lista->informacionLexema.lexema != ALCONTRARIO)
+	&& lista->informacionLexema.lexema != ALCONTRARIO)
 	{
 		NodoArbol *q;
 		
@@ -900,21 +870,21 @@ static NodoArbol *caso_sentencia( void )
 
 	parearCompleto(DOSPUNTOS);
 
-    if(lista->informacionLexema.lexema == LLAVE_IZQ) {
-                                       parearCompleto(LLAVE_IZQ);
-                                       pareja = VERDADERO;
-    }
-    
+	if(lista->informacionLexema.lexema == LLAVE_IZQ) {
+		parearCompleto(LLAVE_IZQ);
+		pareja = VERDADERO;
+	}
+	
 	if( temporal != NULL )
 	temporal->hijo[1] = lista_sentencia();
 
 	if(pareja == VERDADERO)
-	          parearCompleto(LLAVE_DER);
-	          
-    if(lista->informacionLexema.lexema == INTERRUMPIR); {
-	   parearCompleto(INTERRUMPIR);
-       parearCompleto(PUNTOYCOMA);
-    }
+	parearCompleto(LLAVE_DER);
+	
+	if(lista->informacionLexema.lexema == INTERRUMPIR); {
+		parearCompleto(INTERRUMPIR);
+		parearCompleto(PUNTOYCOMA);
+	}
 
 	return temporal;
 }
@@ -1169,7 +1139,6 @@ static NodoArbol *factor( void )
 
 static NodoArbol *llamada( void )
 {
-<<<<<<< HEAD
 	NodoArbol *temporal = nuevoNodoExpresion(TIPOARBOL_LLAMADA);
 	
 	temporal->atributo.nombre = lista->informacionLexema.informacion;
@@ -1192,30 +1161,6 @@ static NodoArbol *llamada( void )
 	parearCompleto(PAREN_DER);
 	
 	return temporal;
-=======
-    NodoArbol *temporal = nuevoNodoExpresion(TIPOARBOL_LLAMADA);
-    
-    temporal->atributo.nombre = lista->informacionLexema.informacion;
-    
-    fprintf(pArchivoAnaSin, "LLAMADA -->\n");
-    fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
-        lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
-        lista->informacionLexema.informacion);
-    /*
-    temporal->atributo.nombre = (char *)malloc(sizeof(char)*strlen(lista->informacionLexema.informacion));
-    strcpy(temporal->atributo.nombre, lista->informacionLexema.informacion);
-    temporal->atributo.tipoLexemaOperador = lista->informacionLexema.lexema;
-    */
-    /* nota: eliminar todos los *p que no estan siendo utilizados */
-    parearCompleto(ID);
-    parearCompleto(PAREN_IZQ);
-    
-    temporal->hijo[0]=argumentos();
-    
-    parearCompleto(PAREN_DER);
-    
-    return temporal;
->>>>>>> 613ed1c0007d7e8d402ddddca9fd1bfa86a403f4
 }
 
 static NodoArbol *argumentos( void )
