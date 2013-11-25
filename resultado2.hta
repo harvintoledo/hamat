@@ -31,86 +31,141 @@ body {color: #000000; background-color: #FFFFFF; }
 <pre>
 <code>
 <span style="font:12pt Courier New "<span class="nohemi-comentario">/**  Fecha de Registro de Compilacion: </span><br>
-<span class="nohemi-comentario">Domingo 24 de Noviembre de 2013</span><br>
-<span class="nohemi-comentario">/**  Hora  de Registro de Compilacion: </span><br><span class="nohemi-comentario">21:6'8"*/</span><br>
+<span class="nohemi-comentario">Lunes 25 de Noviembre de 2013</span><br>
+<span class="nohemi-comentario">/**  Hora  de Registro de Compilacion: </span><br><span class="nohemi-comentario">2:45'36"*/</span><br>
 
 <span class="nohemi-comentario">/* Compilacion de lenguaje nohemi<br>
-<span class="nohemi-comentario">/*
-Programa que resuelve la ecuación cuadrática dados
-los tres coeficientes a, b, c
- 
-*/</span><br><br>
+<span class="nohemi-comentario">/* Un ejemplo generado por la gramática anterior:*/</span><br><br>
 <br>
-<span class="nohemi-comentario">/* 
+<span class="nohemi-comentario">/* Segunda versión de programa triangulo
 	Realizado por Harvin Toledo Polanco
-	Fecha: Martes 26 de Junio de 2012
+	Fecha: Jueves, 10 de noviembre de 2011
 	e-mail: harvintoledo@gmail.com
 	Ilustra algunos elementos del lenguaje NOHEMI
 	Para proyecto Compilador HAMAT
 */</span><br><br>
-<span class="nohemi-palabrareservada">programa</span> <span class="nohemi-identificador">trinomio</span>; <span class="nohemi-comentario">/* el programa ejecutable tendra el mismo nombre que
-						la palabra que le precede al programa */</span><br><br>
+<span class="nohemi-palabrareservada">programa</span> <span class="nohemi-identificador">triangulo</span>;<br>
 <br>
 <span class="nohemi-palabrareservada">procedimiento</span> <span class="nohemi-identificador">principal</span><br>
 {<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">a</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">b</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">c</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">D</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">x</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">x1</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">x2</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">re1</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">re2</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">im1</span>;<br>
-<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">im2</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">lado_a</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">lado_b</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">lado_c</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">lado_mayor</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">existe</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">falso</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">verdadero</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">tipo</span>;<br>
+<span class="nohemi-palabrareservada">real</span> <span class="nohemi-identificador">suma</span>;<br>
 <br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese a: &quot;</span>);<br>
-<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">a</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese b: &quot;</span>);<br>
-<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">b</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese c: &quot;</span>);<br>
-<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">c</span>);<br>
+<span class="nohemi-comentario">/* tipo=3 equilátero, tipo=2 isósceles; tipo  =1 escaleno */</span><br><br>
+<span class="nohemi-comentario">/* booleana existe=falso; suponemos que triangulo no existe */</span><br><br>
 <br>
-<span class="nohemi-palabrareservada">si</span>( <span class="nohemi-identificador">a</span> == <span class="nohemi-numero">0</span> )<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Ingrese los lados del triangulo\n&quot;</span>);<br>
+<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;ingrese lado a &quot;</span>);<br>
+<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">lado_a</span>);<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;Ingrese lado b &quot;</span>);<br>
+<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">lado_b</span>);<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;Ingrese lado c &quot;</span>);<br>
+<span class="nohemi-identificador">leer</span>(<span class="nohemi-identificador">lado_c</span>);<br>
+<br>
+<span class="nohemi-comentario">/* si el triangulo es equilatero */</span><br><br>
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">lado_a</span> == <span class="nohemi-identificador">lado_b</span> &amp;&amp; <span class="nohemi-identificador">lado_b</span> == <span class="nohemi-identificador">lado_c</span><br>
+&amp;&amp; <span class="nohemi-identificador">lado_b</span>== <span class="nohemi-identificador">lado_c</span>)<br>
 {<br>
-<span class="nohemi-identificador">x</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">c</span>)/<span class="nohemi-identificador">b</span>;<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;La solucion es unica\n&quot;</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x = &quot;</span>, <span class="nohemi-identificador">x</span>);<br>
+<span class="nohemi-identificador">existe</span>=<span class="nohemi-identificador">verdadero</span>;<br>
+}<br>
+<span class="nohemi-palabrareservada">sino</span><br>
+<span class="nohemi-comentario">/* el triangulo es isósceles */</span><br><br>
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">lado_a</span> == <span class="nohemi-identificador">lado_b</span> || <span class="nohemi-identificador">lado_a</span> == <span class="nohemi-identificador">lado_c</span> ||<br>
+<span class="nohemi-identificador">lado_b</span> == <span class="nohemi-identificador">lado_c</span>)<br>
+{<br>
+<span class="nohemi-identificador">tipo</span>=<span class="nohemi-numero">32e-15</span>;<br>
+<span class="nohemi-identificador">existe</span>=<span class="nohemi-identificador">verdadero</span>;<br>
+}<br>
+<span class="nohemi-comentario">/* el triangulo es escaleno */</span><br><br>
+<span class="nohemi-palabrareservada">sino</span><br>
+{<br>
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">lado_a</span> &gt; <span class="nohemi-identificador">lado_b</span>)<br>
+{<br>
+<span class="nohemi-identificador">lado_mayor</span> = <span class="nohemi-identificador">lado_a</span>;<br>
 }<br>
 <span class="nohemi-palabrareservada">sino</span><br>
 {<br>
-<span class="nohemi-identificador">D</span> = <span class="nohemi-identificador">b</span>*<span class="nohemi-identificador">b</span> - <span class="nohemi-numero">4</span>*<span class="nohemi-identificador">a</span>*<span class="nohemi-identificador">c</span>;<br>
-<span class="nohemi-palabrareservada">si</span>( <span class="nohemi-identificador">D</span> &gt; <span class="nohemi-numero">0</span> )<br>
+<span class="nohemi-identificador">lado_mayor</span> = <span class="nohemi-identificador">lado_b</span>;<br>
+};<br>
+<br>
+<br>
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">lado_c</span> &gt; <span class="nohemi-identificador">lado_mayor</span>)<br>
 {<br>
-<span class="nohemi-identificador">x1</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span> +<span class="nohemi-identificador">raizcuadrada</span>(<span class="nohemi-identificador">D</span>))/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
-<span class="nohemi-identificador">x2</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span> -<span class="nohemi-identificador">raizcuadrada</span>(<span class="nohemi-identificador">D</span>))/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Las dos soluciones son reales\n&quot;</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x1 = &quot;</span>, <span class="nohemi-identificador">x1</span>, <span class="nohemi-cadena">&quot; x2 = &quot;</span>, <span class="nohemi-identificador">x2</span>);<br>
+<span class="nohemi-identificador">lado_mayor</span> = <span class="nohemi-identificador">lado_c</span>;<br>
+};<br>
+<br>
+<span class="nohemi-comentario">/* si uno de los lados es el mayor hacer la respectiva suma */</span><br><br>
+<br>
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">lado_a</span> == <span class="nohemi-identificador">lado_mayor</span>)<br>
+{<br>
+<span class="nohemi-identificador">suma</span> = <span class="nohemi-identificador">lado_b</span> + <span class="nohemi-identificador">lado_c</span>;<br>
 }<br>
 <span class="nohemi-palabrareservada">sino</span><br>
-<span class="nohemi-palabrareservada">si</span>( <span class="nohemi-identificador">D</span> == <span class="nohemi-numero">0</span> )<br>
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">lado_b</span> == <span class="nohemi-identificador">lado_mayor</span>)<br>
 {<br>
-<span class="nohemi-identificador">x1</span> = <span class="nohemi-identificador">x2</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span>) / (<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;Una solucion unica\n&quot;</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x1 = x2 &quot;</span>, <span class="nohemi-identificador">x1</span>);<br>
-<br>
+<span class="nohemi-identificador">suma</span> = <span class="nohemi-identificador">lado_a</span> + <span class="nohemi-identificador">lado_c</span>;<br>
 }<br>
 <span class="nohemi-palabrareservada">sino</span><br>
 {<br>
-<span class="nohemi-identificador">D</span> = <span class="nohemi-numero">4</span>*<span class="nohemi-identificador">a</span>*<span class="nohemi-identificador">c</span> - <span class="nohemi-identificador">b</span>*<span class="nohemi-identificador">b</span>;<br>
-<span class="nohemi-identificador">re1</span> = <span class="nohemi-identificador">re2</span> = (<span class="nohemi-numero">0</span>-<span class="nohemi-identificador">b</span>)/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>); <span class="nohemi-comentario">/* esta es solo para ejemplo de formato */</span><br><br>
-<span class="nohemi-identificador">im1</span> = <span class="nohemi-identificador">im2</span> = <span class="nohemi-identificador">raizcuadrada</span>(<span class="nohemi-identificador">D</span>)/(<span class="nohemi-numero">2</span>*<span class="nohemi-identificador">a</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x1 = &quot;</span>, <span class="nohemi-identificador">re1</span>, <span class="nohemi-cadena">&quot; + &quot;</span>, <span class="nohemi-identificador">im1</span>, <span class="nohemi-cadena">&quot;i\n&quot;</span>);<br>
-<span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;x2 = &quot;</span>, <span class="nohemi-identificador">re2</span>, <span class="nohemi-cadena">&quot; - &quot;</span>, <span class="nohemi-identificador">im2</span>, <span class="nohemi-cadena">&quot;i\n&quot;</span>);<br>
-}<br>
+<span class="nohemi-identificador">suma</span> = <span class="nohemi-identificador">lado_a</span> + <span class="nohemi-identificador">lado_b</span>;<br>
 }<br>
 <br>
-<span class="nohemi-identificador">sistema</span>(<span class="nohemi-identificador">PONER_EN_PAUSA</span>);<br>
-<span class="nohemi-identificador">sistema</span>(<span class="nohemi-identificador">SALIR_INDICANDO_ERROR</span>);<br>
-}EOF
+<span class="nohemi-palabrareservada">si</span> (<span class="nohemi-identificador">suma</span> &gt;= <span class="nohemi-identificador">lado_mayor</span>)<br>
+{<br>
+<span class="nohemi-identificador">tipo</span> = <span class="nohemi-numero">1</span>;<br>
+<span class="nohemi-identificador">existe</span> = <span class="nohemi-identificador">verdadero</span>;<br>
+}<br>
+<span class="nohemi-palabrareservada">sino</span><br>
+{<br>
+<span class="nohemi-identificador">tipo</span> = <span class="nohemi-numero">0</span>;<br>
+<span class="nohemi-identificador">existe</span> = <span class="nohemi-identificador">falso</span>;<br>
+}<br>
+<br>
+};<br>
+<br>
+<span class="nohemi-palabrareservada">si</span> ( <span class="nohemi-identificador">existe</span> == <span class="nohemi-identificador">verdadero</span> )<br>
+{<br>
+<span class="nohemi-comentario">// SENTENCIA COMO LINEA DE COMENTARIO</span><br><span class="nohemi-identificador">escribir</span>(<span class="nohemi-cadena">&quot;El triangulo existe\n&quot;</span>);<br>
+<span class="nohemi-palabrareservada">seleccionar</span>( <span class="nohemi-identificador">tipo</span> )<br>
+{<br>
+<span class="nohemi-palabrareservada">caso</span> <span class="nohemi-numero">1</span>&#58;<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;El triangulo es escaleno\n&quot;</span>);<br>
+<span class="nohemi-palabrareservada">interrumpir</span>;<br>
+<br>
+<span class="nohemi-palabrareservada">caso</span> <span class="nohemi-numero">2</span>&#58;<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;El triangulo es isóseles\n&quot;</span>);<br>
+<span class="nohemi-palabrareservada">interrumpir</span>;<br>
+<br>
+<span class="nohemi-palabrareservada">caso</span> <span class="nohemi-numero">3</span>&#58;<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;El triángulo es equilátero\n&quot;</span>);<br>
+<span class="nohemi-palabrareservada">interrumpir</span>;<br>
+<br>
+<br>
+<span class="nohemi-palabrareservada">alcontrario</span>&#58; <span class="nohemi-comentario">/* este nunca debería de ocurrir */</span><br><br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;No se puede clasificar\n&quot;</span>); <br>
+<br>
+}<br>
+}<br>
+<span class="nohemi-palabrareservada">sino</span><br>
+{<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;El triangulo no existe\n&quot;</span>);<br>
+<span class="nohemi-identificador">escribir</span> (<span class="nohemi-cadena">&quot;El triangulo no se puede clasificar\n&quot;</span>);<br>
+<br>
+}<br>
+<br>
+}<br>
+<br>
+EOF
 Registro del analisis sintactico y lexico para lenguaje nohemi */</span><br>
-  Programa: trinomio
+
+>>>Error sintactico en la linea 120: lexema inaceptable--> <span class="nohemi-palabrareservada">sino</span>        Programa: triangulo
     procedimiento: principal
       Variable
         Declaracion Global
@@ -131,218 +186,215 @@ Registro del analisis sintactico y lexico para lenguaje nohemi */</span><br>
           Tipo Variable: real
         Declaracion Global
           Tipo Variable: real
-        Declaracion Global
-          Tipo Variable: real
-        Declaracion Global
-          Tipo Variable: real
         Expresion Sentencia
           Expresion
-            Argumentos: Ingrese a: 
-              Expresion
-                Cadena: Ingrese a: 
+            Llamada: escribir
+              Argumentos: Ingrese los lados del triangulo\n
+                Expresion
+                  Cadena: Ingrese los lados del triangulo\n
         Expresion Sentencia
           Expresion
-            Argumentos: a
-              Expresion
-                Variable: a
+            Llamada: escribir
+              Argumentos: ingrese lado a 
+                Expresion
+                  Cadena: ingrese lado a 
         Expresion Sentencia
           Expresion
-            Argumentos: Ingrese b: 
-              Expresion
-                Cadena: Ingrese b: 
+            Llamada: leer
+              Argumentos: lado_a
+                Expresion
+                  Variable: lado_a
         Expresion Sentencia
           Expresion
-            Argumentos: b
-              Expresion
-                Variable: b
+            Llamada: escribir
+              Argumentos: Ingrese lado b 
+                Expresion
+                  Cadena: Ingrese lado b 
         Expresion Sentencia
           Expresion
-            Argumentos: Ingrese c: 
-              Expresion
-                Cadena: Ingrese c: 
+            Llamada: leer
+              Argumentos: lado_b
+                Expresion
+                  Variable: lado_b
         Expresion Sentencia
           Expresion
-            Argumentos: c
-              Expresion
-                Variable: c
+            Llamada: escribir
+              Argumentos: Ingrese lado c 
+                Expresion
+                  Cadena: Ingrese lado c 
+        Expresion Sentencia
+          Expresion
+            Llamada: leer
+              Argumentos: lado_c
+                Expresion
+                  Variable: lado_c
         Si
-          Op: ==            Variable: a
-            const: 0
+          Op: &amp;&amp;            Op: &amp;&amp;              Op: ==                Variable: lado_a
+                Variable: lado_b
+              Op: ==                Variable: lado_b
+                Variable: lado_c
+            Op: ==              Variable: lado_b
+              Variable: lado_c
           Sentencia Compuesta
             Expresion Sentencia
               Expresion
-                Variable: x
+                Variable: existe
                 Expresion
-                  Op: /                    Expresion
-                      Op: -                        const: 0
-                        Variable: c
-                    Variable: b
-            Expresion Sentencia
-              Expresion
-                Argumentos: La solucion es unica\n
-                  Expresion
-                    Cadena: La solucion es unica\n
-            Expresion Sentencia
-              Expresion
-                Argumentos: x = 
-                  Expresion
-                    Cadena: x = 
-                  Expresion
-                    Variable: x
-          Sentencia Compuesta
-            Expresion Sentencia
-              Expresion
-                Variable: D
+                  Variable: verdadero
+          Si
+            Op: ||              Op: ||                Op: ==                  Variable: lado_a
+                  Variable: lado_b
+                Op: ==                  Variable: lado_a
+                  Variable: lado_c
+              Op: ==                Variable: lado_b
+                Variable: lado_c
+            Sentencia Compuesta
+              Expresion Sentencia
                 Expresion
-                  Op: -                    Op: *                      Variable: b
-                      Variable: b
-                    Op: *                      Op: *                        const: 4
-                        Variable: a
-                      Variable: c
+                  Variable: tipo
+                  Expresion
+                    const: 32
+              Expresion Sentencia
+                Expresion
+                  Variable: existe
+                  Expresion
+                    Variable: verdadero
+            Sentencia Compuesta
+              Si
+                Op: &gt;                  Variable: lado_a
+                  Variable: lado_b
+                Sentencia Compuesta
+                  Expresion Sentencia
+                    Expresion
+                      Variable: lado_mayor
+                      Expresion
+                        Variable: lado_a
+                Sentencia Compuesta
+                  Expresion Sentencia
+                    Expresion
+                      Variable: lado_mayor
+                      Expresion
+                        Variable: lado_b
+                Expresion Sentencia
+                Si
+                  Op: &gt;                    Variable: lado_c
+                    Variable: lado_mayor
+                  Sentencia Compuesta
+                    Expresion Sentencia
+                      Expresion
+                        Variable: lado_mayor
+                        Expresion
+                          Variable: lado_c
+                  Expresion Sentencia
+                  Si
+                    Op: ==                      Variable: lado_a
+                      Variable: lado_mayor
+                    Sentencia Compuesta
+                      Expresion Sentencia
+                        Expresion
+                          Variable: suma
+                          Expresion
+                            Op: +                              Variable: lado_b
+                              Variable: lado_c
+                    Si
+                      Op: ==                        Variable: lado_b
+                        Variable: lado_mayor
+                      Sentencia Compuesta
+                        Expresion Sentencia
+                          Expresion
+                            Variable: suma
+                            Expresion
+                              Op: +                                Variable: lado_a
+                                Variable: lado_c
+                      Sentencia Compuesta
+                        Expresion Sentencia
+                          Expresion
+                            Variable: suma
+                            Expresion
+                              Op: +                                Variable: lado_a
+                                Variable: lado_b
+                      Si
+                        Op: &gt;=                          Variable: suma
+                          Variable: lado_mayor
+                        Sentencia Compuesta
+                          Expresion Sentencia
+                            Expresion
+                              Variable: tipo
+                              Expresion
+                                const: 1
+                          Expresion Sentencia
+                            Expresion
+                              Variable: existe
+                              Expresion
+                                Variable: verdadero
+                        Sentencia Compuesta
+                          Expresion Sentencia
+                            Expresion
+                              Variable: tipo
+                              Expresion
+                                const: 0
+                          Expresion Sentencia
+                            Expresion
+                              Variable: existe
+                              Expresion
+                                Variable: falso
+            Expresion Sentencia
             Si
-              Op: &gt;                Variable: D
-                const: 0
+              Op: ==                Variable: existe
+                Variable: verdadero
               Sentencia Compuesta
                 Expresion Sentencia
                   Expresion
-                    Variable: x1
-                    Expresion
-                      Op: /                        Expresion
-                          Op: +                            Op: -                              const: 0
-                              Variable: b
-                            Argumentos: D
-                              Expresion
-                                Variable: D
+                    Llamada: escribir
+                      Argumentos: El triangulo existe\n
                         Expresion
-                          Op: *                            const: 2
-                            Variable: a
+                          Cadena: El triangulo existe\n
+                Seleccionar
+                  Variable: tipo
+                  Nodo o tipo de expresion desconocido
+                    const: 1
+                    Expresion Sentencia
+                      Expresion
+                        Llamada: escribir
+                          Argumentos: El triangulo es escaleno\n
+                            Expresion
+                              Cadena: El triangulo es escaleno\n
+                  Nodo o tipo de expresion desconocido
+                    const: 2
+                    Expresion Sentencia
+                      Expresion
+                        Llamada: escribir
+                          Argumentos: El triangulo es isóseles\n
+                            Expresion
+                              Cadena: El triangulo es isóseles\n
+                  Nodo o tipo de expresion desconocido
+                    const: 3
+                    Expresion Sentencia
+                      Expresion
+                        Llamada: escribir
+                          Argumentos: El triángulo es equilátero\n
+                            Expresion
+                              Cadena: El triángulo es equilátero\n
+                  Nodo o tipo de expresion desconocido
+                    Expresion Sentencia
+                      Expresion
+                        Llamada: escribir
+                          Argumentos: No se puede clasificar\n
+                            Expresion
+                              Cadena: No se puede clasificar\n
+              Sentencia Compuesta
                 Expresion Sentencia
                   Expresion
-                    Variable: x2
-                    Expresion
-                      Op: /                        Expresion
-                          Op: -                            Op: -                              const: 0
-                              Variable: b
-                            Argumentos: D
-                              Expresion
-                                Variable: D
+                    Llamada: escribir
+                      Argumentos: El triangulo no existe\n
                         Expresion
-                          Op: *                            const: 2
-                            Variable: a
+                          Cadena: El triangulo no existe\n
                 Expresion Sentencia
                   Expresion
-                    Argumentos: Las dos soluciones son reales\n
-                      Expresion
-                        Cadena: Las dos soluciones son reales\n
-                Expresion Sentencia
-                  Expresion
-                    Argumentos: x1 = 
-                      Expresion
-                        Cadena: x1 = 
-                      Expresion
-                        Variable: x1
-                      Expresion
-                        Cadena:  x2 = 
-                      Expresion
-                        Variable: x2
-              Si
-                Op: ==                  Variable: D
-                  const: 0
-                Sentencia Compuesta
-                  Expresion Sentencia
-                    Expresion
-                      Variable: x1
-                      Expresion
-                        Variable: x2
+                    Llamada: escribir
+                      Argumentos: El triangulo no se puede clasificar\n
                         Expresion
-                          Op: /                            Expresion
-                              Op: -                                const: 0
-                                Variable: b
-                            Expresion
-                              Op: *                                const: 2
-                                Variable: a
-                  Expresion Sentencia
-                    Expresion
-                      Argumentos: Una solucion unica\n
-                        Expresion
-                          Cadena: Una solucion unica\n
-                  Expresion Sentencia
-                    Expresion
-                      Argumentos: x1 = x2 
-                        Expresion
-                          Cadena: x1 = x2 
-                        Expresion
-                          Variable: x1
-                Sentencia Compuesta
-                  Expresion Sentencia
-                    Expresion
-                      Variable: D
-                      Expresion
-                        Op: -                          Op: *                            Op: *                              const: 4
-                              Variable: a
-                            Variable: c
-                          Op: *                            Variable: b
-                            Variable: b
-                  Expresion Sentencia
-                    Expresion
-                      Variable: re1
-                      Expresion
-                        Variable: re2
-                        Expresion
-                          Op: /                            Expresion
-                              Op: -                                const: 0
-                                Variable: b
-                            Expresion
-                              Op: *                                const: 2
-                                Variable: a
-                  Expresion Sentencia
-                    Expresion
-                      Variable: im1
-                      Expresion
-                        Variable: im2
-                        Expresion
-                          Op: /                            Argumentos: D
-                              Expresion
-                                Variable: D
-                            Expresion
-                              Op: *                                const: 2
-                                Variable: a
-                  Expresion Sentencia
-                    Expresion
-                      Argumentos: x1 = 
-                        Expresion
-                          Cadena: x1 = 
-                        Expresion
-                          Variable: re1
-                        Expresion
-                          Cadena:  + 
-                        Expresion
-                          Variable: im1
-                        Expresion
-                          Cadena: i\n
-                  Expresion Sentencia
-                    Expresion
-                      Argumentos: x2 = 
-                        Expresion
-                          Cadena: x2 = 
-                        Expresion
-                          Variable: re2
-                        Expresion
-                          Cadena:  - 
-                        Expresion
-                          Variable: im2
-                        Expresion
-                          Cadena: i\n
-          Expresion Sentencia
-            Expresion
-              Argumentos: PONER_EN_PAUSA
-                Expresion
-                  Variable: PONER_EN_PAUSA
-          Expresion Sentencia
-            Expresion
-              Argumentos: SALIR_INDICANDO_ERROR
-                Expresion
-                  Variable: SALIR_INDICANDO_ERROR
+                          Cadena: El triangulo no se puede clasificar\n
 </code>
 </pre>
 </body></xml>

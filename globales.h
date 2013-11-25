@@ -1,4 +1,5 @@
 /**************************************************************
+
   **    Proyecto Personal                                    **
   **    Compilador HAMAT                                     **
   **        |                                                **
@@ -99,7 +100,8 @@ typedef enum
     TIPOARBOL_SENTENCIA_DECLARACION, TIPOARBOL_SENTENCIA_FUNCION,  TIPOARBOL_SENTENCIA_PROCEDIMIENTO,
     TIPOARBOL_SENTENCIA_EXPLOG,      TIPOARBOL_SENTENCIA_CLASE,    TIPOARBOL_SENTENCIA_CARACTER,
     TIPOARBOL_SENTENCIA_ENTERO,      TIPOARBOL_SENTENCIA_REAL,     TIPOARBOL_SENTENCIA_CADENA,
-    TIPOARBOL_SENTENCIA_SELECCIONAR, TIPOARBOL_CASO_SENTENCIA } TipoArbolSentencia;
+    TIPOARBOL_SENTENCIA_SELECCIONAR, TIPOARBOL_LISTA_CASO_SENTENCIA, TIPOARBOL_CASO_SENTENCIA, 
+    TIPOARBOL_SENTENCIA_ALCONTRARIO } TipoArbolSentencia;
 
 typedef enum 
 {

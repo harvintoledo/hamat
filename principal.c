@@ -153,17 +153,19 @@ void EncabezadoFecha( void )
 	
 } /* fin de la funcion EncabezadoFecha */
 
-int main()
+int main(int argc, char *argv[])
 {
     NodoArbol *arbolSintactico;
     TipoLexema lex;
     NodoListaLexema *nodoLex;
   
     int i;
+    char nombreArchivo[256];
     
     /* nombre de archivo de codigo fuente */
     sprintf(nombreArchivoCodigoFuente, "");
-    sprintf(nombreArchivoCodigoFuente, "%s", "trinomio.nohe");
+    sprintf(nombreArchivo,"%s.nohe", argv[1]);
+    sprintf(nombreArchivoCodigoFuente, "%s", nombreArchivo);
     sprintf(nombreArchivoResultadoDeCompilacion, "%s", "resultado2.hta");
     sprintf(nombreArchivoRegistroAnaSin, "%s", "anasinordenacion6.txt");
     sprintf(nombreArchivoCodigoIntermedio, "%s", "archivo2.emsb");
@@ -217,5 +219,9 @@ int main()
             exit(1);
         generarCodigo(arbolSintactico, nombreArchivoCodigoIntermedio);
     }
+    
+    
+    
+    getchar();
   
 } /* fin de la funcion main */
