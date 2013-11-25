@@ -702,33 +702,26 @@ static NodoArbol *variable( void )
 
 static NodoArbol *expresion_simple( void )
 {
-    NodoArbol *temporal = expresion_comparacion();
-	NodoArbol *p = temporal;
+	NodoArbol *temporal = expresion_comparacion();
 	
 	fprintf(pArchivoAnaSin, "EXPRESION-SIMPLE -->\n");
 	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
-	lista->informacionLexema.informacion);  
+	lista->informacionLexema.informacion);
 	
-	while( lista->informacionLexema.lexema == AND || lista->informacionLexema.lexema == OR) 
+	while( lista->informacionLexema.lexema == AND || lista->informacionLexema.lexema == OR)
 	{
-		NodoArbol *q;
+		NodoArbol *auxtemporal = nuevoNodoExpresion(TIPOARBOL_OPERADOR);
 		
-		q = expresion_comparacion();
-		
-		if( q != NULL )
+		if( auxtemporal != NULL )
 		{
-			if( temporal == NULL)
-			temporal = p = q;
-			else /* en este instante p no puede ser null */
-			{
-				p->hijoextra = q;
-				p = q;
-			}
+			auxtemporal->hijo[0] = temporal;
+			auxtemporal->atributo.tipoLexemaOperador = lista->informacionLexema.lexema;
+			temporal = auxtemporal;
+			parearCompleto(lista->informacionLexema.lexema); // nota: esto podria causar un error 
+			temporal->hijo[1]= expresion_comparacion();
 		}
-		
-	} /* fin del while */
-	
+	}
 	return temporal;
 }
 
