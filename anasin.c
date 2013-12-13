@@ -19,8 +19,8 @@
 #include "utiles.h"
 #include "analex.h"
 #include "anasin.h"
-#include <stdio.h> // nota: declaracion de prueba
-static TipoLexema lexema; /* mantiene el token actual */ // nota: esta variable no se esta usando
+#include <stdio.h>
+static TipoLexema lexema; /* mantiene el token actual */
 static NodoListaLexema *lista; /* mantiene el token actual con información completa */
 /*
 	prototipo de funciones recursivas para los arboles de las reglas

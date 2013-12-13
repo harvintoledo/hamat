@@ -824,16 +824,16 @@ void imprimirArbol( NodoArbol *arbol )
             switch( arbol->descendiente.tipoArbolExpresion )
             {
                 case TIPOARBOL_OPERADOR:
-                    fprintf( pArchivoDestino, "Op: " );
+                    fprintf( pArchivoDestino, "Operador: " );
                     imprimirLexema( arbol->atributo.tipoLexemaOperador, "\n" );
                     break;
 
                 case TIPOARBOL_CONSTANTE:
-                    fprintf(pArchivoDestino, "const: %d\n", arbol->atributo.val );
+                    fprintf(pArchivoDestino, "Constante: %d\n", arbol->atributo.val );
                     break;
 
                 case TIPOARBOL_IDENTIFICADOR:
-                    fprintf(pArchivoDestino, "Id: %s\n", arbol->atributo.nombre );
+                    fprintf(pArchivoDestino, "Identificador: %s\n", arbol->atributo.nombre );
                     break;
 
                 case TIPOARBOL_CADENA:

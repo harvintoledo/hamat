@@ -166,9 +166,9 @@ int main(int argc, char *argv[])
     sprintf(nombreArchivoCodigoFuente, "");
     sprintf(nombreArchivo,"%s.nohe", argv[1]);
     sprintf(nombreArchivoCodigoFuente, "%s", nombreArchivo);
-    sprintf(nombreArchivoResultadoDeCompilacion, "%s", "resultado2.hta");
-    sprintf(nombreArchivoRegistroAnaSin, "%s", "anasinordenacion6.txt");
-    sprintf(nombreArchivoCodigoIntermedio, "%s", "archivo2.emsb");
+    sprintf(nombreArchivoResultadoDeCompilacion, "%s.hta", argv[1]);
+    sprintf(nombreArchivoRegistroAnaSin, "%s.txt", argv[1]);
+    sprintf(nombreArchivoCodigoIntermedio, "%s.emsb", argv[1]);
     
     /*agregarATablaDeSimbolos(char *identif,  char caracter, 
      long entero, double real, char *cadena, double (*funcion)(double))*/

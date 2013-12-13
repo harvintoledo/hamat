@@ -1,0 +1,192 @@
+// piclasic.alex
+/****
+****
+***
+/
+
+/** 
+** Based en Programa de  
+** Pascal Sebah : September 1999
+**
+**    	A very easy program to compute Pi with many digits.
+**		Un programa para calcular pi con varios digitos.
+** 		
+** Formula:
+**
+**    Pi/4 =    ArcoTangente(1/2)+ArcoTangente(1/3)                     (Hutton 1)
+**    Pi/4 =  2*ArcoTangente(1/3)+ArcoTangente(1/7)                     (Hutton 2)
+**    Pi/4 =  4*ArcoTangente(1/5)-ArcoTangente(1/239)                   (Machin)
+**    Pi/4 = 12*ArcoTangente(1/18)+8*ArcoTangente(1/57)-5*ArcoTangente(1/239) (Gauss)
+**
+*/
+#incluir <CuentaTiempo>
+#incluir <EntradasSalidas>
+#incluir <ReservarMemoria>
+#incluir <FuncionesMatematicas>
+entero B=10000; /* Working base */
+entero LB=4;    /* Log10(base)  */
+entero MaximoDivisor=450;  /* about sqrt(2^31/B) */
+/*
+** Set the big real x to the small integer Integer
+*/
+procedimiento ConvertirAEntero (entero n, entero *x, entero ValorEntero) {
+	entero i;
+	para (i=1; i<n; i++) x[i] = 0;
+	x[0] = ValorEntero;
+}
+/*
+** Is the big real x equal to zero ?
+*/
+entero EsCero (entero n, entero *x) {
+	entero i;
+	para (i=0; i<n; i++)
+	si (x[i])	return 0;
+	return 1;
+}
+/*
+** SumarEnMultiprecisionition of big reals : x += y
+**  Like school addition with carry management
+*/
+procedimiento SumarEnMultiprecision (entero n, entero *x, entero *y) {
+	entero acarreoDeDigito=0, i;
+	para (i=n-1; i>=0; i--) {
+		x[i] += y[i]+acarreoDeDigito;
+		si (x[i]<B) acarreoDeDigito = 0;
+		sino {
+			acarreoDeDigito = 1;
+			x[i] -= B;
+		}
+	}
+}
+/*
+** RestarEnMultiprecisionstraction of big reals : x -= y
+**  Like school substraction with carry management
+**  x must be greater than y
+*/
+procedimiento RestarEnMultiprecision (entero n, entero *x, entero *y) {
+	entero i;
+	para (i=n-1; i>=0; i--) {
+		x[i] -= y[i];
+		si (x[i]<0) {
+			si (i) {
+				x[i] += B;
+				x[i-1]--;
+			}
+		}
+	}
+}
+/*
+** Multiplication of the big real x by the integer q
+** x = x*q.
+**  Like school multiplication with carry management
+*/
+procedimiento MultiplicarEnMultiprecision (entero n, entero *x, entero q) {
+	entero acarreoDeDigitoBase=0, xi, i;
+	para (i=n-1; i>=0; i--) {
+		xi  = x[i]*q;
+		xi += acarreoDeDigitoBase;
+		si (xi>=B) {
+			acarreoDeDigitoBase = xi/B;
+			xi -= (acarreoDeDigitoBase*B);
+		}
+		sino
+		acarreoDeDigitoBase = 0;
+		x[i] = xi;
+	}
+}
+/*
+** Division of the big real x by the integer d
+** The result is y=x/d.
+**  Like school division with carry management
+**  d is limited to MaximoDivisor*MaximoDivisor.
+*/
+procedimiento DividirEnMultiprecision(entero n, entero *x, entero d, entero *y) {
+	entero acarreoDeDigitoBase=0, xi, q, i;
+	para (i=0; i<n; i++) {
+		xi    = x[i]+acarreoDeDigitoBase*B;
+		q     = xi/d;
+		acarreoDeDigitoBase = xi-q*d;
+		y[i]  = q;
+	}
+}
+/*
+** Find the arc cotangent of the integer p = ArcoTangente (1/p)
+**  Result in the big real x (tamaño n)
+**  buf1 and buf2 are two AlmacenDeMemorias of tamaño n
+*/
+procedimiento ArcoTangente (entero p, entero n, entero *x, entero *buf1, entero *buf2) {
+	entero p2=p*p, k=3, esPositivo=0;
+	entero *uk=buf1, *vk=buf2;
+	ConvertirAEntero (n, x, 0);
+	ConvertirAEntero (n, uk, 1);	/* uk = 1/p */
+	DividirEnMultiprecision(n, uk, p, uk);
+	SumarEnMultiprecision (n, x, uk);	          /* x  = uk */
+
+	mientras (!EsCero(n, uk)) {
+		si (p<MaximoDivisor)
+		DividirEnMultiprecision(n, uk, p2, uk);  /* One step para small p */
+		sino {
+			DividirEnMultiprecision(n, uk, p, uk);   /* Two steps para large p (see division) */
+			DividirEnMultiprecision(n, uk, p, uk);
+		}
+		/* uk = u(k-1)/(p^2) */
+		DividirEnMultiprecision(n, uk, k, vk);       /* vk = uk/k  */
+		si (esPositivo) SumarEnMultiprecision (n, x, vk); /* x = x+vk   */
+		sino RestarEnMultiprecision (n, x, vk);      /* x = x-vk   */
+		k+=2;
+		esPositivo = 1-esPositivo;
+	}
+}
+/*
+** MostrarEnPantalla the big real x
+*/
+procedimiento MostrarEnPantalla (entero n, entero *x) {
+	entero i;
+	EscribirConFormato ("%d.", x[0]);
+	para (i=1; i<n; i++) {
+		EscribirConFormato ("%.4d", x[i]);
+		si (i%25==0) EscribirConFormato ("%8d\n", i*4);
+	}
+	EscribirConFormato ("\n");
+}
+/*
+** Computation of the constant Pi with ArcoTangente relations
+*/
+procedimiento principal () {
+	reloj_en_milesimas InicioCuentaReloj, FinCuentaReloj;
+	entero NbDigits=10000, NbArctan;
+	entero p[10], m[10];
+	entero tamaño=1+NbDigits/LB, i;
+	entero *Pi      = (entero *)ReservarMemoria(tamaño*TamañoDe(entero));
+	entero *ArcoTangente  = (entero *)ReservarMemoria(tamaño*TamañoDe(entero));
+	entero *AlmacenDeMemoria1 = (entero *)ReservarMemoria(tamaño*TamañoDe(entero));
+	entero *AlmacenDeMemoria2 = (entero *)ReservarMemoria(tamaño*TamañoDe(entero));
+	FinCuentaReloj = clock();
+	/*
+** Formula used:
+**
+**   Pi/4 = 12*ArcoTangente(1/18)+8*ArcoTangente(1/57)-5*ArcoTangente(1/239) (Gauss)
+*/
+	NbArctan = 3;
+	m[0] = 12; m[1] = 8;  m[2] = -5;
+	p[0] = 18; p[1] = 57; p[2] = 239;
+	ConvertirAEntero (tamaño, Pi, 0);
+	/*
+** Computation of Pi/4 = Sum(i) [m[i]*ArcoTangente(1/p[i])]
+*/
+	para (i=0; i<NbArctan; i++) {
+		ArcoTangente (p[i], tamaño, ArcoTangente, AlmacenDeMemoria1, AlmacenDeMemoria2);
+		MultiplicarEnMultiprecision (tamaño, ArcoTangente, abs(m[i]));
+		si (m[i]>0) SumarEnMultiprecision (tamaño, Pi, ArcoTangente);
+		sino        RestarEnMultiprecision (tamaño, Pi, ArcoTangente);
+	}
+	MultiplicarEnMultiprecision (tamaño, Pi, 4);
+	InicioCuentaReloj = clock ();
+	MostrarEnPantalla (tamaño, Pi);  /* MostrarEnPantalla out of Pi */
+	EscribirConFormato ("Computation time is : %9.2f seconds\n",
+	(doble)(InicioCuentaReloj-FinCuentaReloj)/(doble)SEGUNDOS_EN_MINUTO );
+	LiberarMemoria (Pi);
+	LiberarMemoria (ArcoTangente);
+	LiberarMemoria (AlmacenDeMemoria1);
+	LiberarMemoria (AlmacenDeMemoria2);
+}
