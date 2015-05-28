@@ -1,0 +1,6 @@
+-- Se hace un resumen de registro de cambios para compilador Hamat
+28/05/2015
+-- Se ha hecho cambio de nombre lenguaje y establecido como lenguaje Alexandra
+-- It has made changes about the Compiler's name It has established as Alexandra Languge
+-- El nombre del compilador contuará siendo Hamat
+-- Compiler's name it will be always Hamat

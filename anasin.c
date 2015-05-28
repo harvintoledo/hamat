@@ -65,9 +65,7 @@ static NodoArbol *factor( void );
 static NodoArbol *llamada( void );
 static NodoArbol *argumentos( void );
 static NodoArbol *lista_argumentos( void );
-
 NodoArbol *analizarSintaxis( NodoListaLexema *listaLex );
-
 /* funciones para analizar sintacticamente una funcion */
 static void errorSintactico( char *mensaje )
 {
@@ -75,7 +73,6 @@ static void errorSintactico( char *mensaje )
 	fprintf(pArchivoDestino, "Error sintactico en la linea %d: %s", lista->informacionLexema.lineanumero, mensaje);
 	Error = VERDADERO;
 } /* fin de la funcion errorSintactico */
-
 static void parearCompleto(TipoLexema espectativa)
 {
 	
@@ -90,7 +87,6 @@ static void parearCompleto(TipoLexema espectativa)
 	}
 	
 }
-
 /* Parte principal de programa, aqui invocamos los reconocerderes,
 programa() seria la primer parte del lenguaje
 */
@@ -122,7 +118,6 @@ static NodoArbol *programa( void )
 	
 	return temporal;
 } /* fin de funcion programa_sentencia */
-
 /* Lista de declaraciones contiene la lista de posibles declaraciones de variables
 ejemplo entero a; entero b; real x;
 */
@@ -154,7 +149,6 @@ static NodoArbol *lista_declaracion( void )
 	
 	return temporal;
 }
-
 static NodoArbol *declaracion( void )
 {
 	NodoArbol *temporal = NULL;
@@ -202,7 +196,6 @@ static NodoArbol *declaracion( void )
 	
 	return temporal;
 } /* fin de funcion declaracion */
-
 /* nota: no implementado
 static lista_variables( void )
 {
@@ -228,8 +221,6 @@ static int esTipoVariable(TipoLexema lexema)
 	return resultado;
 	
 }
-
-
 static NodoArbol *variable_declaracion( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_DECLARACION_GLOBAL), *p;
@@ -253,7 +244,6 @@ static NodoArbol *variable_declaracion( void )
 	
 	return temporal;
 }
-
 static NodoArbol *tipo_variable( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_TIPO_VARIABLE), *p;
@@ -286,7 +276,6 @@ static NodoArbol *tipo_variable( void )
 	
 	return temporal;
 }
-
 static NodoArbol *funcion_declaracion( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_FUNCION), *p;
@@ -311,7 +300,6 @@ static NodoArbol *funcion_declaracion( void )
 	
 	return temporal;
 }
-
 static NodoArbol *procedimiento_declaracion( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_PROCEDIMIENTO);
@@ -345,7 +333,6 @@ static NodoArbol *procedimiento_declaracion( void )
 	
 	return temporal;
 }
-
 static NodoArbol *clase_declaracion( void )
 {
 	NodoArbol *temporal = NULL;
@@ -379,7 +366,6 @@ static NodoArbol *cuerpo_clase( void )
 	
 	return temporal;
 }
-
 static NodoArbol *parametros( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_PARAMETROS);
@@ -398,7 +384,6 @@ static NodoArbol *parametros( void )
 	
 	return temporal;
 }
-
 static NodoArbol *lista_parametros( void )
 {
 	NodoArbol *temporal=parametro();
@@ -436,7 +421,6 @@ static NodoArbol *lista_parametros( void )
 	
 	return temporal;
 }
-
 static NodoArbol *parametro( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_PARAMETRO);
@@ -458,7 +442,6 @@ static NodoArbol *parametro( void )
 	
 	return temporal;
 }
-
 static NodoArbol *sentencia_compuesta( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_COMPUESTA), *p=NULL;
@@ -500,7 +483,6 @@ static NodoArbol *sentencia_compuesta( void )
 	
 	return temporal;
 }
-
 static NodoArbol *declaracion_local( void )
 {
 	NodoArbol *temporal = variable_declaracion();
@@ -540,7 +522,6 @@ static NodoArbol *declaracion_local( void )
 	
 	return temporal;
 }
-
 static NodoArbol *lista_sentencia( void )
 {
 	NodoArbol *temporal = sentencia();
@@ -578,7 +559,6 @@ static NodoArbol *lista_sentencia( void )
 	
 	return temporal;
 } /* fin de la funcion lista_sentencia */
-
 static NodoArbol *sentencia( void )
 {
 	NodoArbol *temporal = NULL;
@@ -593,7 +573,6 @@ static NodoArbol *sentencia( void )
 	case SI:
 		temporal = si_sentencia();
 		break;
-
 	case SELECCIONAR:
 		temporal = seleccionar_sentencia();
 		break;
@@ -601,11 +580,9 @@ static NodoArbol *sentencia( void )
 	case REPETIR:
 		temporal = repetir_sentencia();
 		break;
-
 	case PARA:
 		temporal = para_sentencia();
 		break;
-
 	case MIENTRAS:
 		temporal = mientras_sentencia();
 		break;
@@ -617,17 +594,13 @@ static NodoArbol *sentencia( void )
 	case LLAVE_IZQ:
 		temporal = sentencia_compuesta();
 		break;
-
 	default:
 		temporal = expresion_sentencia();
 		break;
 		
 	} /* fin del switch */
-
 	return temporal;
-
 } /* fin de la funcion sentencia */
-
 static NodoArbol *expresion_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_EXPRESION_SENTENCIA);
@@ -647,7 +620,6 @@ static NodoArbol *expresion_sentencia( void )
 	
 	return temporal;
 }
-
 static NodoArbol *expresion( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_EXPRESION);
@@ -677,7 +649,6 @@ static NodoArbol *expresion( void )
 	
 	return temporal;
 }
-
 static NodoArbol *variable( void )
 {
 	NodoArbol *temporal =  nuevoNodoExpresion(TIPOARBOL_VARIABLE);
@@ -689,7 +660,6 @@ static NodoArbol *variable( void )
 	
 	temporal->hijo[0] = NULL;
 	temporal->atributo.nombre = lista->informacionLexema.informacion;
-
 	parearCompleto(ID);
 	if( lista->informacionLexema.lexema == PARENTESISCUADRADO_IZQ)
 	{
@@ -699,7 +669,6 @@ static NodoArbol *variable( void )
 	}
 	return temporal;
 }
-
 static NodoArbol *expresion_simple( void )
 {
 	NodoArbol *temporal = expresion_comparacion();
@@ -724,7 +693,6 @@ static NodoArbol *expresion_simple( void )
 	}
 	return temporal;
 }
-
 static NodoArbol *si_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SI_SENTENCIA);
@@ -735,14 +703,11 @@ static NodoArbol *si_sentencia( void )
 	lista->informacionLexema.informacion);
 	
 	parearCompleto(SI);
-
 	parearCompleto(PAREN_IZQ);
-
 	if( temporal != NULL )
 	temporal->hijo[0] = expresion_simple();
 	
 	parearCompleto(PAREN_DER);
-
 	if( temporal != NULL )
 	temporal->hijo[1] = lista_sentencia();
 	
@@ -751,10 +716,8 @@ static NodoArbol *si_sentencia( void )
 		parearCompleto(SINO);
 		temporal->hijo[2] = lista_sentencia();
 	}
-
 	return temporal;
 } /* fin de funcion si_sentencia */
-
 static NodoArbol *seleccionar_sentencia(void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_SELECCIONAR);
@@ -768,12 +731,9 @@ static NodoArbol *seleccionar_sentencia(void )
 	
 	parearCompleto(SELECCIONAR);
 	parearCompleto(PAREN_IZQ);
-
 	temporal->hijo[0] = expresion_simple();
-
 	parearCompleto(PAREN_DER);
 	parearCompleto(LLAVE_IZQ);
-
 	temporal->hijo[1] = lista_caso_sentencia();
 	
 	if(lista->informacionLexema.lexema == ALCONTRARIO ){
@@ -781,17 +741,12 @@ static NodoArbol *seleccionar_sentencia(void )
 		
 	}
 	
-
 	parearCompleto(LLAVE_DER);
-
 	return temporal;
-
 }
-
 static NodoArbol *alcontrario_sentencia( void ) {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_ALCONTRARIO);
 	int pareja = FALSO;
-
 	fprintf(pArchivoAnaSin, "ALCONTRARIO-SENTENCIA -->\n");
 	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
@@ -806,11 +761,9 @@ static NodoArbol *alcontrario_sentencia( void ) {
 	temporal->hijo[0] = lista_sentencia();
 	if(pareja == VERDADERO);
 	parearCompleto(LLAVE_DER);
-
 	return temporal;
 	
 }
-
 static NodoArbol *lista_caso_sentencia( void ) {
 	NodoArbol *temporal = caso_sentencia();
 	NodoArbol *p = temporal;
@@ -842,14 +795,12 @@ static NodoArbol *lista_caso_sentencia( void ) {
 	
 	return temporal;
 }
-
 static NodoArbol *caso_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_CASO_SENTENCIA);
 	int pareja = FALSO;
 	
 	
-
 	fprintf(pArchivoAnaSin, "CASO-SENTENCIA -->\n");
 	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
@@ -860,9 +811,7 @@ static NodoArbol *caso_sentencia( void )
 	
 	if( ( temporal != NULL ) && ( lista->informacionLexema.lexema == IDNUM ) )
 	temporal->atributo.val = atoi(cadenaDeLexema);
-
 	parearCompleto(DOSPUNTOS);
-
 	if(lista->informacionLexema.lexema == LLAVE_IZQ) {
 		parearCompleto(LLAVE_IZQ);
 		pareja = VERDADERO;
@@ -870,7 +819,6 @@ static NodoArbol *caso_sentencia( void )
 	
 	if( temporal != NULL )
 	temporal->hijo[1] = lista_sentencia();
-
 	if(pareja == VERDADERO)
 	parearCompleto(LLAVE_DER);
 	
@@ -878,10 +826,8 @@ static NodoArbol *caso_sentencia( void )
 		parearCompleto(INTERRUMPIR);
 		parearCompleto(PUNTOYCOMA);
 	}
-
 	return temporal;
 }
-
 static NodoArbol *repetir_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_REPETIR);
@@ -892,18 +838,14 @@ static NodoArbol *repetir_sentencia( void )
 	lista->informacionLexema.informacion);
 	
 	parearCompleto(REPETIR);
-
 	if( temporal != NULL)
 	temporal->hijo[0] = lista_sentencia();
 	
 	parearCompleto(HASTA);
-
 	if( temporal != NULL)
 	temporal->hijo[1] = expresion_simple();
-
 	return temporal;
 }
-
 static NodoArbol *para_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_PARA);
@@ -913,27 +855,21 @@ static NodoArbol *para_sentencia( void )
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
 	lista->informacionLexema.informacion);
 	parearCompleto(PARA);
-
 	parearCompleto(PAREN_IZQ);
 	if( temporal != NULL )
 	temporal->hijo[0]= expresion();
 	parearCompleto(PUNTOYCOMA);
-
 	if( temporal != NULL )
 	temporal->hijo[1] = expresion_simple();
-
 	parearCompleto(PUNTOYCOMA);
-
 	if( temporal != NULL )
 	temporal->hijo[2] = expresion_simple();
 	parearCompleto(PAREN_DER);
-
 	if( temporal != NULL )
 	temporal->hijo[3] = sentencia();
 	
 	return temporal;
 } /* fin de la funcion para_sentencia */
-
 static NodoArbol *mientras_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_MIENTRAS);
@@ -949,13 +885,10 @@ static NodoArbol *mientras_sentencia( void )
 	if( temporal != NULL )
 	temporal->hijo[0] = expresion_simple();
 	parearCompleto(PAREN_DER);
-
 	if( temporal != NULL && lista->informacionLexema.lexema == LLAVE_IZQ)
 	temporal->hijo[1] = lista_sentencia();
-
 	return temporal;
 } /* fin de la funcion mientras_sentencia */
-
 static NodoArbol *retornar_sentencia( void )
 {
 	NodoArbol *temporal = nuevoNodoSentencia(TIPOARBOL_SENTENCIA_RETORNAR);
@@ -977,11 +910,9 @@ static NodoArbol *retornar_sentencia( void )
 	}
 	return temporal;
 }
-
 static NodoArbol *expresion_comparacion( void )
 {
 	NodoArbol *temporal = expresion_aditiva();
-
 	fprintf(pArchivoAnaSin, "EXPRESION-COMPARACION -->\n");
 	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
@@ -1007,10 +938,8 @@ static NodoArbol *expresion_comparacion( void )
 		}
 		
 	} /* fin del while */
-
 	return temporal;
 } /* fin de la funcion expresion_comparacion */
-
 static NodoArbol *expresion_aditiva( void )
 {
 	NodoArbol *temporal = termino();
@@ -1023,7 +952,6 @@ static NodoArbol *expresion_aditiva( void )
 	while( ( lista->informacionLexema.lexema == MAS ) || ( lista->informacionLexema.lexema == MENOS ) )
 	{
 		NodoArbol *auxtemporal = nuevoNodoExpresion(TIPOARBOL_OPERADOR);
-
 		if( auxtemporal != NULL )
 		{
 			auxtemporal->hijo[0] = temporal;
@@ -1032,17 +960,12 @@ static NodoArbol *expresion_aditiva( void )
 			parearCompleto(lista->informacionLexema.lexema);
 			temporal->hijo[1] = termino();
 		} /* fin de if principal */
-
 	} /* fin del while */
-
 	return temporal;
-
 } /* fin de la funcion expresion_simple */
-
 static NodoArbol *termino( void )
 {
 	NodoArbol *temporal = factor();
-
 	fprintf(pArchivoAnaSin, "TERMINO -->\n");
 	fprintf(pArchivoAnaSin, "lexema: %d linea numero: %d valor cadena: %s\n",
 	lista->informacionLexema.lexema, lista->informacionLexema.lineanumero,
@@ -1063,11 +986,8 @@ static NodoArbol *termino( void )
 		}
 		
 	} /* fin del ciclo while */
-
 	return temporal;
-
 } /* fin de la funcion termino */
-
 static NodoArbol *factor( void )
 {
 	NodoArbol *temporal = NULL;
@@ -1127,9 +1047,7 @@ static NodoArbol *factor( void )
 	} /* fin del if principal */
 	
 	return temporal;
-
 } /* fin de la funcion factor */
-
 static NodoArbol *llamada( void )
 {
 	NodoArbol *temporal = nuevoNodoExpresion(TIPOARBOL_LLAMADA);
@@ -1155,7 +1073,6 @@ static NodoArbol *llamada( void )
 	
 	return temporal;
 }
-
 static NodoArbol *argumentos( void )
 {
 	NodoArbol *temporal =  nuevoNodoExpresion(TIPOARBOL_ARGUMENTOS), *p;
@@ -1181,7 +1098,6 @@ static NodoArbol *argumentos( void )
 	
 	return temporal;
 }
-
 static NodoArbol *lista_argumentos( void )
 {
 	NodoArbol *temporal = expresion();
@@ -1220,14 +1136,11 @@ static NodoArbol *lista_argumentos( void )
 	
 	return temporal;
 }
-
 /* funcion principal del analizador sintactico */
 /* la funcion analizarSintaxis devuelve el arbol recien construido */
-
 NodoArbol *analizarSintaxis( NodoListaLexema *listaLex )
 {
 	NodoArbol *temporal;
-
 	lista = listaLex;
 	/* volvemos a abrir el archivo para hacer analisis sintactico */
 	pArchivoOrigen=fopen(nombreArchivoCodigoFuente, "r");
@@ -1238,13 +1151,9 @@ NodoArbol *analizarSintaxis( NodoListaLexema *listaLex )
 	fprintf(pArchivoAnaSin, "\nharvintoledo@gmail.com");
 	
 	temporal = programa();
-
 	if( lista->informacionLexema.lexema != FINDEARCHIVO )
 	errorSintactico("\nEl codigo no continua porque se ha encontrado final de archivo\n");
-
 	return temporal;
-
 } /* fin de la funcion analizarSintaxis */
-
 /* nota: no olvidar colocar los datos al árbol que servirá para
 	el analizador semántico y el generador de código */

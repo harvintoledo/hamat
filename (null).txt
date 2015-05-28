@@ -1,0 +1,10 @@
+
+Registro de recorrido sintactico recursivo
+Realizado por Harvin Manuel Toledo Polanco
+harvintoledo@gmail.com
+PROGRAMA -->
+lexema: 1 linea numero: 1 valor cadena: 
+DECLARACION -->
+lexema: 1 linea numero: 1 valor cadena: 
+LISTA-DECLARACION -->
+lexema: 1 linea numero: 1 valor cadena: 
