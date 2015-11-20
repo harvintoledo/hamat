@@ -1,0 +1,15 @@
+leeme
+Compilar ejemplo matematico enlazando la librería math.h
+y compilador GCC en ANSI C estandar
+ gcc postfijo.c -o math -lm
+ 
+ -- compilar archivo yacc
+bison -yd mathabstraction.y
+-- compilar archivo lex
+flex mathabstraction.l
+
+gcc mathabstraction.tab.c lex.yy.c -lfl -o mathsoft
+
+
+-- reinstalar la libreria para QT de OpenGl en ubuntu para opengl
+sudo apt-get --reinstall install libqt4-opengl-dev

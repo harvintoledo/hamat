@@ -13,10 +13,12 @@
 *.a
 
 # Ejecutables y objetos de gcc de 32 bits
-build-textures-Desktop_Qt_5_2_0_GCC_32bit-Debug/
-build-textures-Desktop_Qt_5_3_MinGW_32bit-Debug/
-build-textures-Qt_5_2_0_gcc-Release/
 build-textures-Desktop_Qt_5_2_0_GCC_32bit-Release/
+
+build-textures-Desktop_Qt_5_3_MinGW_32bit-Debug/
+
 build-textures-Qt_5_2_0_gcc-Debug/
+
+build-textures-Qt_5_2_0_gcc-Release/
 
 
