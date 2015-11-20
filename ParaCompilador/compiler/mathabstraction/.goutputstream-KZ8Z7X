@@ -1,0 +1,52 @@
+/* Archivo instrucciones.y */
+%{
+#include <stdio.h>
+#include <stdlib.h> /* para funcion realloc */
+#include <math.h> /* para funciones sin, cos, tan y atan */
+#include <ctype.h> /* para funciones isalnum y isalpha */
+#include <string.h> /* para funcionestes strcmp y strcpy */
+%}
+
+%token  APAR CPAR NL
+%token  CONSTENTERA CONSTFLOTANTE/* Simple double precision number */
+%token IDENTIFICADOR /* Variable and funcion */
+%right OPAS
+%left MENOS MAS
+%left POR ENTRE
+%left NEG /* Negation -- unary minus */
+%right POTENCIA /* Exponenciation */
+%%
+input:   /* empty */
+        | input line
+;
+line: NL
+    | expresion NL
+    | error NL { yyerrok; }
+;
+expresion :
+    CONSTENTERA
+    | CONSTFLOTANTE
+    | IDENTIFICADOR
+    | IDENTIFICADOR OPAS expresion	
+    | IDENTIFICADOR APAR expresion CPAR
+    | expresion MAS expresion
+    | expresion MENOS expresion
+    | expresion POR expresion
+    | expresion ENTRE expresion
+    | MENOS expresion %prec NEG	
+    | expresion POTENCIA expresion
+    | APAR expresion CPAR
+;
+%%
+main() {
+    printf("Teoria de compiladores.\n");
+    printf("Invocando a funcion parse.\n");
+    yyparse();
+}
+
+yyerror(s) /* Called by yyparse on error */
+char *s;
+{
+    printf("%s\n", s);
+}
+
