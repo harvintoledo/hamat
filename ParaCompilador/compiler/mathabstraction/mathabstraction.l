@@ -25,11 +25,11 @@ constFlotante {digito}\.({digito})*
 printf("Flotante reconocido:%s\n", yytext);
 return (CONSTFLOTANTE); }
 ":="            { return (OPAS); }
-"<"                { return (MENORQUE); }
+"<"             { return (MENORQUE); }
 "<="            { return (MENOROIGUALQUE); }
-">"                { return (MAYORQUE); }
+">"             { return (MAYORQUE); }
 ">="            { return (MAYOROIGUALQUE); }
-"="                { return (IGUAL); }
+"="             { return (IGUAL); }
 "+"             { return (MAS); }
 "-"             { return (MENOS); }
 "*"             { return (POR); }

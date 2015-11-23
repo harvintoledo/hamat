@@ -606,8 +606,7 @@ int esPrimo(long n) {
 double prim(double k) {
 	long cnt=0, i=1, n;
 	n=(long)k;
-	while(cnt<n)
-	{
+	while(cnt<n) {
 		if(esPrimo(i))
 		cnt++;
 		i++;
@@ -1568,28 +1567,23 @@ void traducir_a_postfijo(char *infijo, char *postfijo)
 	int i=0, k=-1, n=-1; 
 	unsigned int prioridad; 
 	char pila[ELEMENTOS]; 
-	while(infijo[i] != '\0') 
-	{
-		if(strncmp(&infijo[i],"resComp",strlen("resComp"))==0)
-		{
+	while(infijo[i] != '\0') {
+		if(strncmp(&infijo[i],"resComp",strlen("resComp"))==0) {
 			++k;
 			strncpy(&postfijo[k],"resComp",strlen("resComp"));
 			k+=strlen("resComp")-1;
 			i+=strlen("resComp")-1;
 		}
 		else
-		if(strncmp(&infijo[i],"res",strlen("res"))==0)
-		{
+		if(strncmp(&infijo[i],"res",strlen("res"))==0) {
 			++k;
 			strncpy(&postfijo[k],"res",strlen("res"));
 			k+=strlen("res")-1;
 			i+=strlen("res")-1;
 		}
-		else
-		{
+		else {
 			prioridad=evaluar_prioridad(infijo[i]); 
-			switch(prioridad) 
-			{ 
+			switch(prioridad) { 
 			case VARIABLE: 
 				k++; 
 				postfijo[k]=infijo[i];
@@ -1613,8 +1607,7 @@ void traducir_a_postfijo(char *infijo, char *postfijo)
 				n--; 
 				break; 
 			default: 
-				while( n != -1) 
-				{ 
+				while( n != -1) { 
 					if(evaluar_prioridad(infijo[i]) <= evaluar_prioridad(pila[n]) ) 
 					postfijo[++k]=pila[n--];
 					else 
@@ -1625,8 +1618,7 @@ void traducir_a_postfijo(char *infijo, char *postfijo)
 		} 
 		i++; 
 	} 
-	while( n != -1) 
-	{
+	while( n != -1) {
 		k++; 
 		postfijo[k]=pila[n];
 		n--; 
@@ -1664,8 +1656,7 @@ double eval_sigma(char *s) {
 	pretraducir(expr, nuevaC);  
 	traducir_a_postfijo(nuevaC, expr);
 	check_var(expr, var, chk);
-	for(n=a; n<=b; n++)
-	{
+	for(n=a; n<=b; n++) {
 		var['N'-'A']=(double)n;
 		suma+=eval_func(expr, var);
 	}
@@ -1799,8 +1790,7 @@ double eval_integral(char *s) {
 	check_var(expr, var, chk);
 	var['X'-'A']=x;
 	Area=eval_func(expr, var)*h/3.0;
-	for(i=2; i<n; i++)
-	{
+	for(i=2; i<n; i++) {
 		x+=h;
 		var['X'-'A']=x;
 		if((i%2)==0)
@@ -1847,17 +1837,16 @@ double eval_continua(char *s) {
 	nactual=1;
 	manterior=1;
 	nanterior=0;
-	for(n=a+1; n<=b; n++)
-	{
+	for(n=a+1; n<=b; n++) {
 		var['N'-'A']=(double)n;
-		mnuevo=mactual*eval_func(expr, var)+manterior;
+		mnuevo=mactual * eval_func(expr, var) + manterior;
 		manterior=mactual;
 		mactual=mnuevo;
-		nnuevo=nactual*eval_func(expr, var)+nanterior;
+		nnuevo=nactual * eval_func(expr, var) + nanterior;
 		nanterior=nactual;
 		nactual=nnuevo;
 	}
-	return(mactual/nactual);  
+	return(mactual / nactual);  
 }
 double eval_integrando(char *s) {
 	long i=0, j=0;
@@ -2043,7 +2032,7 @@ printf("\n\npresione tecla enter para comenzar");
 getchar();
 system("cls");*/
 int main(void) {
-	Presentacion();
+	//Presentacion();
 	probarV();
 	return(0);     
 }
