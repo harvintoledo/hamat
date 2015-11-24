@@ -347,13 +347,11 @@ InformacionLexema obtenerLexemaInformacion(void)
 			
 		case ENOR:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '|' )
-			{
+			if( c == '|' ) {
 				lexemaActual.lexema = OR;
 				estado = HECHO;
 			}
-			else
-			{
+			else {
 				lexemaActual.lexema = ERROR;
 				estado = HECHO;
 			}
@@ -361,13 +359,11 @@ InformacionLexema obtenerLexemaInformacion(void)
 			
 		case ENAND:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '&' )
-			{
+			if( c == '&' ) {
 				lexemaActual.lexema = AND;
 				estado = HECHO;
 			}
-			else
-			{
+			else {
 				lexemaActual.lexema = ERROR;
 				estado = HECHO;
 			}
@@ -375,8 +371,7 @@ InformacionLexema obtenerLexemaInformacion(void)
 			
 		case ENIGUALDAD:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '=')
-			{
+			if( c == '=') {
 				lexemaActual.lexema = IGUALQUE;
 				estado = HECHO;
 			}
@@ -390,19 +385,16 @@ InformacionLexema obtenerLexemaInformacion(void)
 			
 		case ENCOMPMEN:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '=' )
-			{
+			if( c == '=' ) {
 				lexemaActual.lexema = MEN_IQUE;
 				estado = HECHO;
 			}
 			else
-			if( c == '>' )
-			{
+			if( c == '>' ) {
 				lexemaActual.lexema = DIFERENTE;
 				estado = HECHO;
 			}
-			else
-			{
+			else {
 				lexemaActual.lexema = MENORQUE;
 				estado = HECHO;
 				deshacerCaracter();
@@ -411,13 +403,11 @@ InformacionLexema obtenerLexemaInformacion(void)
 			
 		case ENCOMPMAY:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '=')
-			{
+			if( c == '=') {
 				lexemaActual.lexema = MA_IQUE;
 				estado = HECHO;
 			}
-			else
-			{
+			else {
 				lexemaActual.lexema = MAYORQUE;
 				estado = HECHO;
 				deshacerCaracter();
@@ -426,19 +416,16 @@ InformacionLexema obtenerLexemaInformacion(void)
 			
 		case ENDIVISION:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '*')
-			{
+			if( c == '*') {
 				estado = ENTRADACOMENT1;
 				fprintf(pArchivoDestino, "<span class=\"nohemi-comentario\">/*");
 			}
 			else
-			if( c == '/')
-			{
+			if( c == '/') {
 				estado = ENTRADACOMENTLIN;
 				fprintf(pArchivoDestino, "<span class=\"nohemi-comentario\">//");
 			}
-			else
-			{
+			else {
 				lexemaActual.lexema = ENTRE;
 				estado = HECHO;
 				deshacerCaracter();
@@ -446,12 +433,11 @@ InformacionLexema obtenerLexemaInformacion(void)
 			break;
 		case ENTRADACOMENTLIN:
 			bGuardarEnIdentificador = FALSO;
-			if( c == '\n' ){
+			if( c == '\n' ) {
 				estado = INICIO;
 				fprintf(pArchivoDestino, "</span><br>");
 			}
-			else
-			{
+			else {
 				estado = ENTRADACOMENTLIN;
 				fprintf(pArchivoDestino, "%c", c);
 			}

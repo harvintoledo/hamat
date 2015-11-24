@@ -13,3 +13,5 @@ gcc mathabstraction.tab.c lex.yy.c -lfl -o mathsoft
 
 -- reinstalar la libreria para QT de OpenGl en ubuntu para opengl
 sudo apt-get --reinstall install libqt4-opengl-dev
+
+-- Compilar ejemplo vars

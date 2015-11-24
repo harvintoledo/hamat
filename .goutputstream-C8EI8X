@@ -15,7 +15,5 @@
 # Ejecutables y objetos de gcc de 32 bits
 ParaCompilador/textures/Debug
 ParaCompilador/textures/Release
-ParaCompilador/2dpainting/Debug
-ParaCompilador/2dpainting/Release
 
 

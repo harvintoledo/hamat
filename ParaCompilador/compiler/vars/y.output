@@ -1,0 +1,406 @@
+Gramática
+
+    0 $accept: list $end
+
+    1 list: stmt
+    2     | list stmt
+
+    3 stmt: expr ','
+    4     | expr ':'
+
+    5 expr: INT
+    6     | VAR
+    7     | VAR '=' expr
+    8     | expr '+' expr
+    9     | expr '-' expr
+   10     | expr '*' expr
+   11     | expr '/' expr
+   12     | expr '%' expr
+   13     | '+' expr
+   14     | '-' expr
+   15     | '(' expr ')'
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+'%' (37) 12
+'(' (40) 15
+')' (41) 15
+'*' (42) 10
+'+' (43) 8 13
+',' (44) 3
+'-' (45) 9 14
+'/' (47) 11
+':' (58) 4
+'=' (61) 7
+error (256)
+BATATA (258)
+INT (259) 5
+VAR (260) 6 7
+
+
+No terminales con las reglas donde aparecen
+
+$accept (16)
+    en la izquierda: 0
+list (17)
+    en la izquierda: 1 2, en la derecha: 0 2
+stmt (18)
+    en la izquierda: 3 4, en la derecha: 1 2
+expr (19)
+    en la izquierda: 5 6 7 8 9 10 11 12 13 14 15, en la derecha: 3
+    4 7 8 9 10 11 12 13 14 15
+
+
+estado 0
+
+    0 $accept: . list $end
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    list  ir al estado 6
+    stmt  ir al estado 7
+    expr  ir al estado 8
+
+
+estado 1
+
+    5 expr: INT .
+
+    $default  reduce usando la regla 5 (expr)
+
+
+estado 2
+
+    6 expr: VAR .
+    7     | VAR . '=' expr
+
+    '='  desplazar e ir al estado 9
+
+    $default  reduce usando la regla 6 (expr)
+
+
+estado 3
+
+   13 expr: '+' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 10
+
+
+estado 4
+
+   14 expr: '-' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 11
+
+
+estado 5
+
+   15 expr: '(' . expr ')'
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 12
+
+
+estado 6
+
+    0 $accept: list . $end
+    2 list: list . stmt
+
+    $end  desplazar e ir al estado 13
+    INT   desplazar e ir al estado 1
+    VAR   desplazar e ir al estado 2
+    '+'   desplazar e ir al estado 3
+    '-'   desplazar e ir al estado 4
+    '('   desplazar e ir al estado 5
+
+    stmt  ir al estado 14
+    expr  ir al estado 8
+
+
+estado 7
+
+    1 list: stmt .
+
+    $default  reduce usando la regla 1 (list)
+
+
+estado 8
+
+    3 stmt: expr . ','
+    4     | expr . ':'
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+
+    '+'  desplazar e ir al estado 15
+    '-'  desplazar e ir al estado 16
+    '*'  desplazar e ir al estado 17
+    '/'  desplazar e ir al estado 18
+    '%'  desplazar e ir al estado 19
+    ','  desplazar e ir al estado 20
+    ':'  desplazar e ir al estado 21
+
+
+estado 9
+
+    7 expr: VAR '=' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 22
+
+
+estado 10
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+   13     | '+' expr .
+
+    $default  reduce usando la regla 13 (expr)
+
+
+estado 11
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+   14     | '-' expr .
+
+    $default  reduce usando la regla 14 (expr)
+
+
+estado 12
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+   15     | '(' expr . ')'
+
+    '+'  desplazar e ir al estado 15
+    '-'  desplazar e ir al estado 16
+    '*'  desplazar e ir al estado 17
+    '/'  desplazar e ir al estado 18
+    '%'  desplazar e ir al estado 19
+    ')'  desplazar e ir al estado 23
+
+
+estado 13
+
+    0 $accept: list $end .
+
+    $default  aceptar
+
+
+estado 14
+
+    2 list: list stmt .
+
+    $default  reduce usando la regla 2 (list)
+
+
+estado 15
+
+    8 expr: expr '+' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 24
+
+
+estado 16
+
+    9 expr: expr '-' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 25
+
+
+estado 17
+
+   10 expr: expr '*' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 26
+
+
+estado 18
+
+   11 expr: expr '/' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 27
+
+
+estado 19
+
+   12 expr: expr '%' . expr
+
+    INT  desplazar e ir al estado 1
+    VAR  desplazar e ir al estado 2
+    '+'  desplazar e ir al estado 3
+    '-'  desplazar e ir al estado 4
+    '('  desplazar e ir al estado 5
+
+    expr  ir al estado 28
+
+
+estado 20
+
+    3 stmt: expr ',' .
+
+    $default  reduce usando la regla 3 (stmt)
+
+
+estado 21
+
+    4 stmt: expr ':' .
+
+    $default  reduce usando la regla 4 (stmt)
+
+
+estado 22
+
+    7 expr: VAR '=' expr .
+    8     | expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+
+    '+'  desplazar e ir al estado 15
+    '-'  desplazar e ir al estado 16
+    '*'  desplazar e ir al estado 17
+    '/'  desplazar e ir al estado 18
+    '%'  desplazar e ir al estado 19
+
+    $default  reduce usando la regla 7 (expr)
+
+
+estado 23
+
+   15 expr: '(' expr ')' .
+
+    $default  reduce usando la regla 15 (expr)
+
+
+estado 24
+
+    8 expr: expr . '+' expr
+    8     | expr '+' expr .
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+
+    '*'  desplazar e ir al estado 17
+    '/'  desplazar e ir al estado 18
+    '%'  desplazar e ir al estado 19
+
+    $default  reduce usando la regla 8 (expr)
+
+
+estado 25
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+    9     | expr '-' expr .
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+
+    '*'  desplazar e ir al estado 17
+    '/'  desplazar e ir al estado 18
+    '%'  desplazar e ir al estado 19
+
+    $default  reduce usando la regla 9 (expr)
+
+
+estado 26
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   10     | expr '*' expr .
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+
+    $default  reduce usando la regla 10 (expr)
+
+
+estado 27
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   11     | expr '/' expr .
+   12     | expr . '%' expr
+
+    $default  reduce usando la regla 11 (expr)
+
+
+estado 28
+
+    8 expr: expr . '+' expr
+    9     | expr . '-' expr
+   10     | expr . '*' expr
+   11     | expr . '/' expr
+   12     | expr . '%' expr
+   12     | expr '%' expr .
+
+    $default  reduce usando la regla 12 (expr)

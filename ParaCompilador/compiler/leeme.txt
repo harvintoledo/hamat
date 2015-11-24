@@ -16,3 +16,23 @@ flex mathabstraction.l
 
 -- linkar archivo yacc con lex
 gcc y.tab.c lex.yy.c -lfl -o mathsoft
+
+
+-- compilar ejemplo vars
+-- Compilar archivo lex del analizador léxico
+flex vars.l
+
+-- Compilar el archivo Bison para yacc del analizador sintáctico
+yacc -dtv vars.y
+
+g++ -c lex.yy.c
+g++ -c y.tab.c
+g++ -o vars y.tab.o lex.yy.o
+Ejemplo de salidas correctas
+1+2,3*5:
+15
+1+2:
+3
+var=5, 2*var:
+10
+
