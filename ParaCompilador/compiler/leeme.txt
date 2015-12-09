@@ -7,7 +7,8 @@ flex instrucciones.l
 -- linkar archivo yacc con lex
 gcc y.tab.c lex.yy.c -lfl -o salida
 
--- Para programa mathabstraction
+-- Para programa 
+
 -- compilar archivo yacc .y
 bison -yd mathabstraction.y
 

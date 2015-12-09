@@ -44,7 +44,6 @@ expr: INT               { $$ = $1; }
     ;
  
 %%
-extern int yylex();
-extern int yyparse();
+
 void yyerror(char *s) { std::cout << s << std::endl; }
 int main() { yyparse(); }
