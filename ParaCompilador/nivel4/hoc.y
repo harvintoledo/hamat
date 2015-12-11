@@ -47,37 +47,34 @@ int lineno = 1;
 jmp_buf begin;
 
 main(argc, argv)
-    char * argv; {
-    int fpecatch();
-    
-    progname = argv[0];
-    
-    init();
-    setjmp(begin);
-    signal(SIGFPE, fpecatch);
-    for(initcode(); yyparse(); initcode();)
-        execute(prog);
-    return 0;
+char * argv; {
+	int fpecatch();
+	
+	progname = argv[0];
+	
+	init();
+	setjmp(begin);
+	signal(SIGFPE, fpecatch);
+	for(initcode(); yyparse(); initcode();)
+	execute(prog);
+	return 0;
 }
-
 yyerror(s) 
-    char *s; {
-    warning(s, (char *) 0);
+char *s; {
+	warning(s, (char *) 0);
 }
-
 execerror(s, t)
-    char *s, *t; {
+char *s, *t; {
 	warning(s,t);
 	longjmp(begin, 0);
 }
-
 warning(s, t)
-	char *s, *t; {
+char *s, *t; {
 	fprintf(stderr, "%s: %s", progname, s);
 	if(t)
-		fprintf(stderr, " %s", t);
+	fprintf(stderr, " %s", t);
 	fprintf(stderr, "near line %d\n", lineno);
-	 
+	
 }
 
 fpecatch() {
@@ -92,7 +89,7 @@ yylex() {
 	while((c = getchar()) == ' ' || c == '\t' );
 	
 	if( c == EOF)
-		return 0;
+	return 0;
 	
 	if( c == '.' || isdigit(c) ) {
 		double d;
@@ -107,11 +104,23 @@ yylex() {
 		Symbol *s;
 		char sbuf[100], *p = sbuf;
 		do {
-		 *p++ = c;
-
+			*p++ = c;
 		}
-		while( (c =)
+		while( (c = getchar()) != EOF && isalnum(c));
+		ungetc(c, stdin);
+		*p = '\0';
 		
+		if((s = lookup(sbuf)) == 0)
+		s = install(sbuf, UNDEF, 0.0);
+		yylval.sym = s;
+		return s->type == UNDEF ? VAR : s->type;
+	}
+	if(islower(c)) {
+		yylval.index = c - 'a';
+		return VAR;
 	}
 	
+	if( c == '\n' )
+	lineno ++;
+	return c;
 }
