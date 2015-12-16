@@ -112,7 +112,6 @@ yylex() {
 		
 		if((s = lookup(sbuf)) == 0)
 		s = install(sbuf, UNDEF, 0.0);
-		
 		yylval.sym = s;
 		return s->type == UNDEF ? VAR : s->type;
 	}
