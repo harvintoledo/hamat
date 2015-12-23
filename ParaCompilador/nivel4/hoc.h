@@ -18,8 +18,8 @@ typedef union Datum {
 extern Datum pop();
 
 typedef int (Inst *)();
-#define STOP 	(Inst) 0
+#define STOP	(Inst) 0
 
 extern Inst prog[];
-extern eval(), add(), sub(), mul(), div(), negate(), power();
-extern assign(), bltin(), varpush(), constpush(), print();
+extern eval(), add(), sub(), mult(), div(), negate(), power();
+extern assign(), bltin(), varpush(), constpush(), print(), Inst();
