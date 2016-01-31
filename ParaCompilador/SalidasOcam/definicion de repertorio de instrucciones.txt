@@ -1,0 +1,19 @@
+.ARQUITECTURA
+DOSDIRECCIONES
+.META LENGUAJE
+MOV MOVER
+ADD SUMAR
+MULT MULTIPLICAR
+SUB SUBSTRAER
+.META INSTRUCCIONES
+MOV R1, IMDT [0000111000000b] ; 
+MOV R2, IMDT [0000111000000b] ;
+MOV R3, IMDT [0000111000000b]
+MOV R1, [IMDT] [0000111000000b]
+MOV R4, R1 [0000111000000b] ; Define posibilidad de transferir contenido de registro 1 a registro 4
+MOV R5, R2 [000a000ch] ; Define posibilidad de transferir contenido de registro 2 a registro 5
+
+; No validas estudiante debe definir las operaciones
+MOV RN, RN [000a000ch] ; Define todas las operaciones de transferencia entre registros empezando en 000a000ch
+MOV ALL, ALL [000a000ch] ; Define todas las operaciones de transferencia entre registro y memoria, memoria y registro, etc, empezando en 000a000ch
+INC ALL
