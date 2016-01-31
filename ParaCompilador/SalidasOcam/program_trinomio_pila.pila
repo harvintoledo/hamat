@@ -1,0 +1,29 @@
+;*****************************************************************************
+;***   Proyecto Emulador de procesadores                                   ***
+;***   Integrantes                                                         ***
+;***   Jorge Potosme                                                       ***
+;***   Harvin Toledo                                                       ***
+;***   Fecha: Domingo 31 de enero de 2016                                  ***
+;***   Universidad Nacional de Ingeniería UNI                              ***
+;***   Ejemplo del trinomio, ecuacion del trinomio y su formula canonica   ***
+;***   Evalua maquina de pila                                              ***
+;*****************************************************************************
+push -1
+push b
+mult
+push b
+push b
+mult
+push 4
+push a
+mult
+push c
+mult
+sub
+add
+push 2
+push a
+mult
+div
+sto x
+

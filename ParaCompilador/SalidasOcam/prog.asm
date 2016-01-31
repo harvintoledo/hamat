@@ -1,10 +1,11 @@
-; Proyecto Emulador de procesadores
-; Integrantes
-; Jorge Potosme
-; Harvin Toledo
-; Fecha: Sabado 30 de enero de 2016
-; Universidad Nacional de Ingeniería UNI
-
+;******************************************************
+;***   Proyecto Emulador de procesadores            ***
+;***   Integrantes                                  ***
+;***   Jorge Potosme                                ***
+;***   Harvin Toledo                                ***
+;***   Fecha: Sabado 30 de enero de 2016            ***
+;***   Universidad Nacional de Ingeniería UNI       ***
+;******************************************************
 MOV reg1, 117
 MOV reg2, 400
 MOV reg3, reg2
@@ -17,3 +18,6 @@ INC reg1
 INC reg2
 INC reg3
 INC reg4
+AND reg1, reg2
+OR reg3, reg4
+MOV [100], reg1
