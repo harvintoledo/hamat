@@ -14,19 +14,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    classwizard.cpp \
-    intropage.cpp \
-    classinfopage.cpp \
-    codestylepage.cpp \
-    conclusionpage.cpp \
-    outputfilespage.cpp
+    classwizard.cpp
 
 HEADERS  += mainwindow.h \
-    classwizard.h \
-    intropage.h \
-    classinfopage.h \
-    codestylepage.h \
-    conclusionpage.h \
-    outputfilespage.h
+    classwizard.h
 
 FORMS    += mainwindow.ui
