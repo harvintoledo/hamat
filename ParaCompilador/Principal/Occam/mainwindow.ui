@@ -39,6 +39,8 @@
     <property name="title">
      <string>&amp;Nuevo</string>
     </property>
+    <addaction name="action_Nuevo"/>
+    <addaction name="separator"/>
     <addaction name="action_Abrir_Proyecto"/>
     <addaction name="separator"/>
     <addaction name="action_Cerrar_Proyecto"/>
@@ -130,6 +132,11 @@
   <action name="action_Guia_de_Usuario">
    <property name="text">
     <string>&amp;Guia de Usuario</string>
+   </property>
+  </action>
+  <action name="action_Nuevo">
+   <property name="text">
+    <string>&amp;Nuevo</string>
    </property>
   </action>
  </widget>

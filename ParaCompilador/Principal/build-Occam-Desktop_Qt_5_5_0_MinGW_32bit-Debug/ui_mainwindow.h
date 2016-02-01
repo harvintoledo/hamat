@@ -37,6 +37,7 @@ public:
     QAction *action_Pegar;
     QAction *action_Sobre_aplicacion;
     QAction *action_Guia_de_Usuario;
+    QAction *action_Nuevo;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menu_Nuevo;
@@ -74,6 +75,8 @@ public:
         action_Sobre_aplicacion->setObjectName(QStringLiteral("action_Sobre_aplicacion"));
         action_Guia_de_Usuario = new QAction(MainWindow);
         action_Guia_de_Usuario->setObjectName(QStringLiteral("action_Guia_de_Usuario"));
+        action_Nuevo = new QAction(MainWindow);
+        action_Nuevo->setObjectName(QStringLiteral("action_Nuevo"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -97,6 +100,8 @@ public:
         menuBar->addAction(menu_Nuevo->menuAction());
         menuBar->addAction(menuEdicion->menuAction());
         menuBar->addAction(menuAyuda->menuAction());
+        menu_Nuevo->addAction(action_Nuevo);
+        menu_Nuevo->addSeparator();
         menu_Nuevo->addAction(action_Abrir_Proyecto);
         menu_Nuevo->addSeparator();
         menu_Nuevo->addAction(action_Cerrar_Proyecto);
@@ -131,6 +136,7 @@ public:
         action_Pegar->setText(QApplication::translate("MainWindow", "&Pegar", 0));
         action_Sobre_aplicacion->setText(QApplication::translate("MainWindow", "&Sobre  aplicacion", 0));
         action_Guia_de_Usuario->setText(QApplication::translate("MainWindow", "&Guia de Usuario", 0));
+        action_Nuevo->setText(QApplication::translate("MainWindow", "&Nuevo", 0));
         menu_Nuevo->setTitle(QApplication::translate("MainWindow", "&Nuevo", 0));
         menuEdicion->setTitle(QApplication::translate("MainWindow", "Edicion", 0));
         menuAyuda->setTitle(QApplication::translate("MainWindow", "Ayuda", 0));
