@@ -1,18 +1,18 @@
 #ifndef CLASSWIZARD_H
 #define CLASSWIZARD_H
 #include <QWizard>
+#include <QCheckBox>
+#include <QDir>
 #include <QFile>
-#include <QMessageBox>
-#include <QVBoxLayout>
 #include <QGridLayout>
-class QCheckBox;
-class QGroupBox;
-class QLabel;
-class QLineEdit;
-class QRadioButton;
+#include <QGroupBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMessageBox>
+#include <QRadioButton>
+#include <QVBoxLayout>
 
-class ClassWizard : public QWizard
-{
+class ClassWizard : public QWizard {
     Q_OBJECT
 
 public:
@@ -21,8 +21,7 @@ public:
     void accept() Q_DECL_OVERRIDE;
 };
 
-class IntroPage : public QWizardPage
-{
+class IntroPage : public QWizardPage {
     Q_OBJECT
 
 public:
@@ -32,8 +31,7 @@ private:
     QLabel *label;
 };
 
-class ClassInfoPage : public QWizardPage
-{
+class ClassInfoPage : public QWizardPage {
     Q_OBJECT
 
 public:
@@ -52,8 +50,7 @@ private:
     QCheckBox *copyCtorCheckBox;
 };
 
-class CodeStylePage : public QWizardPage
-{
+class CodeStylePage : public QWizardPage {
     Q_OBJECT
 
 public:
@@ -72,8 +69,7 @@ private:
     QLineEdit *baseIncludeLineEdit;
 };
 
-class OutputFilesPage : public QWizardPage
-{
+class OutputFilesPage : public QWizardPage {
     Q_OBJECT
 
 public:
@@ -91,8 +87,7 @@ private:
     QLineEdit *implementationLineEdit;
 };
 
-class ConclusionPage : public QWizardPage
-{
+class ConclusionPage : public QWizardPage {
     Q_OBJECT
 
 public:
@@ -105,5 +100,4 @@ private:
     QLabel *label;
 };
 
-#endif
 #endif // CLASSWIZARD_H

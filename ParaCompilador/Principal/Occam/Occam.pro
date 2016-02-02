@@ -20,3 +20,6 @@ HEADERS  += mainwindow.h \
     classwizard.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    classwizard.qrc
