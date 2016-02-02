@@ -1,0 +1,6 @@
+Implementacion de etiqueta POP para emulador de dos direcciones
+
+Se implementara la operacion POP entre registros y memoria de lenguaje ensamblador para dos direcciones, tanto para ejecucion como para definicion de codigo segun objetivos del proyecto
+
+
+

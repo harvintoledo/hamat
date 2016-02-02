@@ -1,0 +1,15 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\classwizard.o
+./debug\intropage.o
+./debug\classinfopage.o
+./debug\codestylepage.o
+./debug\conclusionpage.o
+./debug\outputfilespage.o
+./debug\moc_mainwindow.o
+./debug\moc_classwizard.o
+./debug\moc_intropage.o
+./debug\moc_classinfopage.o
+./debug\moc_codestylepage.o
+);
