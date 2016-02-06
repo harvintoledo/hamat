@@ -20,4 +20,6 @@ ParaCompilador/2dpainting/Release
 ParaCompilador/2hellogl2/Debug
 ParaCompilador/2hellogl2/Release
 
-
+# .net
+ParaCompilador/TemplateCS/TemplateCS/bin
+ParaCompilador/TemplateCS/TemplateCS/obj
