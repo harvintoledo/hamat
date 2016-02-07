@@ -5,3 +5,7 @@ https://es.wikipedia.org/wiki/Arquitectura_de_von_Neumann
 
 Asistente de creacion de proeycto de tres direcciones, dos direcciones y pila
 http://doc.qt.io/qt-5/qtwidgets-dialogs-classwizard-example.html
+
+Documentación de lenguaje ensamblador
+http://ensam1.blogspot.mx/2005/09/63-operandos-logicos.html
+
