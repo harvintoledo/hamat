@@ -20,6 +20,10 @@ INC reg3
 INC reg4
 AND reg1, reg2
 OR reg3, reg4
+SHL reg1, 3
+SHL reg2, 2
+SHR reg1, 3
+SHR reg2, 2
 PUSH reg1
 PUSH reg2
 PUSH reg3

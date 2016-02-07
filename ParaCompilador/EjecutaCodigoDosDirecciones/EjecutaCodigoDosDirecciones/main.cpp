@@ -18,7 +18,6 @@ typedef struct {
     int indice;
     int contenido;
 } stMemoria;
-
 #define ARQUITECTURA_8BITS 8
 #define ARQUITECTURA_16BITS 16
 #define ARQUITECTURA_32BITS 32
@@ -242,7 +241,6 @@ int Pop() {
         ilContenido = pila[sp].contenido;
         sp--;
     }
-
     return ilContenido;
 }
 void EnsamblarPrograma() {
@@ -869,99 +867,99 @@ void EvaluarInstruccion() {
             else
             zf = true;
             break;
-        case TEST:
-            switch(emTipoOperando) {
-            case TO_REGISTRO_REGISTRO:
-                registros[imValDestino] &= registros[imValOrigen];
-                break;
-            case TO_REGISTRO_INMEDIATO:
-                registros[imValDestino] &= imValOrigen ;
-                break;
-            case TO_INMEDIATO_REGISTRO:
-                // Error
-                emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
-                break;
-            case TO_REGISTRO_MEMORIA:
-                registros[imValDestino] &= memoria[imValOrigen].contenido;
-                break;
-            case TO_MEMORIA_REGISTRO:
-                memoria[imValDestino].contenido &= registros[imValOrigen];
-                break;
-            default:
-                break;
-            }
+        default:
             break;
-        case NOT:
-            switch(emTipoOperando) {
-            case TO_REGISTRO:
-                registros[imValDestino] = !registros[imValDestino];
-                break;
-            case TO_MEMORIA:
-                memoria[imValDestino].contenido = !memoria[imValDestino].contenido;
-                break;
-            default:
-                break;
-            }
+        }
+        break;
+    case TEST:
+        switch(emTipoOperando) {
+        case TO_REGISTRO_REGISTRO:
+            registros[imValDestino] &= registros[imValOrigen];
             break;
-        case LEA:
+        case TO_REGISTRO_INMEDIATO:
+            registros[imValDestino] &= imValOrigen ;
             break;
-        case LDS:
+        case TO_INMEDIATO_REGISTRO:
+            // Error
+            emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
             break;
-        case LES:
+        case TO_REGISTRO_MEMORIA:
+            registros[imValDestino] &= memoria[imValOrigen].contenido;
             break;
-        case SHL:
-            switch(emTipoOperando) {
-            case TO_REGISTRO_REGISTRO:
-                registros[imValDestino] <<= imValOrigen;
-                break;
-            case TO_REGISTRO_INMEDIATO:
-                registros[imValDestino] <<= imValOrigen;
-                break;
-            case TO_INMEDIATO_REGISTRO:
-                // Error
-                emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
-                break;
-            case TO_REGISTRO_MEMORIA:
-                // Error
-                registros[imValDestino] += memoria[imValOrigen].contenido;
-                break;
-            case TO_MEMORIA_REGISTRO:
-                // Error
-                memoria[imValDestino].contenido += registros[imValOrigen];
-                break;
-            case TO_MEMORIA_INMEDIATO:
-                memoria[imValDestino].contenido <<= imValOrigen;
-                break;
-            default:
-                break;
-            }
+        case TO_MEMORIA_REGISTRO:
+            memoria[imValDestino].contenido &= registros[imValOrigen];
             break;
-        case SHR:
-            switch(emTipoOperando) {
-            case TO_REGISTRO_REGISTRO:
-                registros[imValDestino] >>= imValOrigen;
-                break;
-            case TO_REGISTRO_INMEDIATO:
-                registros[imValDestino] >>= imValOrigen;
-                break;
-            case TO_INMEDIATO_REGISTRO:
-                // Error
-                emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
-                break;
-            case TO_REGISTRO_MEMORIA:
-                // Error
-                registros[imValDestino] += memoria[imValOrigen].contenido;
-                break;
-            case TO_MEMORIA_REGISTRO:
-                // Error
-                memoria[imValDestino].contenido += registros[imValOrigen];
-                break;
-            case TO_MEMORIA_INMEDIATO:
-                memoria[imValDestino].contenido >>= imValOrigen;
-                break;
-            default:
-                break;
-            }
+        default:
+            break;
+        }
+        break;
+    case NOT:
+        switch(emTipoOperando) {
+        case TO_REGISTRO:
+            registros[imValDestino] = !registros[imValDestino];
+            break;
+        case TO_MEMORIA:
+            memoria[imValDestino].contenido = !memoria[imValDestino].contenido;
+            break;
+        default:
+            break;
+        }
+        break;
+    case LEA:
+        break;
+    case LDS:
+        break;
+    case LES:
+        break;
+    case SHL:
+        switch(emTipoOperando) {
+        case TO_REGISTRO_REGISTRO:
+            registros[imValDestino] <<= imValOrigen;
+            break;
+        case TO_REGISTRO_INMEDIATO:
+            registros[imValDestino] <<= imValOrigen;
+            break;
+        case TO_INMEDIATO_REGISTRO:
+            // Error
+            emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
+            break;
+        case TO_REGISTRO_MEMORIA:
+            // Error
+            registros[imValDestino] += memoria[imValOrigen].contenido;
+            break;
+        case TO_MEMORIA_REGISTRO:
+            // Error
+            memoria[imValDestino].contenido += registros[imValOrigen];
+            break;
+        case TO_MEMORIA_INMEDIATO:
+            memoria[imValDestino].contenido <<= imValOrigen;
+            break;
+        default:
+            break;
+        }
+        break;
+    case SHR:
+        switch(emTipoOperando) {
+        case TO_REGISTRO_REGISTRO:
+            registros[imValDestino] >>= imValOrigen;
+            break;
+        case TO_REGISTRO_INMEDIATO:
+            registros[imValDestino] >>= imValOrigen;
+            break;
+        case TO_INMEDIATO_REGISTRO:
+            // Error
+            emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
+            break;
+        case TO_REGISTRO_MEMORIA:
+            // Error
+            registros[imValDestino] += memoria[imValOrigen].contenido;
+            break;
+        case TO_MEMORIA_REGISTRO:
+            // Error
+            memoria[imValDestino].contenido += registros[imValOrigen];
+            break;
+        case TO_MEMORIA_INMEDIATO:
+            memoria[imValDestino].contenido >>= imValOrigen;
             break;
         default:
             break;
