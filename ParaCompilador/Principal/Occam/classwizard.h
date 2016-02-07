@@ -19,6 +19,11 @@ public:
     ClassWizard(QWidget *parent = 0);
 
     void accept() Q_DECL_OVERRIDE;
+protected:
+    void GenerarAnalizadorNetBeans(QString);
+private:
+    QString smNombreArchivo;
+
 };
 
 class IntroPage : public QWizardPage {

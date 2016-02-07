@@ -1,57 +1,3 @@
-.FECHA
-Lunes 1ro de Febrero de 2016
-.INTEGRANTES
-Harvin Manuel Toledo POLANCO
-.CARNET
-2008-23634
-.INTEGRANTES
-Jorge Manuel Potosme Alvarez
-.CARNET
-2008-00000
-.ARQUITECTURA
-DOSDIRECCIONES
-.META LENGUAJE
-MOV MOVER
-ADD SUMAR
-MULT MULTIPLICAR
-SUB SUBSTRAER
-R1 AX
-R2 BX
-R3 CX
-R4 DX
-.META INSTRUCCIONES
-MOV AX, INMEDIATO [b8h]
-MOV AX, INMEDIATO [10111000b]
-MOV AL, INMEDIATO [b0h]
-MOV AL, INMEDIATO [10110000b]
-MOV AH, INMEDIATO [b4h]
-MOV AH, INMEDIATO [1000000011000100B]
-ADD AL, INMEDIATO [02h]
-ADD AL, INMEDIATO [00000010b]
-MOV AX, INMEDIATO [a5h]
-ADD AX, INMEDIATO [b8h]
-; Advertencia: "MOV AX, INMEDIATO [a5h]" de la linea 32 ya esta definida en la linea 23 como "MOV AX, INMEDIATO [b8h]"
-
-; Error en la instrucion "ADD AX, INMEDIATO [b8]" de la linea 32 se ha repetido codigo de instrucion como b8h que ya esta presente en la linea 23 como "MOV AX, INMEDIATO [b8h]"
- 
-MOV R1, IMDT [0000111000000b] ; 
-MOV R2, IMDT [0000111000000b] ;
-MOV R3, IMDT [0000111000000b]
-MOV R1, [IMDT] [0000111000000b]
-MOV R4, R1 [0000111000000b] ; Define posibilidad de transferir contenido de registro 1 a registro 4
-MOV R5, R2 [000a000ch] ; Define posibilidad de transferir contenido de registro 2 a registro 5
-
-; No validas estudiante debe definir las operaciones
-MOV RN, RN [000a000ch] ; Define todas las operaciones de transferencia entre registros empezando en 000a000ch
-MOV ALL, ALL [000a000ch] ; Define todas las operaciones de transferencia entre registro y memoria, memoria y registro, etc, empezando en 000a000ch
-INC ALL
-
-MOVER AX, 01h
-AX=0100h
-MOVER EAX, 16092016h
-EAXH=1609h
-EAXL=2016h
-
 --- Ejemplo de definicion de codigo
 .arquitectura #DosDirecciones
 .entornoDeDesarrollo "Plataforma Netbeans"
@@ -66,7 +12,8 @@ EAXL=2016h
 .assembler
 .start
 .instruction
-MOV R1, INMEDIATO [0001-001-000-00] 
+;Descomentar las lineas de codigo para vear ejemplo de funcionamiento
+;MOV R1, INMEDIATO [0001-001-000-00] 
 MOV R2, INMEDIATO [0001-010-000-00]
 MOV R3, INMEDIATO [0001-011-000-00]
 MOV R4, INMEDIATO [0001-100-000-00]
@@ -108,4 +55,3 @@ ADD R7, [MEMORIA] [0010-101-000-01]
 ADD R8, [MEMORIA] [0010-111-000-01]
 
 .end
-

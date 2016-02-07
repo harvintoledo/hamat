@@ -7,16 +7,17 @@ ClassWizard::ClassWizard(QWidget *parent) : QWizard(parent) {
         addPage(new OutputFilesPage);
         addPage(new ConclusionPage);
 
-        setPixmap(QWizard::BannerPixmap, QPixmap(":/Images/banners.png"));
-        setPixmap(QWizard::BackgroundPixmap, QPixmap(":/Images/background.png"));
+        setPixmap(QWizard::BannerPixmap, QPixmap(":Images/banner.png"));
+        setPixmap(QWizard::BackgroundPixmap, QPixmap(":Images/background.png"));
 
-        setWindowTitle("Class Wizard");
+        setWindowTitle("Asistente de generador de codigo - Arquitectura de Maquinas III  - UNI");
 
 }
 
 void ClassWizard::accept() {
     QByteArray className = field("className").toByteArray();
     QByteArray baseClass = field("baseClass").toByteArray();
+    smNombreArchivo = QString("%1").arg(field("className").toString());
     QByteArray macroName = field("macroName").toByteArray();
     QByteArray baseInclude = field("baseInclude").toByteArray();
 
@@ -25,7 +26,7 @@ void ClassWizard::accept() {
     QString implementation = field("implementation").toString();
 
     QByteArray block;
-
+    GenerarAnalizadorNetBeans(outputDir);
     if(field("comment").toBool()) {
         block +="/*\n";
         block += "   " + header.toLatin1() + "\n";
@@ -149,14 +150,14 @@ void ClassWizard::accept() {
 }
 
 IntroPage::IntroPage(QWidget *parent) : QWizardPage(parent) {
-    setTitle(tr("Introduction"));
+    setTitle(tr("Introduccion"));
     setPixmap(QWizard::WatermarkPixmap, QPixmap(":/Images/watermark1.png"));
 
-    label = new QLabel(tr("This wizard will generate a skelenton C++ class "
-                          "definition, including a few function. You simply "
-                          "need to specify the class name a set a few "
-                          "options to produce a header file and an "
-                          "Implementation file for your new C++ class."));
+    label = new QLabel(tr("Este es un asistente que generara un esqueleto "
+                          "para definir codigo ensamblador para cualquier herramienta "
+                          "que simula la ejecucion de procesador. Usted puede escoger "
+                          "la arquitectora para la que construira el simulador "
+                          "y el entorno de trabajo, para Netbeans o Miscrosoft Visual C#."));
     label->setWordWrap(true);
 
     QVBoxLayout *layout = new QVBoxLayout;
@@ -167,29 +168,30 @@ IntroPage::IntroPage(QWidget *parent) : QWizardPage(parent) {
 
 ClassInfoPage::ClassInfoPage(QWidget *parent)
     : QWizardPage(parent) {
-   setTitle(tr("Class Information"));
-   setSubTitle(tr("Specify basic information about the class for wich you "
-                  "want to generate skeleton source code file."));
+   setTitle(tr("Informacion del proyecto a generar"));
+   setSubTitle(tr("Especifique la informacion basica "
+                  "para el esqueleto del definidor de codigo."));
    setPixmap(QWizard::LogoPixmap, QPixmap(":/Images/logo1.png"));
 
-   classNameLabel = new QLabel(tr("&Class name:"));
+   classNameLabel = new QLabel(tr("&Nombre proyecto:"));
    classNameLineEdit = new QLineEdit;
+   classNameLineEdit->setText("SimuladorDosDirecciones");
    classNameLabel->setBuddy(classNameLineEdit);
 
 
-   baseClassLabel = new QLabel(tr("B&ase class:"));
+   baseClassLabel = new QLabel(tr("Nombre definidor:"));
    baseClassLineEdit = new QLineEdit;
+   baseClassLineEdit->setText("definidor.defi");
    baseClassLabel->setBuddy(baseClassLineEdit);
 
-   qobjectMacroCheckBox = new QCheckBox(tr("Generate Q_OBJECT &macro"));
+   qobjectMacroCheckBox = new QCheckBox(tr("Escoger arquitectura"));
 
    groupBox = new QGroupBox(tr("C&onstructor"));
 
-   qobjectCtorRadioButton = new QRadioButton(tr("&QObject-style constructor"));
-   qwidgetCtorRadioButton = new QRadioButton(tr("&QWidget-style consturctor"));
-   defaultCtorRadioButton = new QRadioButton(tr("&Default constructor"));
-   copyCtorCheckBox = new QCheckBox(tr("&Generate copy constructor and "
-                                      "operator="));
+   qobjectCtorRadioButton = new QRadioButton(tr("Arquitectura de &dos direcciones"));
+   qwidgetCtorRadioButton = new QRadioButton(tr("&Arquitectura de &tres direccciones"));
+   defaultCtorRadioButton = new QRadioButton(tr("&Arquitectura de &pila"));
+   copyCtorCheckBox = new QCheckBox(tr("&Generar plantilla de ayuda"));
 
 
    defaultCtorRadioButton->setChecked(true);
@@ -352,4 +354,42 @@ void ConclusionPage::initializePage() {
     finishText.remove('&');
     label->setText(tr("Click %1 to generate the class skeleton.")
                    .arg(finishText));
+}
+
+void ClassWizard::GenerarAnalizadorNetBeans(QString outputDir) {
+    QByteArray block;
+    QString slPackageName = "occam";
+    QFile headerFile(outputDir + "/" + smNombreArchivo + ".java");
+    block += "/*\n";
+    block += "* *********************************************************************************\n";
+    block += "* ***                                                                           ***\n";
+    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
+    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
+    block += "* *** Integrantes                                                               ***\n";
+    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
+    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
+    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
+    block += "* ***                                                                           ***\n";
+    block += "* *********************************************************************************\n";
+    block += "* */\n";
+
+    block += "package " + slPackageName + "." + smNombreArchivo + ";\n";
+    block += "import java.io.BufferedReader;\n";
+    block += "import java.io.File;\n";
+    block += "import java.io.FileInputStream;\n";
+    block += "import java.io.FileNotFoundException;;\n";
+    block += "import java.io.IOException;\n";
+    block += "import java.io.InputStreamReader;\n";
+    if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
+                             QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+                             .arg(headerFile.fileName())
+                             .arg(headerFile.errorString()));
+        return;
+    }
+    headerFile.write(block);
+    headerFile.close();
+
+
+
 }
