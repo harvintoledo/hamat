@@ -58,3 +58,24 @@ MACROS
 8.3. Manejo de Paramétros.
 8.4. Manejo de Etiquetas Locales.
 8.5. Bibliotecas de Macros.
+
+
+
+
+1. Arquitectura de dos direcciones
+1.1 Introduccion a arquitectura de dos direcciones
+1.2 Codigo de instrucciones
+1.2.1 Instrucciones de transferencia de datos
+1.2.1.1 Instruccion MOV
+1.2.2 Instrucciones aritmeticas
+1.2.2.1 Instruccion ADD
+1.2.2 Instrucciones logicas
+
+2. Arquitectura de pila
+2.1 Introduccion a arquitectura de pila
+3. Arquitectura de tres direcciones
+3.1 Introduccion a arquitectura de tres direcciones
+Referencia
+
+1. www.snip.gob.ni/xdc/amc2/Unidad2.pptx
+1. Aho, setti eidicon 2002 Construccion de compiladores

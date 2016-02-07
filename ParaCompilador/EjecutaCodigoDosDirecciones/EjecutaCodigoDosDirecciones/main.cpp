@@ -28,8 +28,8 @@ int modelo;
 int tam_modelo = 65536; // Se establece por defecto tama;o de programa small
 int registros[8];
 int programLength = 0;
-int pc = 0;
-int sp = -1;
+int pc = 0; // Contador de programas
+int sp = -1; // Puntero de pila o stack pointer
 int ds = 0;
 bool zf = false; // Flag de estado de cero, modificado despues de comparar dos numeros con CMP
 bool cf = false; // Flag de suma o resta, modificado despues de hacer una operacion de suma o resta
@@ -870,6 +870,26 @@ void EvaluarInstruccion() {
             zf = true;
             break;
         case TEST:
+            switch(emTipoOperando) {
+            case TO_REGISTRO_REGISTRO:
+                registros[imValDestino] &= registros[imValOrigen];
+                break;
+            case TO_REGISTRO_INMEDIATO:
+                registros[imValDestino] &= imValOrigen ;
+                break;
+            case TO_INMEDIATO_REGISTRO:
+                // Error
+                emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
+                break;
+            case TO_REGISTRO_MEMORIA:
+                registros[imValDestino] &= memoria[imValOrigen].contenido;
+                break;
+            case TO_MEMORIA_REGISTRO:
+                memoria[imValDestino].contenido &= registros[imValOrigen];
+                break;
+            default:
+                break;
+            }
             break;
         case NOT:
             switch(emTipoOperando) {
@@ -917,6 +937,31 @@ void EvaluarInstruccion() {
             }
             break;
         case SHR:
+            switch(emTipoOperando) {
+            case TO_REGISTRO_REGISTRO:
+                registros[imValDestino] >>= imValOrigen;
+                break;
+            case TO_REGISTRO_INMEDIATO:
+                registros[imValDestino] >>= imValOrigen;
+                break;
+            case TO_INMEDIATO_REGISTRO:
+                // Error
+                emTipoError = TE_OPERANDO_DESTINO_NO_INMEDIATO;
+                break;
+            case TO_REGISTRO_MEMORIA:
+                // Error
+                registros[imValDestino] += memoria[imValOrigen].contenido;
+                break;
+            case TO_MEMORIA_REGISTRO:
+                // Error
+                memoria[imValDestino].contenido += registros[imValOrigen];
+                break;
+            case TO_MEMORIA_INMEDIATO:
+                memoria[imValDestino].contenido >>= imValOrigen;
+                break;
+            default:
+                break;
+            }
             break;
         default:
             break;
