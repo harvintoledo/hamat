@@ -19,6 +19,18 @@ public:
     ClassWizard(QWidget *parent = 0);
 
     void accept() Q_DECL_OVERRIDE;
+protected:
+    void GeneraProyectoCompletoParaCSharp(QString);
+    void GeneraProyectoCompletoParaJavaMaven(QString);
+    void GenerarAnalizadorNetBeans(QString);
+    void GenerarArchivoPom(QString);
+    void GenerarMemoriaNetBeans(QString);
+    void GenerarMainNetBeans(QString);
+    void GenerarCLSAnalizadorNetBeans(QString);
+    void GenerarCLSMemoriaNetBeans(QString);
+private:
+    QString smNombreArchivo;
+
 };
 
 class IntroPage : public QWizardPage {

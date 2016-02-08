@@ -1,11 +1,11 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>Images/background.png</file>
-    <file>Images/banner.png</file>
-    <file>Images/logo1.png</file>
-    <file>Images/logo2.png</file>
-    <file>Images/logo3.png</file>
-    <file>Images/watermark1.png</file>
-    <file>Images/watermark2.png</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file alias="baground">Images/background.png</file>
+        <file alias="banner">Images/banner.png</file>
+        <file alias="logo1">Images/logo1.png</file>
+        <file alias="logo2">Images/logo2.png</file>
+        <file alias="logo3">Images/logo3.png</file>
+        <file alias="watermark1">Images/watermark1.png</file>
+        <file alias="watermark2">Images/watermark2.png</file>
+    </qresource>
 </RCC>

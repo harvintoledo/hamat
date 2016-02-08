@@ -53,6 +53,7 @@ public:
         MainWindow->resize(800, 600);
         MainWindow->setMinimumSize(QSize(800, 600));
         MainWindow->setMaximumSize(QSize(800, 600));
+        MainWindow->setStyleSheet(QStringLiteral(" background-image:url(:/baground);"));
         action_Abrir_Proyecto = new QAction(MainWindow);
         action_Abrir_Proyecto->setObjectName(QStringLiteral("action_Abrir_Proyecto"));
         action_Cerrar_Proyecto = new QAction(MainWindow);

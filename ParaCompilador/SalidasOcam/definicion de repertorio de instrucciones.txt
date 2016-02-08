@@ -15,7 +15,25 @@ MOV MOVER
 ADD SUMAR
 MULT MULTIPLICAR
 SUB SUBSTRAER
+R1 AX
+R2 BX
+R3 CX
+R4 DX
 .META INSTRUCCIONES
+MOV AX, INMEDIATO [b8h]
+MOV AX, INMEDIATO [10111000b]
+MOV AL, INMEDIATO [b0h]
+MOV AL, INMEDIATO [10110000b]
+MOV AH, INMEDIATO [b4h]
+MOV AH, INMEDIATO [1000000011000100B]
+ADD AL, INMEDIATO [02h]
+ADD AL, INMEDIATO [00000010b]
+MOV AX, INMEDIATO [a5h]
+ADD AX, INMEDIATO [b8h]
+; Advertencia: "MOV AX, INMEDIATO [a5h]" de la linea 32 ya esta definida en la linea 23 como "MOV AX, INMEDIATO [b8h]"
+
+; Error en la instrucion "ADD AX, INMEDIATO [b8]" de la linea 32 se ha repetido codigo de instrucion como b8h que ya esta presente en la linea 23 como "MOV AX, INMEDIATO [b8h]"
+ 
 MOV R1, IMDT [0000111000000b] ; 
 MOV R2, IMDT [0000111000000b] ;
 MOV R3, IMDT [0000111000000b]
@@ -27,3 +45,67 @@ MOV R5, R2 [000a000ch] ; Define posibilidad de transferir contenido de registro 
 MOV RN, RN [000a000ch] ; Define todas las operaciones de transferencia entre registros empezando en 000a000ch
 MOV ALL, ALL [000a000ch] ; Define todas las operaciones de transferencia entre registro y memoria, memoria y registro, etc, empezando en 000a000ch
 INC ALL
+
+MOVER AX, 01h
+AX=0100h
+MOVER EAX, 16092016h
+EAXH=1609h
+EAXL=2016h
+
+--- Ejemplo de definicion de codigo
+.arquitectura #DosDirecciones
+.entornoDeDesarrollo "Plataforma Netbeans"
+.integrante "Harvin Toledo"
+.carnet "2008-23634"
+.integrante "Jorge Potosme"
+.carnet "2008-24302"
+.fecha "Domingo 7 de febrero de 2016"
+.asignatura "Arquitectura de maquinas III"
+.docente "Jose Diaz Chow"
+.tema "Emulacion de microprocesadores"
+.assembler
+.start
+.instruction
+MOV R1, INMEDIATO [0001-001-000-00] 
+MOV R2, INMEDIATO [0001-010-000-00]
+MOV R3, INMEDIATO [0001-011-000-00]
+MOV R4, INMEDIATO [0001-100-000-00]
+MOV R5, INMEDIATO [0001-101-000-00]
+MOV R6, INMEDIATO [0001-110-000-00]
+MOV R7, INMEDIATO [0001-111-000-00]
+;MOV R8, INMEDIATO [0001] No exite registro 8
+MOV R1, [MEMORIA] [0001-001-000-01]
+MOV R2, [MEMORIA] [0001-010-000-01]
+MOV R3, [MEMORIA] [0001-011-000-01]
+MOV R4, [MEMORIA] [0001-100-000-01]
+MOV R5, [MEMORIA] [0001-101-000-01]
+MOV R6, [MEMORIA] [0001-110-000-01]
+MOV R7, [MEMORIA] [0001-101-000-01]
+MOV R8, [MEMORIA] [0001-111-000-01]
+MOV INMEDIATO, R1 [0001] ; Error
+MOV INMEDIATO, R2 [0001] ; Error
+MOV INMEDIATO, R3 [0001] ; Error
+MOV INMEDIATO, R4 [0001] ; Error
+MOV INMEDIATO, R5 [0001] ; Error
+MOV INMEDIATO, R6 [0001] ; Error
+MOV INMEDIATO, R7 [0001] ; Error
+MOV INMEDIATO, R8 [0001] ; Error
+ADD R1, INMEDIATO [0010-001-000-00] 
+ADD R2, INMEDIATO [0010-010-000-00]
+ADD R3, INMEDIATO [0010-011-000-00]
+ADD R4, INMEDIATO [0010-100-000-00]
+ADD R5, INMEDIATO [0010-101-000-00]
+ADD R6, INMEDIATO [0010-110-000-00]
+;ADD R7, INMEDIATO [0010-111-000-00]
+;ADD R8, INMEDIATO [0010] No exite registro 8
+ADD R1, [MEMORIA] [0010-001-000-01]
+ADD R2, [MEMORIA] [0010-010-000-01]
+ADD R3, [MEMORIA] [0010-011-000-01]
+ADD R4, [MEMORIA] [0010-100-000-01]
+ADD R5, [MEMORIA] [0010-101-000-01]
+ADD R6, [MEMORIA] [0010-110-000-01]
+ADD R7, [MEMORIA] [0010-101-000-01]
+ADD R8, [MEMORIA] [0010-111-000-01]
+
+.end
+

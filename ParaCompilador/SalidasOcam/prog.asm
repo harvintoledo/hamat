@@ -20,4 +20,16 @@ INC reg3
 INC reg4
 AND reg1, reg2
 OR reg3, reg4
-MOV [100], reg1
+SHL reg1, 3
+SHL reg2, 2
+SHR reg1, 3
+SHR reg2, 2
+PUSH reg1
+PUSH reg2
+PUSH reg3
+PUSH reg4
+POP reg1
+POP reg2
+POP reg3
+POP reg4
+	
