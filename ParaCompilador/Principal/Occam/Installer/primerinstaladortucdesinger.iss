@@ -33,36 +33,36 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-;Archivos para la aplicacion tuc designer 
+;Archivos para la aplicacion Occam 
 [Dirs]
 Name: "{app}\data"
 Name: "{app}\bin"
-Name: "C:\Users\Public\TucDesigner101\Archivos\Configuraciones"
-Name: "C:\Users\Public\TucDesigner101\Archivos\Temas"
-Name: "C:\Users\Public\TucDesigner101\Archivos\EjemplosTemas"
+Name: "C:\Users\Public\OcamVersion001\Archivos\Configuraciones"
+Name: "C:\Users\Public\OcamVersion001\Archivos\Temas"
+Name: "C:\Users\Public\OcamVersion001\Archivos\EjemplosTemas"
                                      
 [Files]
 ; Ejecutable compilado de aplicacion
-Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Release\Occam.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Release\release\Occam.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; Paleta de colores utilizada en la aplicacion
-Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\paleta.xml"; DestDir: "C:\Users\Public\TucDesigner101\Archivos\Configuraciones"; Flags: ignoreversion
+Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\paleta.xml"; DestDir: "C:\Users\Public\OcamVersion001\Archivos\Configuraciones"; Flags: ignoreversion
 ; Archivo con fuente para utilizarse en aplicacion
-Source: "E:\Archivos\TUC200\SISCOTUC\SISCOTUC\res\Signika-Bold.otf"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "E:\Archivos\TUC200\SISCOTUC\SISCOTUC\res\Signika-Bold.otf"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Librerias qt para el Sistema Operativo Windows
 Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Librerias\*"; DestDir: "C:\Windows\SysWOW64"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Librerias qt para el Sistema Operativo Windows
-Source: "E:\Archivos\Feedback\Ejemplos\Temas\*"; DestDir: "C:\Users\Public\Ocam001\Archivos\EjemplosTemas"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "E:\Archivos\Feedback\Ejemplos\Temas\*"; DestDir: "C:\Users\Public\Ocam001\Archivos\EjemplosTemas"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Fuentes de aplicacion Signika
 ;Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\*"; DestDir: "C:\Windows\Fonts"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika-Bold.otf"; DestDir: "{fonts}"; FontInstall: "Signika Bold"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
-Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika-Light.otf"; DestDir: "{fonts}"; FontInstall: "Signika Light"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
-Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika-Regular.otf"; DestDir: "{fonts}"; FontInstall: "Signika Regular"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
-Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika-Semibold.otf"; DestDir: "{fonts}"; FontInstall: "Signika Semibold"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
+Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika_OFL_SIL_Font\Signika_OFL_SIL_Font\Signika-Bold.otf"; DestDir: "{fonts}"; FontInstall: "Signika Bold"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
+Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika_OFL_SIL_Font\Signika_OFL_SIL_Font\Signika-Light.otf"; DestDir: "{fonts}"; FontInstall: "Signika Light"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
+Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika_OFL_SIL_Font\Signika_OFL_SIL_Font\Signika-Regular.otf"; DestDir: "{fonts}"; FontInstall: "Signika Regular"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
+Source: "E:\ProyectoFinal\ControlDeVersiones\ParaCompilador\Principal\Occam\Installer\Fuentes\Signika_OFL_SIL_Font\Signika_OFL_SIL_Font\Signika-Semibold.otf"; DestDir: "{fonts}"; FontInstall: "Signika Semibold"; Flags: onlyifdoesntexist uninsneveruninstall                                                                      
 
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"                            
 
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
