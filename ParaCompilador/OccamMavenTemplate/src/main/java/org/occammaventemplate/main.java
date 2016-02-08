@@ -14,8 +14,7 @@ import java.util.logging.Logger;
  * @author Potosme
  */
 public class main {
-    public static void main(String argvs[])
-    {
+    public static void main(String argvs[]) {
     Analizador a = new Analizador();
     
         try {

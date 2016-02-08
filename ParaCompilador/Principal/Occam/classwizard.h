@@ -21,6 +21,8 @@ public:
     void accept() Q_DECL_OVERRIDE;
 protected:
     void GenerarAnalizadorNetBeans(QString);
+    void GenerarArchivoPom(QString);
+    void GenerarMemoriaNetBeans(QString);
 private:
     QString smNombreArchivo;
 
