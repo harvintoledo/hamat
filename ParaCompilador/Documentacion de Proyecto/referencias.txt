@@ -5,3 +5,22 @@ https://es.wikipedia.org/wiki/Arquitectura_de_von_Neumann
 
 Asistente de creacion de proeycto de tres direcciones, dos direcciones y pila
 http://doc.qt.io/qt-5/qtwidgets-dialogs-classwizard-example.html
+
+Documentación de lenguaje ensamblador
+http://ensam1.blogspot.mx/2005/09/63-operandos-logicos.html
+
+Interrupciones basicas en ensamblador con 21h
+http://ict.udlap.mx/people/oleg/docencia/ASSEMBLER/asm_interrup_21.html
+
+
+Formato de uso de pila
+http://ict.udlap.mx/people/oleg/docencia/ASSEMBLER/asm_stack.html
+
+
+Instruccion jump
+http://ict.udlap.mx/people/oleg/docencia/ASSEMBLER/asm_jmp.html
+
+
+Operadores a nivel de bits 
+
+https://es.wikipedia.org/wiki/Operador_a_nivel_de_bits	

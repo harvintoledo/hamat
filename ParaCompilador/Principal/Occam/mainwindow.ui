@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>OCCAM - Arquitectura de Maquinas</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"> background-image:url(:/baground);</string>
+  </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

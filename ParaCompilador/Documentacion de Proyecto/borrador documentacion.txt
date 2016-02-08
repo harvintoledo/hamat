@@ -1,0 +1,22 @@
+borrador de documentación
+TRANSFERENCIA DE DATOS
+La instrucción MOV es la instrucción más utilizada en un microprocesador. 
+Los datos son transferidos desde un registro u operando llamado fuente a hacia un registro llamado destino.
+No se puede transferir entre dos registros directamente, ni entre dos valores de memoria. Antes de transferir de una zona a otra es importante usar un destino como pivote y transferir desde ese destino hacia otra localidad.
+Por ejemplo: 
+MOV DX, DATO1
+MOV DATO2, DX
+
+
+denominadas de transferencia de direcciones.
+- LEA o cargar dirección efectiva.
+
+LEA, carga el desplazamiento u OFFSET correspondiente al operando fuente en el operando destino. Por ejemplo, la instrucción MOVE BX, OFFSET TABLA del ejemplo anterior sería equivalente a LEA BX, TABLA.
+
+- LDS o cargar el puntero en DS.
+
+LDS, se utiliza para cargar el valor del segmento de una variable en el registro DS y el desplazamiento correspondiente en el registro o posición de memoria indicada en la instrucción. Por ejemplo, la instrucción LDS BX, NUM1 haría esquemáticamente lo siguiente:
+
+- LES o cargar el puntero en ES.
+
+LES, es similar a LDS, con la única salvedad de que el valor del segmento se carga sobre el registro de segmento ES en vez del DS.

@@ -19,5 +19,13 @@ ParaCompilador/2dpainting/Debug
 ParaCompilador/2dpainting/Release
 ParaCompilador/2hellogl2/Debug
 ParaCompilador/2hellogl2/Release
+<<<<<<< HEAD
+ParaCompilador/Principal/build-Occam-Desktop_Qt_5_5_0_MinGW_32bit-Debug/
+ParaCompilador/Principal/Occam/Occam.pro.user*
+ParaCompilador/EjecutaCodigoDosDirecciones/Debug
+=======
 
-
+# .net
+ParaCompilador/TemplateCS/TemplateCS/bin
+ParaCompilador/TemplateCS/TemplateCS/obj
+>>>>>>> f61c50060f7ff3d59b4d49908087405562804191
