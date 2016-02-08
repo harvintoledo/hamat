@@ -23,6 +23,7 @@ protected:
     void GenerarAnalizadorNetBeans(QString);
     void GenerarArchivoPom(QString);
     void GenerarMemoriaNetBeans(QString);
+    void GenerarMainNetBeans(QString);
 private:
     QString smNombreArchivo;
 

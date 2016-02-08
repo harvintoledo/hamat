@@ -52,6 +52,7 @@ void ClassWizard::accept() {
     }
     GenerarAnalizadorNetBeans(olDirectorioProyecto.absolutePath());
     GenerarMemoriaNetBeans(olDirectorioProyecto.absolutePath());
+    GenerarMainNetBeans(olDirectorioProyecto.absolutePath());
     GenerarArchivoPom(outputDir);
     QDialog::accept();
 }
@@ -388,6 +389,50 @@ void ClassWizard::GenerarMemoriaNetBeans(QString outputDir) {
     block += "    }\n";
     block += "\n";
     block += "}\n";
+    headerFile.write(block);
+    headerFile.close();
+}
+
+void ClassWizard::GenerarMainNetBeans(QString outputDir) {
+    QByteArray block;
+    QString slPackageName = "org";
+    QFile headerFile(outputDir + "/" + "main" + ".java");
+    block += "/*\n";
+    block += "* *********************************************************************************\n";
+    block += "* ***                                                                           ***\n";
+    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
+    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
+    block += "* *** Integrantes                                                               ***\n";
+    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
+    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
+    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
+    block += "* ***                                                                           ***\n";
+    block += "* *********************************************************************************\n";
+    block += "* */\n";
+    block += "package " + slPackageName + "." + smNombreArchivo + ";\n";
+    if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
+        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        .arg(headerFile.fileName())
+        .arg(headerFile.errorString()));
+        return;
+    }
+    block += "import java.io.IOException;\n";
+    block += "import java.util.logging.Level;\n";
+    block += "import java.util.logging.Logger;\n";
+
+    block += "public class main {\n";
+    block += "    public static void main(String argvs[]) {\n";
+    block += "    Analizador a = new Analizador();\n";
+    block += "    \n";
+    block += "        try {\n";
+    block += "            a.main(argvs);\n";
+    block += "        } catch (IOException ex) {\n";
+    block += "            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);\n";
+    block += "        }\n";
+    block += "    }\n";
+    block += "}\n";
+
     headerFile.write(block);
     headerFile.close();
 }
