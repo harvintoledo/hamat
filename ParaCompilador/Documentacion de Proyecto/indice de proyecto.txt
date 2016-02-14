@@ -77,5 +77,5 @@ MACROS
 3.1 Introduccion a arquitectura de tres direcciones
 Referencia
 
-1. www.snip.gob.ni/xdc/amc2/Unidad2.pptx
+1. www.snip.gob.ni/xdc/amc2/Unidad2.ppt
 1. Aho, setti eidicon 2002 Construccion de compiladores

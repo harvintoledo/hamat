@@ -24,7 +24,8 @@ ParaCompilador/Principal/build-Occam-Desktop_Qt_5_5_0_MinGW_32bit-Debug/
 ParaCompilador/Principal/Occam/Occam.pro.user*
 ParaCompilador/EjecutaCodigoDosDirecciones/Debug
 =======
-
+ParaCompilador/Principal/Debug
+ParaCompilador/Principal/Release
 # .net
 ParaCompilador/TemplateCS/TemplateCS/bin
 ParaCompilador/TemplateCS/TemplateCS/obj

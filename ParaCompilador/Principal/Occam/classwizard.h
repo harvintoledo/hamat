@@ -26,8 +26,19 @@ protected:
     void GenerarArchivoPom(QString);
     void GenerarMemoriaNetBeans(QString);
     void GenerarMainNetBeans(QString);
-    void GenerarCLSAnalizadorNetBeans(QString);
-    void GenerarCLSMemoriaNetBeans(QString);
+    void GenerarCLSAnalizadorCSharp(QString);
+    void GenerarCLSMemoriaCSharp(QString);
+    void GenerarPlantillaDeProyectoCSharp(QString);
+    void GenerarArchivoProgramCSharp(QString);
+    void GenerarArchivoAppConfigCSharp(QString);
+    void GenerarArchivoForm1CSharp(QString);
+    void GenerarArchivoForm1DesignerCSharp(QString);
+    void GenerarArchivoAssemblyInfoEnPropertiesCSharp(QString);
+    void GenerarArchivoResourceDesignerEnPropertiesCSharp(QString);
+    void GenerarArchivoResourceResxEnPropertiesCSharp(QString);
+    void GenerarArchivoSettingsDesignerEnPropertiesCSharp(QString);
+    void GenerarArchivoSettingsSettingsEnPropertiesCSharp(QString);
+    void GenerarArchivoDeSolucionDelProyectoCSharp(QString);
 private:
     QString smNombreArchivo;
 
