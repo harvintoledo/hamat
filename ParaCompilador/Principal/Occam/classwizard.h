@@ -40,7 +40,13 @@ protected:
     void GenerarArchivoSettingsSettingsEnPropertiesCSharp(QString);
     void GenerarArchivoDeSolucionDelProyectoCSharp(QString);
 private:
-    QString smNombreArchivo;
+    QString smNombreArchivo,
+    smArquitecturaDefinida,
+    smNombreDocenteDefinido,
+    smFechaDefinida,
+    smEntornoDeDesarrolloDefinido,
+    smAsignaturaDefinida,
+    smTemaDefinido;
 
 };
 

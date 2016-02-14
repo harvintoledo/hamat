@@ -4,7 +4,7 @@ Se implementara la operacion SUB de lenguaje ensamblador para dos direcciones, t
 
 git>
 Agregado control de errores mediante variable de estado.
-Se verica que no permita ciertas operaciones entre registros ya sea inmediato, de registros o de memoria.
+Se verifica que no permita ciertas operaciones entre registros ya sea inmediato, de registros o de memoria.
 Agregada la operacion AND a nivel de bits, efectua operacion AND a nivel de bits entre origen y destino y la almacena en destino.
 Agregada la operacion OR a nivel de bits, efectua operacion OR a nivel de bits entre origen y destino y la almacena en destino.
 Agregado ejemplo para ensamblador de pila

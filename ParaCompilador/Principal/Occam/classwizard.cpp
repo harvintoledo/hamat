@@ -8,6 +8,12 @@ ClassWizard::ClassWizard(QWidget *parent) : QWizard(parent) {
     setPixmap(QWizard::BannerPixmap, QPixmap(":Images/banner.png"));
     setPixmap(QWizard::BackgroundPixmap, QPixmap(":Images/background.png"));
     setWindowTitle("Asistente de generador de codigo - Arquitectura de Maquinas III  - UNI");
+    smArquitecturaDefinida =
+        smNombreDocenteDefinido =
+        smFechaDefinida =
+        smEntornoDeDesarrolloDefinido =
+        smAsignaturaDefinida =
+        smTemaDefinido = "";
 }
 void ClassWizard::accept() {
     QByteArray className = field("className").toByteArray();
@@ -1349,3 +1355,11 @@ void ClassWizard::GenerarArchivoDeSolucionDelProyectoCSharp(QString outputDir) {
     headerFile.close();
 }
 
+
+bool ClassWizard::AnalizarCodigo() {
+    bool blResultado = false; // El resultado es verdadero si el codigo se compilo con exito
+    // Verificar definiciones y arquitectura
+    // Verificar nombre de proyecto
+    // Verificar nombre de docente
+    // Analizar cuerpo de codigo de definicion de programa
+}
