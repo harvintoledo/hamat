@@ -17,7 +17,7 @@ void MainWindow::on_action_Copiar_triggered() {
 }
 
 void MainWindow::on_action_Nuevo_triggered() {
-    bn = "";
+    slRutaDeTrabajo = "";
     ui->textEdit->setPlainText("");
 }
 
@@ -38,15 +38,15 @@ void MainWindow::on_action_Deshacer_triggered() {
 }
 
 void MainWindow::on_action_Abrir_Proyecto_triggered() {
-    QString pbloc = QFileDialog::getOpenFileName(this, "Abrir proyecto Occam");
+    QString slRutaIndicadaPorUsuario = QFileDialog::getOpenFileName(this, "Abrir proyecto Occam");
 
-    if(!pbloc.isEmpty()) {
-        QFile archT(pbloc);
-        if(archT.open(QFile::ReadOnly | QFile::Text)) {
-            bn = pbloc;
-            QTextStream n(&archT);
+    if(!slRutaIndicadaPorUsuario.isEmpty()) {
+        QFile olArchivoALeerEnEditorDeTexto(slRutaIndicadaPorUsuario);
+        if(olArchivoALeerEnEditorDeTexto.open(QFile::ReadOnly | QFile::Text)) {
+            slRutaDeTrabajo = slRutaIndicadaPorUsuario;
+            QTextStream n(&olArchivoALeerEnEditorDeTexto);
             QString text = n.readAll();
-            archT.close();
+            olArchivoALeerEnEditorDeTexto.close();
 
             ui->textEdit->setPlainText(text);
         }
@@ -55,14 +55,23 @@ void MainWindow::on_action_Abrir_Proyecto_triggered() {
 
 void MainWindow::on_action_Guardar_Proyecto_triggered() {
 
-    QFile archJ(bn);
+    QFile olArchivoAGuardarDesdeEditorTexto(slRutaDeTrabajo);
 
-    if(archJ.open(QFile::ReadWrite | QFile::Text )) {
-        QTextStream stream(&archJ);
+    if(olArchivoAGuardarDesdeEditorTexto.open(QFile::ReadWrite | QFile::Text )) {
+        QTextStream stream(&olArchivoAGuardarDesdeEditorTexto);
 
         stream << ui->textEdit->toPlainText();
-        archJ.flush();
-        archJ.close();
+        olArchivoAGuardarDesdeEditorTexto.flush();
+        olArchivoAGuardarDesdeEditorTexto.close();
     }
 
+}
+
+void MainWindow::on_actionGuardar_Como_triggered() {
+    QString slRutaArhivoIndicadaPorUsuario = QFileDialog::getSaveFileName(this, "Guardar como");
+
+    if(!slRutaArhivoIndicadaPorUsuario.isEmpty()) {
+        slRutaDeTrabajo = slRutaArhivoIndicadaPorUsuario;
+        on_action_Guardar_Proyecto_triggered();
+    }
 }

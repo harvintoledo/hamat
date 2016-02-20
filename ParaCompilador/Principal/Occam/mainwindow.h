@@ -35,10 +35,12 @@ private slots:
 
     void on_action_Guardar_Proyecto_triggered();
 
+    void on_actionGuardar_Como_triggered();
+
 private:
     Ui::MainWindow *ui;
 protected:
-    QString bn;
+    QString slRutaDeTrabajo;
 };
 
 #endif // MAINWINDOW_H
