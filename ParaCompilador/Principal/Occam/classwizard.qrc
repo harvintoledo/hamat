@@ -7,5 +7,19 @@
         <file alias="logo3">Images/logo3.png</file>
         <file alias="watermark1">Images/watermark1.png</file>
         <file alias="watermark2">Images/watermark2.png</file>
+        <file alias="Delete">Images/Delete.png</file>
+        <file alias="Export">Images/Export.png</file>
+        <file alias="File">Images/File.png</file>
+        <file alias="Import">Images/Import.png</file>
+        <file alias="New">Images/New.png</file>
+        <file alias="Open">Images/Open.png</file>
+        <file alias="Options">Images/Options.png</file>
+        <file alias="Redo">Images/Redo.png</file>
+        <file alias="SaveAs">Images/SaveAs.png</file>
+        <file alias="Undo">Images/Undo.png</file>
+        <file>Images/Copy.png</file>
+        <file>Images/Cut.png</file>
+        <file>Images/DeleteFile.png</file>
+        <file>Images/Paste.png</file>
     </qresource>
 </RCC>

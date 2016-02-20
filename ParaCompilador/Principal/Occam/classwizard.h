@@ -39,6 +39,7 @@ protected:
     void GenerarArchivoSettingsDesignerEnPropertiesCSharp(QString);
     void GenerarArchivoSettingsSettingsEnPropertiesCSharp(QString);
     void GenerarArchivoDeSolucionDelProyectoCSharp(QString);
+    bool AnalizarCodigo();
 private:
     QString smNombreArchivo,
     smArquitecturaDefinida,
