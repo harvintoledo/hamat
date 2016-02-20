@@ -26,9 +26,26 @@
    <string>OCCAM - Arquitectura de Maquinas</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"> background-image:url(:/baground);</string>
+   <string notr="true"/>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>781</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -40,7 +57,7 @@
    </property>
    <widget class="QMenu" name="menu_Nuevo">
     <property name="title">
-     <string>&amp;Nuevo</string>
+     <string>&amp;Archivo</string>
     </property>
     <addaction name="action_Nuevo"/>
     <addaction name="separator"/>
@@ -80,6 +97,11 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="action_Rehacer"/>
+   <addaction name="action_Deshacer"/>
+   <addaction name="action_Copiar"/>
+   <addaction name="action_Cortar"/>
+   <addaction name="action_Pegar"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Abrir_Proyecto">
@@ -103,28 +125,63 @@
    </property>
   </action>
   <action name="action_Rehacer">
+   <property name="icon">
+    <iconset resource="classwizard.qrc">
+     <normaloff>:/Redo</normaloff>:/Redo</iconset>
+   </property>
    <property name="text">
     <string>&amp;Rehacer</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
   </action>
   <action name="action_Deshacer">
+   <property name="icon">
+    <iconset resource="classwizard.qrc">
+     <normaloff>:/Undo</normaloff>:/Undo</iconset>
+   </property>
    <property name="text">
     <string>&amp;Deshacer</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
   </action>
   <action name="action_Copiar">
+   <property name="icon">
+    <iconset resource="classwizard.qrc">
+     <normaloff>:/Images/Copy.png</normaloff>:/Images/Copy.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Copiar</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
   </action>
   <action name="action_Cortar">
+   <property name="icon">
+    <iconset resource="classwizard.qrc">
+     <normaloff>:/Images/Cut.png</normaloff>:/Images/Cut.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Cortar</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
   </action>
   <action name="action_Pegar">
+   <property name="icon">
+    <iconset resource="classwizard.qrc">
+     <normaloff>:/Images/Paste.png</normaloff>:/Images/Paste.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Pegar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
    </property>
   </action>
   <action name="action_Sobre_aplicacion">
@@ -144,6 +201,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="classwizard.qrc"/>
+ </resources>
  <connections/>
 </ui>
