@@ -11,7 +11,7 @@
 #include <QMessageBox>
 #include <QRadioButton>
 #include <QVBoxLayout>
-
+#include <QDateTime>
 class ClassWizard : public QWizard {
     Q_OBJECT
 
@@ -19,7 +19,21 @@ public:
     ClassWizard(QWidget *parent = 0);
 
     void accept() Q_DECL_OVERRIDE;
+    QString getNombreDelProyecto() {
+        return smNombreDelProyecto;
+    }
+    void setNombreDelProyecto(QString spNombreDelProyecto) {
+        smNombreDelProyecto = spNombreDelProyecto;
+    }
+    QString getUbicacionDelProyecto() {
+        return smUbicacionDelProyecto;
+    }
+    void setUbicacionDelProyecto(QString spUbicacionDelProyecto) {
+        smUbicacionDelProyecto = spUbicacionDelProyecto;
+    }
+
 protected:
+    void GenerarProyectoOccam(QString);
     void GeneraProyectoCompletoParaCSharp(QString);
     void GeneraProyectoCompletoParaJavaMaven(QString);
     void GenerarAnalizadorNetBeans(QString);
@@ -41,13 +55,16 @@ protected:
     void GenerarArchivoDeSolucionDelProyectoCSharp(QString);
     bool AnalizarCodigo();
 private:
-    QString smNombreArchivo,
+    QString smNombreDelProyecto,
+    smUbicacionDelProyecto,
     smArquitecturaDefinida,
     smNombreDocenteDefinido,
     smFechaDefinida,
     smEntornoDeDesarrolloDefinido,
     smAsignaturaDefinida,
     smTemaDefinido;
+    QByteArray omBlockProyectoOccam,
+    omBlockPlantillaCSharpJava;
 
 };
 
@@ -130,4 +147,81 @@ private:
     QLabel *label;
 };
 
+class ClaseAsistenteNombreProyecto : public QWizardPage {
+    Q_OBJECT
+
+public:
+    ClaseAsistenteNombreProyecto(QWidget *parent = 0);
+
+protected:
+    void initializePage() Q_DECL_OVERRIDE;
+
+private:
+    QLabel *omLabelNombreDelProyecto;
+    QLineEdit *omEditNombreDelProyecto;
+};
+
+class ClaseAsistenteEntornoDeDesarrollo : public QWizardPage {
+    Q_OBJECT
+
+public:
+    ClaseAsistenteEntornoDeDesarrollo(QWidget *parent = 0);
+
+private:
+    QGroupBox *omGroupBoxEntornoDesarrollo;
+    QRadioButton *omRadioButtonNetbeans;
+    QRadioButton *omRadioButtonCSharp;
+};
+
+class ClaseAsistenteArquitectura : public QWizardPage {
+    Q_OBJECT
+
+public:
+    ClaseAsistenteArquitectura(QWidget *parent = 0);
+
+private:
+    QGroupBox *omGroupBoxArquitectura;
+    QRadioButton *omRadioButtonArquitectura2Direcciones;
+    QRadioButton *omRadioButtonArquitectura3Direcciones;
+    QRadioButton *omRadioButtonArquitecturaPila;
+};
+class ClaseAsistenteDatosDelProyecto : public QWizardPage {
+    Q_OBJECT
+
+public:
+    ClaseAsistenteDatosDelProyecto(QWidget *parent = 0);
+
+private:
+    QLabel *omLabelNombreDocente;
+    QLabel *omLabelNombreIntegrante1;
+    QLabel *omLabelNombreIntegrante2;
+    QLabel *omLabelNombreIntegrante3;
+    QLabel *omLabelNombreIntegrante4;
+    QLabel *omLabelNombreIntegrante5;
+    QLabel *omLabelNombreIntegrante6;
+
+    QLineEdit *omLineEditNombreDocente;
+    QLineEdit *omLineEditNombreIntegrante1;
+    QLineEdit *omLineEditNombreIntegrante2;
+    QLineEdit *omLineEditNombreIntegrante3;
+    QLineEdit *omLineEditNombreIntegrante4;
+    QLineEdit *omLineEditNombreIntegrante5;
+    QLineEdit *omLineEditNombreIntegrante6;
+    QGroupBox *groupBox;
+    QGroupBox *groupBoxDocente;
+    QGroupBox *groupBoxIntegrantes;
+};
+class ClaseAsistenteUbicacionDelProyecto : public QWizardPage {
+    Q_OBJECT
+
+public:
+    ClaseAsistenteUbicacionDelProyecto(QWidget *parent = 0);
+
+protected:
+    void initializePage() Q_DECL_OVERRIDE;
+
+private:
+    QLabel *omLabelDirectorioDeUbicacionDelProyectoPorDefecto;
+    QLineEdit *omLineEditDirectorioDeUbicacionDelProyectoPorDefecto;
+};
 #endif // CLASSWIZARD_H
