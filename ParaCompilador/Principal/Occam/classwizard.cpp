@@ -1,15 +1,12 @@
 #include "classwizard.h"
 ClassWizard::ClassWizard(QWidget *parent) : QWizard(parent) {
-    addPage(new IntroPage);
+    addPage(new ClasePaginaDeIntroduccion);
     addPage(new ClaseAsistenteNombreProyecto);
     addPage(new ClaseAsistenteEntornoDeDesarrollo);
     addPage(new ClaseAsistenteArquitectura);
     addPage(new ClaseAsistenteDatosDelProyecto);
-    addPage(new ClaseAsistenteUbicacionDelProyecto);/*
-    addPage(new ClassInfoPage);
-    addPage(new CodeStylePage);
-    addPage(new OutputFilesPage);*/
-    addPage(new ConclusionPage);
+    addPage(new ClaseAsistenteUbicacionDelProyecto);
+    addPage(new ClasePaginaDeConclusion);
     setPixmap(QWizard::BannerPixmap, QPixmap(":Images/banner.png"));
     setPixmap(QWizard::BackgroundPixmap, QPixmap(":Images/background.png"));
     setWindowTitle("Asistente de generador de codigo - Arquitectura de Maquinas III  - UNI");
@@ -28,7 +25,7 @@ void ClassWizard::accept() {
     //    GeneraProyectoCompletoParaJavaMaven(outputDir);
     //    GeneraProyectoCompletoParaCSharp(outputDir);
     GenerarProyectoOccam(outputDir);
-//    QDialog::accept();
+    QDialog::accept();
 }
 void ClassWizard::GenerarProyectoOccam(QString outputDir) {
     QByteArray block;
@@ -39,7 +36,6 @@ void ClassWizard::GenerarProyectoOccam(QString outputDir) {
     }
     block += ".FECHA\n";
     block += QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss") + "\n";
-
     if (field("omRadioButtonNetbeans").toBool()) {
         block += ".PLATAFORMA\n";
         block += "JAVANEBEANSOECLIPSE\n";
@@ -48,7 +44,6 @@ void ClassWizard::GenerarProyectoOccam(QString outputDir) {
         block += ".PLATAFORMA\n";
         block += "VISUALSTUDIOCSHARP\n";
     }
-
     if(!field("omLineEditNombreDocente").toByteArray().isEmpty()) {
         block += ".DOCENTE\n";
         block += field("omLineEditNombreDocente").toByteArray() + "\n";
@@ -195,7 +190,7 @@ void ClassWizard::GeneraProyectoCompletoParaJavaMaven(QString outputDir){
     GenerarMainNetBeans(olDirectorioProyecto.absolutePath());
     GenerarArchivoPom(outputDir);
 }
-IntroPage::IntroPage(QWidget *parent) : QWizardPage(parent) {
+ClasePaginaDeIntroduccion::ClasePaginaDeIntroduccion(QWidget *parent) : QWizardPage(parent) {
     setTitle(tr("Introduccion"));
     setPixmap(QWizard::WatermarkPixmap, QPixmap(":/Images/watermark1.png"));
     label = new QLabel(tr("Este es un asistente que generara un esqueleto "
@@ -208,94 +203,7 @@ IntroPage::IntroPage(QWidget *parent) : QWizardPage(parent) {
     layout->addWidget(label);
     setLayout(layout);
 }
-CodeStylePage::CodeStylePage(QWidget *parent) : QWizardPage(parent) {
-    setTitle(tr("Code Style Options"));
-    setSubTitle(tr("Choose the formating of the generated code."));
-    setPixmap(QWizard::LogoPixmap, QPixmap(":/Images/logo2.png"));
-    commentCheckBox = new QCheckBox("&Start generated files with a ");
-    commentCheckBox->setChecked(true);
-    protectCheckBox = new QCheckBox("tr(&Protect header file against multple "
-    "inclusion");
-    protectCheckBox->setChecked(true);
-    macroNameLabel = new QLabel(tr("&Macro name:"));
-    macroNameLineEdit = new QLineEdit;
-    macroNameLabel->setBuddy(macroNameLineEdit);
-    includeBaseCheckBox = new QCheckBox(tr("&Include class definition"));
-    baseIncludeLabel = new QLabel(tr("Base class include:"));
-    baseIncludeLineEdit = new QLineEdit;
-    baseIncludeLabel->setBuddy(baseIncludeLineEdit);
-    connect(protectCheckBox, SIGNAL(toggled(bool)),
-    macroNameLabel, SLOT(setEnabled(bool)));
-    connect(protectCheckBox, SIGNAL(toggled(bool)),
-    macroNameLineEdit, SLOT(setEnabled(bool)));
-    connect(includeBaseCheckBox, SIGNAL(toggled(bool)),
-    baseIncludeLabel, SLOT(setEnabled(bool)));
-    connect(includeBaseCheckBox, SIGNAL(toggled(bool)),
-    baseIncludeLineEdit, SLOT(setEnabled(bool)));
-    QGridLayout *layout = new QGridLayout;
-    layout->setColumnMinimumWidth(0, 20);
-    layout->addWidget(commentCheckBox, 0, 0, 1, 3);
-    layout->addWidget(protectCheckBox, 1, 0, 1, 3);
-    layout->addWidget(macroNameLabel, 2, 1);
-    layout->addWidget(macroNameLineEdit, 2, 2);
-    layout->addWidget(includeBaseCheckBox, 3, 0, 1, 3);
-    layout->addWidget(baseIncludeLabel, 4, 1);
-    layout->addWidget(baseIncludeLineEdit, 4, 2);
-    setLayout(layout);
-}
-void CodeStylePage::initializePage() {
-    QString className = field("className").toString();
-    macroNameLineEdit->setText(className.toUpper()+ "_H");
-    QString baseClass = field("baseClass").toString();
-    includeBaseCheckBox->setChecked(!baseClass.isEmpty());
-    includeBaseCheckBox->setEnabled(!baseClass.isEmpty());
-    baseIncludeLabel->setEnabled(!baseClass.isEmpty());
-    baseIncludeLineEdit->setEnabled(!baseClass.isEmpty());
-    if(baseClass.isEmpty()) {
-        baseIncludeLineEdit->clear();
-    }
-    else if(QRegExp("Q[A-Z].*").exactMatch(baseClass)) {
-        baseIncludeLineEdit->setText("<" + baseClass + ">");
-    }
-    else {
-        baseIncludeLineEdit->setText("\"" + baseClass.toLower() + ".h\"");
-    }
-}
-OutputFilesPage::OutputFilesPage(QWidget *parent)
-: QWizardPage(parent)
-{
-    setTitle(tr("Archivos generados"));
-    setSubTitle(tr("Especificar el directorio donde se quiere el proyecto "
-    "skeleton code."));
-    setPixmap(QWizard::LogoPixmap, QPixmap(":/images/logo3.png"));
-    outputDirLabel = new QLabel(tr("&Salida directorio:"));
-    outputDirLineEdit = new QLineEdit;
-    outputDirLabel->setBuddy(outputDirLineEdit);
-    headerLabel = new QLabel(tr("&Header file name:"));
-    headerLineEdit = new QLineEdit;
-    headerLabel->setBuddy(headerLineEdit);
-    implementationLabel = new QLabel(tr("&Implementation file name:"));
-    implementationLineEdit = new QLineEdit;
-    implementationLabel->setBuddy(implementationLineEdit);
-    registerField("outputDir*", outputDirLineEdit);
-    registerField("header*", headerLineEdit);
-    registerField("implementation*", implementationLineEdit);
-    QGridLayout *layout = new QGridLayout;
-    layout->addWidget(outputDirLabel, 0, 0);
-    layout->addWidget(outputDirLineEdit, 0, 1);
-    layout->addWidget(headerLabel, 1, 0);
-    layout->addWidget(headerLineEdit, 1, 1);
-    layout->addWidget(implementationLabel, 2, 0);
-    layout->addWidget(implementationLineEdit, 2, 1);
-    setLayout(layout);
-}
-void OutputFilesPage::initializePage() {
-    QString className = field("className").toString();
-    headerLineEdit->setText(className.toLower() + ".h");
-    implementationLineEdit->setText(className.toLower() + ".cpp");
-    outputDirLineEdit->setText(QDir::toNativeSeparators(QDir::tempPath()));
-}
-ConclusionPage::ConclusionPage(QWidget *parent)
+ClasePaginaDeConclusion::ClasePaginaDeConclusion(QWidget *parent)
 : QWizardPage(parent) {
     setTitle(tr("Conclusion"));
     setPixmap(QWizard::WatermarkPixmap, QPixmap(":/images/watermark2.png"));
@@ -305,7 +213,7 @@ ConclusionPage::ConclusionPage(QWidget *parent)
     layout->addWidget(label);
     setLayout(layout);
 }
-void ConclusionPage::initializePage() {
+void ClasePaginaDeConclusion::initializePage() {
     QString finishText = wizard()->buttonText(QWizard::FinishButton);
     finishText.remove('&');
     label->setText(tr("Click %1 to generate the class skeleton.")
@@ -1518,50 +1426,5 @@ ClaseAsistenteUbicacionDelProyecto::ClaseAsistenteUbicacionDelProyecto(QWidget *
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(omLabelDirectorioDeUbicacionDelProyectoPorDefecto, 0, 0);
     layout->addWidget(omLineEditDirectorioDeUbicacionDelProyectoPorDefecto, 0, 1);
-    setLayout(layout);
-}
-ClassInfoPage::ClassInfoPage(QWidget *parent)
-: QWizardPage(parent) {
-    setTitle(tr("Informacion del proyecto a generar"));
-    setSubTitle(tr("Especifique la informacion basica "
-    "para el esqueleto del definidor de codigo."));
-    setPixmap(QWizard::LogoPixmap, QPixmap(":/Images/logo1.png"));
-    classNameLabel = new QLabel(tr("&Nombre proyecto:"));
-    classNameLineEdit = new QLineEdit;
-    classNameLineEdit->setText("SimuladorDosDirecciones");
-    classNameLabel->setBuddy(classNameLineEdit);
-    baseClassLabel = new QLabel(tr("Nombre definidor:"));
-    baseClassLineEdit = new QLineEdit;
-    baseClassLineEdit->setText("definidor.defi");
-    baseClassLabel->setBuddy(baseClassLineEdit);
-    qobjectMacroCheckBox = new QCheckBox(tr("Escoger arquitectura"));
-    groupBox = new QGroupBox(tr("C&onstructor"));
-    qobjectCtorRadioButton = new QRadioButton(tr("Arquitectura de &dos direcciones"));
-    qwidgetCtorRadioButton = new QRadioButton(tr("&Arquitectura de &tres direccciones"));
-    defaultCtorRadioButton = new QRadioButton(tr("&Arquitectura de &pila"));
-    copyCtorCheckBox = new QCheckBox(tr("&Generar plantilla de ayuda"));
-    defaultCtorRadioButton->setChecked(true);
-    connect(defaultCtorRadioButton, SIGNAL(toggled(bool)),
-    copyCtorCheckBox, SLOT(setEnabled(bool)));
-    registerField("className*", classNameLineEdit);
-    registerField("baseClass", baseClassLineEdit);
-    registerField("qobjectMacro", qobjectMacroCheckBox);
-    registerField("qobjectCtor", qobjectCtorRadioButton);
-    registerField("qwidgetCtor", qwidgetCtorRadioButton);
-    registerField("defaultCtor", defaultCtorRadioButton);
-    registerField("copyCtor", copyCtorCheckBox);
-    QVBoxLayout *groupBoxLayout = new QVBoxLayout;
-    groupBoxLayout->addWidget(qobjectCtorRadioButton);
-    groupBoxLayout->addWidget(qwidgetCtorRadioButton);
-    groupBoxLayout->addWidget(defaultCtorRadioButton);
-    groupBoxLayout->addWidget(copyCtorCheckBox);
-    groupBox->setLayout(groupBoxLayout);
-    QGridLayout *layout = new QGridLayout;
-    layout->addWidget(classNameLabel, 0, 0);
-    layout->addWidget(classNameLineEdit, 0, 1);
-    layout->addWidget(baseClassLabel, 1, 0);
-    layout->addWidget(baseClassLineEdit, 1, 1);
-    layout->addWidget(qobjectMacroCheckBox, 2, 0, 1, 2);
-    layout->addWidget(groupBox, 3, 0, 1, 2);
     setLayout(layout);
 }

@@ -86,8 +86,15 @@
     <addaction name="action_Sobre_aplicacion"/>
     <addaction name="action_Guia_de_Usuario"/>
    </widget>
+   <widget class="QMenu" name="menuPlantillla">
+    <property name="title">
+     <string>Plantillla</string>
+    </property>
+    <addaction name="action_Generar_Plantilla"/>
+   </widget>
    <addaction name="menu_Nuevo"/>
    <addaction name="menuEdicion"/>
+   <addaction name="menuPlantillla"/>
    <addaction name="menuAyuda"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -197,6 +204,11 @@
   <action name="action_Nuevo">
    <property name="text">
     <string>&amp;Nuevo</string>
+   </property>
+  </action>
+  <action name="action_Generar_Plantilla">
+   <property name="text">
+    <string>&amp;Generar Plantilla</string>
    </property>
   </action>
  </widget>
