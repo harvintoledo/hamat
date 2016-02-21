@@ -79,3 +79,10 @@ Referencia
 
 1. www.snip.gob.ni/xdc/amc2/Unidad2.ppt
 1. Aho, setti eidicon 2002 Construccion de compiladores
+
+https://es.wikipedia.org/wiki/Lenguaje_de_bajo_nivel
+http://www.carlospes.com/minidiccionario/lenguaje_de_bajo_nivel.php
+http://www.angelfire.com/ak5/seccion-academica/Ventajas_y_desventajas_del_Lenguaje_Ensamblador.htm
+
+ALU y UC
+http://www.monografias.com/trabajos58/arquitectura-computador/arquitectura-computador2.shtml
