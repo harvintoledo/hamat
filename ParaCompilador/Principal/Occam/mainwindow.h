@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QTextStream>
+#include "classwizard.h"
 namespace Ui {
 class MainWindow;
 }
@@ -41,6 +42,7 @@ private:
     Ui::MainWindow *ui;
 protected:
     QString slRutaDeTrabajo;
+    ClassWizard omWizard;
 };
 
 #endif // MAINWINDOW_H

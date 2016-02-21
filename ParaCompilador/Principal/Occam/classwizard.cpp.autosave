@@ -28,7 +28,7 @@ void ClassWizard::accept() {
     //    GeneraProyectoCompletoParaJavaMaven(outputDir);
     //    GeneraProyectoCompletoParaCSharp(outputDir);
     GenerarProyectoOccam(outputDir);
-//    QDialog::accept();
+    QDialog::accept();
 }
 void ClassWizard::GenerarProyectoOccam(QString outputDir) {
     QByteArray block;

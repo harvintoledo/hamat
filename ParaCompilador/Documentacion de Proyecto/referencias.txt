@@ -24,3 +24,7 @@ http://ict.udlap.mx/people/oleg/docencia/ASSEMBLER/asm_jmp.html
 Operadores a nivel de bits 
 
 https://es.wikipedia.org/wiki/Operador_a_nivel_de_bits	
+
+Calendarios en qt
+
+http://doc.qt.io/qt-5/qtwidgets-widgets-calendarwidget-example.html
