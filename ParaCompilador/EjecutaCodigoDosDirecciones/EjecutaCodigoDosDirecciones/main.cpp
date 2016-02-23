@@ -192,7 +192,7 @@ int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
     char caracteres[100];
     printf("Abriendo archivo con instrucciones");
-    pArchivoEntrada = fopen("C:\\Users\\WESKER\\Documents\\QtProjects\\ControlDeVersiones\\ParaCompilador\\SalidasOcam\\prog.asm", "r");
+    pArchivoEntrada = fopen("E:\\ProyectoFinal\\ControlDeVersiones\\ParaCompilador\\SalidasOcam\\prog.asm", "r");
     if (pArchivoEntrada == NULL) {
         fputs ("File error",stderr);
         exit (1);

@@ -112,13 +112,13 @@ compiler_rcc_make_all: release/qrc_classwizard.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_classwizard.cpp
 release/qrc_classwizard.cpp: ../Occam/classwizard.qrc \
-		../Occam/Images/watermark2.png \
-		../Occam/Images/logo3.png \
 		../Occam/Images/background.png \
-		../Occam/Images/watermark1.png \
+		../Occam/Images/logo1.png \
 		../Occam/Images/logo2.png \
+		../Occam/Images/logo3.png \
 		../Occam/Images/banner.png \
-		../Occam/Images/logo1.png
+		../Occam/Images/watermark1.png \
+		../Occam/Images/watermark2.png
 	C:\Qt\Qt5.3.2\5.3\mingw482_32\bin\rcc.exe -name classwizard ..\Occam\classwizard.qrc -o release\qrc_classwizard.cpp
 
 compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_classwizard.cpp
