@@ -12,7 +12,6 @@ ui(new Ui::MainWindow) {
     smRutaDeTrabajo =
     smRutaNombreArchivoDeTrabajo =
     smNombreArchivoDeTrabajo = "";
-
 }
 MainWindow::~MainWindow() {
     delete ui;
@@ -105,12 +104,40 @@ void MainWindow::on_action_Generar_Plantilla_triggered() {
     } else {
         if(smRutaNombreArchivoDeTrabajo.isEmpty())
         olMessageBox.setText("Aún no se ha definido la ruta del archivo.");
-        else
-        olMessageBox.setText("Se exportara proyecto, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
+        else {
+            if(pomWizard->getEstaDefinidaPlataforma()) {
+                if(pomWizard->getPlataforma()) {
+                    pomWizard->GenerarCSharp();
+                    olMessageBox.setText("Se exportara proyecto, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
+
+                }
+                else {
+                    pomWizard->GenerarNetbeans();
+                    olMessageBox.setText("Se exportara proyecto, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
+                }
+            }
+            else {
+                olMessageBox.setText("No esta definida ninguna plataforma\n");
+
+            }
+        }
     }
     olMessageBox.exec();
     // Obtener el nombre del proyecto segun archivo con extension Occam
     // Obtener plataforma a generar para el tipo de plantilla
     // Obtener plataforma a generar para el tipo de plantilla
     // Establecer parametros generales y datos para plantilla
+    /*
+     *     void GenerarNetbeans();
+    void GenerarCSharp();
+    bool getPlataforma() {
+        return bmEsNetbeans;
+    }
+    bool getEstaDefinidaPlataforma() {
+        return bmPlataformaDefinida;
+    }
+    QString getRutaCompleta() {
+        return smRutaCompleta;
+    }
+     * */
 }

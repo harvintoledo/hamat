@@ -16,12 +16,25 @@ ClassWizard::ClassWizard(QWidget *parent) : QWizard(parent) {
     smEntornoDeDesarrolloDefinido =
     smAsignaturaDefinida =
     smTemaDefinido = "";
+    bmEsNetbeans =
+    bmPlataformaDefinida = false;
 }
+
+void ClassWizard::GenerarNetbeans() {
+    GeneraProyectoCompletoParaJavaMaven(smUbicacionDelProyecto);
+}
+
+void ClassWizard::GenerarCSharp() {
+    GeneraProyectoCompletoParaCSharp(smUbicacionDelProyecto);
+}
+
+
 void ClassWizard::accept() {
     //    QByteArray className = field("omEditNombreDelProyecto").toByteArray();
     smNombreDelProyecto = field("omEditNombreDelProyecto").toString();
     QString outputDir = field("omLineEditDirectorioDeUbicacionDelProyectoPorDefecto").toString();
     smUbicacionDelProyecto = outputDir;
+    smRutaCompleta = smUbicacionDelProyecto +  "\\" + smNombreDelProyecto;
     //    GeneraProyectoCompletoParaJavaMaven(outputDir);
     //    GeneraProyectoCompletoParaCSharp(outputDir);
     GenerarProyectoOccam(outputDir);
@@ -39,10 +52,17 @@ void ClassWizard::GenerarProyectoOccam(QString outputDir) {
     if (field("omRadioButtonNetbeans").toBool()) {
         block += ".PLATAFORMA\n";
         block += "JAVANEBEANSOECLIPSE\n";
+        bmEsNetbeans = false;
+        bmPlataformaDefinida = true;
     }
     else if (field("omRadioButtonCSharp").toBool()) {
         block += ".PLATAFORMA\n";
         block += "VISUALSTUDIOCSHARP\n";
+        bmEsNetbeans = true;
+        bmPlataformaDefinida = true;
+    } else {
+        bmEsNetbeans = true;
+        bmPlataformaDefinida = true;
     }
     if(!field("omLineEditNombreDocente").toByteArray().isEmpty()) {
         block += ".DOCENTE\n";

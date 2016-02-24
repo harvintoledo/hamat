@@ -29,6 +29,18 @@ public:
     void setUbicacionDelProyecto(QString spUbicacionDelProyecto) {
         smUbicacionDelProyecto = spUbicacionDelProyecto;
     }
+    void GenerarNetbeans();
+    void GenerarCSharp();
+    bool getPlataforma() {
+        return bmEsNetbeans;
+    }
+    bool getEstaDefinidaPlataforma() {
+        return bmPlataformaDefinida;
+    }
+    QString getRutaCompleta() {
+        return smRutaCompleta;
+    }
+
 protected:
     void GenerarProyectoOccam(QString);
     void GeneraProyectoCompletoParaCSharp(QString);
@@ -51,6 +63,7 @@ protected:
     void GenerarArchivoSettingsSettingsEnPropertiesCSharp(QString);
     void GenerarArchivoDeSolucionDelProyectoCSharp(QString);
     bool AnalizarCodigo();
+
 private:
     QString smNombreDelProyecto,
     smUbicacionDelProyecto,
@@ -59,9 +72,12 @@ private:
     smFechaDefinida,
     smEntornoDeDesarrolloDefinido,
     smAsignaturaDefinida,
-    smTemaDefinido;
+    smTemaDefinido,
+    smRutaCompleta;
     QByteArray omBlockProyectoOccam,
     omBlockPlantillaCSharpJava;
+    bool bmEsNetbeans,
+    bmPlataformaDefinida;
 };
 class ClasePaginaDeIntroduccion : public QWizardPage {
     Q_OBJECT
