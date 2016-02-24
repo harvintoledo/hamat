@@ -65,7 +65,7 @@ EAXL=2016h
 .tema "Emulacion de microprocesadores"
 .assembler
 .start
-.instruction
+.instructions
 MOV R1, INMEDIATO [0001-001-000-00] 
 MOV R2, INMEDIATO [0001-010-000-00]
 MOV R3, INMEDIATO [0001-011-000-00]
