@@ -21,6 +21,7 @@ public:
 private:
     QString smNombre,
     smNumeroCarnet;
+
 };
 
 #endif // CLASEMIEMBROPROYECTO_H

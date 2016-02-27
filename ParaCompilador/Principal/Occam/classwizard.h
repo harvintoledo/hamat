@@ -2,8 +2,6 @@
 #define CLASSWIZARD_H
 #include <QWizard>
 #include <QCheckBox>
-#include <QDir>
-#include <QFile>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QLabel>
@@ -13,29 +11,15 @@
 #include <QVBoxLayout>
 #include <QDateTime>
 #include <QDebug>
-
-#define MAXCOL 84
+#include <QDir>
+#include "claseproyecto.h"
 
 class ClassWizard : public QWizard {
     Q_OBJECT
 public:
     ClassWizard(QWidget *parent = 0);
     void accept() Q_DECL_OVERRIDE;
-    QString getNombreDelProyecto() {
-        return smNombreDelProyecto;
-    }
-    void setNombreDelProyecto(QString spNombreDelProyecto) {
-        smNombreDelProyecto = spNombreDelProyecto;
-    }
-    QString getUbicacionDelProyecto() {
-        return smUbicacionDelProyecto;
-    }
-    void setUbicacionDelProyecto(QString spUbicacionDelProyecto) {
-        smUbicacionDelProyecto = spUbicacionDelProyecto;
-    }
-    void setWord(QString);
-    void GenerarNetbeans();
-    void GenerarCSharp();
+
     bool getPlataforma() {
         return bmEsNetbeans;
     }
@@ -46,41 +30,22 @@ public:
         return smRutaCompleta;
     }
 
-protected:
-    void GenerarProyectoOccam(QString);
-    void GeneraProyectoCompletoParaCSharp(QString);
-    void GeneraProyectoCompletoParaJavaMaven(QString);
-    void GenerarAnalizadorNetBeans(QString);
-    void GenerarArchivoPom(QString);
-    void GenerarMemoriaNetBeans(QString);
-    void GenerarMainNetBeans(QString);
-    void GenerarCLSAnalizadorCSharp(QString);
-    void GenerarCLSMemoriaCSharp(QString);
-    void GenerarPlantillaDeProyectoCSharp(QString);
-    void GenerarArchivoProgramCSharp(QString);
-    void GenerarArchivoAppConfigCSharp(QString);
-    void GenerarArchivoForm1CSharp(QString);
-    void GenerarArchivoForm1DesignerCSharp(QString);
-    void GenerarArchivoAssemblyInfoEnPropertiesCSharp(QString);
-    void GenerarArchivoResourceDesignerEnPropertiesCSharp(QString);
-    void GenerarArchivoResourceResxEnPropertiesCSharp(QString);
-    void GenerarArchivoSettingsDesignerEnPropertiesCSharp(QString);
-    void GenerarArchivoSettingsSettingsEnPropertiesCSharp(QString);
-    void GenerarArchivoDeSolucionDelProyectoCSharp(QString);
-    bool AnalizarCodigo();
+    ClaseProyecto getProyecto() {
+        return omProyecto;
+    }
 
+protected:
+    bool AnalizarCodigo();
+    void GenerarProyectoOccam();
 private:
-    QString smNombreDelProyecto,
-    smUbicacionDelProyecto,
-    smArquitecturaDefinida,
+    QString smArquitecturaDefinida,
     smNombreDocenteDefinido,
     smFechaDefinida,
     smEntornoDeDesarrolloDefinido,
     smRutaCompleta;
-    QByteArray omBlockProyectoOccam,
-    omBlockPlantillaCSharpJava;
     bool bmEsNetbeans,
     bmPlataformaDefinida;
+    ClaseProyecto omProyecto;
 
 };
 class ClasePaginaDeIntroduccion : public QWizardPage {

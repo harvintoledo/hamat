@@ -14,12 +14,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     classwizard.cpp \
     clasemiembroproyecto.cpp \
-    clasegeneradordeproyecto.cpp
+    clasegeneradordeproyecto.cpp \
+    claseproyecto.cpp
 
 HEADERS  += mainwindow.h \
     classwizard.h \
     clasemiembroproyecto.h \
-    clasegeneradordeproyecto.h
+    clasegeneradordeproyecto.h \
+    claseproyecto.h \
+    util.h
 
 FORMS    += mainwindow.ui
 
