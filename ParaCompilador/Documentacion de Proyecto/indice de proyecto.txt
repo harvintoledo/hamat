@@ -1,3 +1,24 @@
+Dedicatoria
+Agradecimientos
+Resumen - obligatorio
+1- Introduccion - primera que se numera
+-Antecedentes
+-Metodologia de desarrollo de software
+2- Objetivos gra y especifico
+3- Justificacion
+4- Marco teorico
+ - Herramientas, base fundamental, los tipos de generacion de codigo, analis lexico y sintactico, 
+ recepcion y reconocimiento de codigo de ensamblador,
+ runtime de ejecucion
+5- Analisis y presentacion de resultados - Desarrollo 
+
+6- Bibliografia
+7- Anexos
+
+
+
+
+
 1. Contenido
 2. Introduccion
 UNIDAD I
