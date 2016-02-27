@@ -140,7 +140,7 @@ void ClaseGeneradorDeProyecto::GenerarProyectoOccam() {
     omBlockProyectoOccam += "* */\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -148,9 +148,14 @@ void ClaseGeneradorDeProyecto::GenerarProyectoOccam() {
     headerFile.write(block);
     headerFile.close();
 }
-void ClaseGeneradorDeProyecto::GeneraProyectoCompletoParaCSharp(QString opDirectorioDeArchivo){
+void ClaseGeneradorDeProyecto::GeneraProyectoCompletoParaCSharp(QString opDirectorioDeArchivo) {
+    qDebug() << "********************************************";
+    qDebug() << "***   GeneraProyectoCompletoParaCSharp   ***";
+    qDebug() << "********************************************";
     bool blResultadoCreacionDeDirectorio = false;
-    QDir olDirectorioProyecto(QString("%1/%2").arg(opDirectorioDeArchivo).arg(omProyecto.getNombreProyecto()));
+    QDir olDirectorioProyecto(QString("%1/%2CS").arg(opDirectorioDeArchivo).arg(omProyecto.getNombreProyecto()));
+
+    qDebug() << "olDirectorioProyecto" << olDirectorioProyecto.absolutePath();
     // Crear directorio donde estan los archivos principales de ensamblador
     if(!olDirectorioProyecto.exists()) {
         if(olDirectorioProyecto.mkdir(QString("%1/%2CS").arg(opDirectorioDeArchivo).arg(omProyecto.getNombreProyecto()))) {
@@ -179,6 +184,7 @@ void ClaseGeneradorDeProyecto::GeneraProyectoCompletoParaCSharp(QString opDirect
     olDirectorioProyecto.setPath(QString("%1/%2CS/%2CS")
     .arg(opDirectorioDeArchivo)
     .arg(omProyecto.getNombreProyecto()));
+
     GenerarPlantillaDeProyectoCSharp(olDirectorioProyecto.absolutePath());
     GenerarArchivoProgramCSharp(olDirectorioProyecto.absolutePath());
     GenerarArchivoAppConfigCSharp(olDirectorioProyecto.absolutePath());
@@ -258,7 +264,7 @@ void ClaseGeneradorDeProyecto::GenerarAnalizadorNetBeans(QString opDirectorioDeA
     block += "import java.io.InputStreamReader;\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -351,7 +357,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoPom(QString opDirectorioDeArchivo) 
     block += "</project>\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -378,7 +384,7 @@ void ClaseGeneradorDeProyecto::GenerarMemoriaNetBeans(QString opDirectorioDeArch
     block += "package " + slPackageName + "." + omProyecto.getNombreProyecto() + ";\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -416,7 +422,7 @@ void ClaseGeneradorDeProyecto::GenerarMainNetBeans(QString opDirectorioDeArchivo
     block += "package " + slPackageName + "." + omProyecto.getNombreProyecto() + ";\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -439,6 +445,10 @@ void ClaseGeneradorDeProyecto::GenerarMainNetBeans(QString opDirectorioDeArchivo
     headerFile.close();
 }
 void ClaseGeneradorDeProyecto::GenerarCLSAnalizadorCSharp(QString opDirectorioDeArchivo) {
+    qDebug() << "**************************************";
+    qDebug() << "***   GenerarCLSAnalizadorCSharp   ***";
+    qDebug() << "**************************************";
+    qDebug() << "opDirectorioDeArchivo" << opDirectorioDeArchivo;
     QByteArray block;
     QFile headerFile(opDirectorioDeArchivo + "/" + "CLSAnalizador" + ".cs");
     block += omBlockProyectoOccam;
@@ -555,7 +565,7 @@ void ClaseGeneradorDeProyecto::GenerarCLSMemoriaCSharp(QString opDirectorioDeArc
     block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -603,7 +613,7 @@ void ClaseGeneradorDeProyecto::GenerarPlantillaDeProyectoCSharp(QString opDirect
     QFile headerFile(opDirectorioDeArchivo + "/" + omProyecto.getNombreProyecto() + "CS" + ".csproj");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -706,7 +716,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoProgramCSharp(QString opDirectorioD
     block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -746,7 +756,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoAppConfigCSharp(QString opDirectori
     QFile headerFile(opDirectorioDeArchivo + "/" + "App" + ".config");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -766,7 +776,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoForm1CSharp(QString opDirectorioDeA
     block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -800,7 +810,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoForm1DesignerCSharp(QString opDirec
     block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -850,7 +860,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoAssemblyInfoEnPropertiesCSharp(QStr
     QFile headerFile(opDirectorioDeArchivo + "/" + "AssemblyInfo" + ".cs");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -899,7 +909,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoResourceDesignerEnPropertiesCSharp(
     QFile headerFile(opDirectorioDeArchivo + "/" + "Resources.Designer" + ".cs");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -983,7 +993,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoResourceResxEnPropertiesCSharp(QStr
     QFile headerFile(opDirectorioDeArchivo + "/" + "Resources" + ".resx");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -1113,7 +1123,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoSettingsDesignerEnPropertiesCSharp(
     QFile headerFile(opDirectorioDeArchivo + "/" + "Settings.Designer" + ".cs");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -1156,7 +1166,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoSettingsSettingsEnPropertiesCSharp(
     QFile headerFile(opDirectorioDeArchivo + "/" + "Settings" + ".settings");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -1176,7 +1186,7 @@ void ClaseGeneradorDeProyecto::GenerarArchivoDeSolucionDelProyectoCSharp(QString
     QFile headerFile(opDirectorioDeArchivo + "/" + omProyecto.getNombreProyecto() + "CS" + ".sln");
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escribir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;

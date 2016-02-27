@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QByteArray>
 #include <QMessageBox>
+#include <QDebug>
 #include "claseproyecto.h"
 #include "util.h"
 class ClaseGeneradorDeProyecto {
