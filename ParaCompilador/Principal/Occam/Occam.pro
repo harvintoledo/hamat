@@ -12,10 +12,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    classwizard.cpp
+    classwizard.cpp \
+    clasemiembroproyecto.cpp \
+    clasegeneradordeproyecto.cpp
 
 HEADERS  += mainwindow.h \
-    classwizard.h
+    classwizard.h \
+    clasemiembroproyecto.h \
+    clasegeneradordeproyecto.h
 
 FORMS    += mainwindow.ui
 

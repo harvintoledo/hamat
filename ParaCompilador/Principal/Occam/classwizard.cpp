@@ -14,10 +14,18 @@ ClassWizard::ClassWizard(QWidget *parent) : QWizard(parent) {
     smNombreDocenteDefinido =
     smFechaDefinida =
     smEntornoDeDesarrolloDefinido =
-    smAsignaturaDefinida =
-    smTemaDefinido = "";
     bmEsNetbeans =
     bmPlataformaDefinida = false;
+}
+
+void ClassWizard::setWord(QString spWordToPut) {
+    QString slFormatWord = "";
+    slFormatWord += "* ***   ";
+    slFormatWord += spWordToPut;
+    for(int i = 0; i < MAXCOL-spWordToPut.length(); i++)
+        slFormatWord += " ";
+    slFormatWord += "   ***\n";
+    omBlockProyectoOccam += slFormatWord;
 }
 
 void ClassWizard::GenerarNetbeans() {
@@ -41,69 +49,121 @@ void ClassWizard::accept() {
     QDialog::accept();
 }
 void ClassWizard::GenerarProyectoOccam(QString outputDir) {
+    QString slFechaGeneracionDeProyecto = QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss");
+    bool blIntegranteDefinido = false;
     QByteArray block;
+    omBlockProyectoOccam.clear();
+    omBlockProyectoOccam += "/*\n";
+    omBlockProyectoOccam += "* ************************************************************************************************\n";
+    setWord(" ");
     QFile headerFile(outputDir + "/" + smNombreDelProyecto + ".occam");
     if(!field("omEditNombreDelProyecto").toByteArray().isEmpty()) {
         block += ".NOMBREPROYECTO\n";
         block += field("omEditNombreDelProyecto").toByteArray() + "\n";
+        setWord("Nombre del proyecto: " + field("omEditNombreDelProyecto").toString());
     }
     block += ".FECHA\n";
-    block += QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss") + "\n";
+    block += slFechaGeneracionDeProyecto + "\n";
+    setWord("Fecha de proyecto generado: " + slFechaGeneracionDeProyecto);
     if (field("omRadioButtonNetbeans").toBool()) {
         block += ".PLATAFORMA\n";
         block += "JAVANEBEANSOECLIPSE\n";
         bmEsNetbeans = false;
         bmPlataformaDefinida = true;
+        setWord("Plataforma para lenguaje Java");
     }
     else if (field("omRadioButtonCSharp").toBool()) {
         block += ".PLATAFORMA\n";
         block += "VISUALSTUDIOCSHARP\n";
         bmEsNetbeans = true;
         bmPlataformaDefinida = true;
+        setWord("Plataforma para lenguaje C#");
     } else {
-        bmEsNetbeans = true;
-        bmPlataformaDefinida = true;
+        bmEsNetbeans = false;
+        bmPlataformaDefinida = false;
     }
+
     if(!field("omLineEditNombreDocente").toByteArray().isEmpty()) {
         block += ".DOCENTE\n";
         block += field("omLineEditNombreDocente").toByteArray() + "\n";
+        setWord("Docente");
+        setWord(field("omLineEditNombreDocente").toString());
     }
     if(!field("omLineEditNombreIntegrante1").toByteArray().isEmpty()) {
         block += ".INTEGRANTE\n";
         block += field("omLineEditNombreIntegrante1").toByteArray() + "\n";
+        if(!blIntegranteDefinido) {
+            setWord("Integrantes");
+            blIntegranteDefinido = true;
+        }
+        setWord(field("omLineEditNombreIntegrante1").toString());
+
     }
     if(!field("omLineEditNombreIntegrante2").toByteArray().isEmpty()) {
         block += ".INTEGRANTE\n";
         block += field("omLineEditNombreIntegrante2").toByteArray() + "\n";
+        if(!blIntegranteDefinido) {
+            setWord("Integrantes");
+            blIntegranteDefinido = true;
+        }
+        setWord(field("omLineEditNombreIntegrante2").toString());
     }
     if(!field("omLineEditNombreIntegrante3").toByteArray().isEmpty()) {
         block += ".INTEGRANTE\n";
         block += field("omLineEditNombreIntegrante3").toByteArray() + "\n";
+        if(!blIntegranteDefinido) {
+            setWord("Integrantes");
+            blIntegranteDefinido = true;
+        }
+        setWord(field("omLineEditNombreIntegrante3").toString());
     }
     if(!field("omLineEditNombreIntegrante4").toByteArray().isEmpty()) {
         block += ".INTEGRANTE\n";
         block += field("omLineEditNombreIntegrante4").toByteArray() + "\n";
+        if(!blIntegranteDefinido) {
+            setWord("Integrantes");
+            blIntegranteDefinido = true;
+        }
+        setWord(field("omLineEditNombreIntegrante4").toString());
+
     }
     if(!field("omLineEditNombreIntegrante5").toByteArray().isEmpty()) {
         block += ".INTEGRANTE\n";
         block += field("omLineEditNombreIntegrante5").toByteArray() + "\n";
+        if(!blIntegranteDefinido) {
+            setWord("Integrantes");
+            blIntegranteDefinido = true;
+        }
+        setWord(field("omLineEditNombreIntegrante5").toString());
     }
     if(!field("omLineEditNombreIntegrante6").toByteArray().isEmpty()) {
         block += ".INTEGRANTE\n";
         block += field("omLineEditNombreIntegrante6").toByteArray() + "\n";
+        if(!blIntegranteDefinido) {
+            setWord("Integrantes");
+            blIntegranteDefinido = true;
+        }
+        setWord(field("omLineEditNombreIntegrante6").toString());
+
     }
     if (field("omRadioButtonArquitectura2Direcciones").toBool()) {
         block += ".ARQUITECTURA\n";
         block += "DOSDIRECCIONES\n";
+        setWord("Arquitectura de dos direcciones");
     }
     else if (field("omRadioButtonArquitectura3Direcciones").toBool()) {
         block += ".ARQUITECTURA\n";
         block += "TRESDIRECCIONES\n";
+        setWord("Arquitectura de tres direcciones");
     }
     else if (field("omRadioButtonArquitecturaPila").toBool()) {
         block += ".ARQUITECTURA\n";
         block += "PILA\n";
+        setWord("Arquitectura de pila");
     }
+    setWord(" ");
+    omBlockProyectoOccam += "* ************************************************************************************************\n";
+    omBlockProyectoOccam += "* */\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
         QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
@@ -243,18 +303,7 @@ void ClassWizard::GenerarAnalizadorNetBeans(QString outputDir) {
     QByteArray block;
     QString slPackageName = "org";
     QFile headerFile(outputDir + "/" + "Analizador" + ".java");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     block += "package " + slPackageName + "." + smNombreDelProyecto + ";\n";
     block += "import java.io.BufferedReader;\n";
     block += "import java.io.File;\n";
@@ -418,18 +467,7 @@ void ClassWizard::GenerarMainNetBeans(QString outputDir) {
     QByteArray block;
     QString slPackageName = "org";
     QFile headerFile(outputDir + "/" + "main" + ".java");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     block += "package " + slPackageName + "." + smNombreDelProyecto + ";\n";
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
@@ -458,21 +496,10 @@ void ClassWizard::GenerarMainNetBeans(QString outputDir) {
 void ClassWizard::GenerarCLSAnalizadorCSharp(QString outputDir) {
     QByteArray block;
     QFile headerFile(outputDir + "/" + "CLSAnalizador" + ".cs");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
-        QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
+        QObject::tr("No se pudo escrir el archivo %1:\n%2")
         .arg(headerFile.fileName())
         .arg(headerFile.errorString()));
         return;
@@ -580,18 +607,7 @@ void ClassWizard::GenerarCLSAnalizadorCSharp(QString outputDir) {
 void ClassWizard::GenerarCLSMemoriaCSharp(QString outputDir) {
     QByteArray block;
     QFile headerFile(outputDir + "/" + "CLSMemoria" + ".cs");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
         QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
@@ -742,18 +758,7 @@ void ClassWizard::GenerarPlantillaDeProyectoCSharp(QString outputDir) {
 void ClassWizard::GenerarArchivoProgramCSharp(QString outputDir) {
     QByteArray block;
     QFile headerFile(outputDir + "/" + "Program" + ".cs");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
         QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
@@ -813,18 +818,7 @@ void ClassWizard::GenerarArchivoAppConfigCSharp(QString outputDir) {
 void ClassWizard::GenerarArchivoForm1CSharp(QString outputDir) {
     QByteArray block;
     QFile headerFile(outputDir + "/" + "Form1" + ".cs");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
         QObject::tr("No se pudo escrir el arcihvio %1:\n%2")
@@ -858,18 +852,7 @@ void ClassWizard::GenerarArchivoForm1CSharp(QString outputDir) {
 void ClassWizard::GenerarArchivoForm1DesignerCSharp(QString outputDir) {
     QByteArray block;
     QFile headerFile(outputDir + "/" + "Form1.Designer" + ".cs");
-    block += "/*\n";
-    block += "* *********************************************************************************\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *** Programa que emula memoria y conjunto de instrucciones de dos direcciones ***\n";
-    block += "* *** Plantilla Generada por Ocamm                                              ***\n";
-    block += "* *** Integrantes                                                               ***\n";
-    block += "* *** Jorge Manuel Potosme Alvarez                                              ***\n";
-    block += "* *** Harvin Manuel Toledo Polanco                                              ***\n";
-    block += "* *** Domingo 7 de febrero de 2016                                              ***\n";
-    block += "* ***                                                                           ***\n";
-    block += "* *********************************************************************************\n";
-    block += "* */\n";
+    block += omBlockProyectoOccam;
     if(!headerFile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(0, QObject::tr("Creacion de archivo java para Netbeans"),
         QObject::tr("No se pudo escrir el arcihvio %1:\n%2")

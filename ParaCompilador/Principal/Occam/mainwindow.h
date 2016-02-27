@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include "QMessageBox"
+#include <QDebug>
 #include "classwizard.h"
 namespace Ui {
     class MainWindow;

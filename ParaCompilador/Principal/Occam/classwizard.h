@@ -12,6 +12,10 @@
 #include <QRadioButton>
 #include <QVBoxLayout>
 #include <QDateTime>
+#include <QDebug>
+
+#define MAXCOL 84
+
 class ClassWizard : public QWizard {
     Q_OBJECT
 public:
@@ -29,6 +33,7 @@ public:
     void setUbicacionDelProyecto(QString spUbicacionDelProyecto) {
         smUbicacionDelProyecto = spUbicacionDelProyecto;
     }
+    void setWord(QString);
     void GenerarNetbeans();
     void GenerarCSharp();
     bool getPlataforma() {
@@ -71,13 +76,12 @@ private:
     smNombreDocenteDefinido,
     smFechaDefinida,
     smEntornoDeDesarrolloDefinido,
-    smAsignaturaDefinida,
-    smTemaDefinido,
     smRutaCompleta;
     QByteArray omBlockProyectoOccam,
     omBlockPlantillaCSharpJava;
     bool bmEsNetbeans,
     bmPlataformaDefinida;
+
 };
 class ClasePaginaDeIntroduccion : public QWizardPage {
     Q_OBJECT
