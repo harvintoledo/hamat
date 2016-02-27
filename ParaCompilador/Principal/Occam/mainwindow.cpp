@@ -12,6 +12,8 @@ ui(new Ui::MainWindow) {
     smRutaDeTrabajo =
     smRutaNombreArchivoDeTrabajo =
     smNombreArchivoDeTrabajo = "";
+    pomWizard = new ClassWizard;
+
 }
 MainWindow::~MainWindow() {
     delete ui;
@@ -20,9 +22,18 @@ void MainWindow::on_action_Copiar_triggered() {
     ui->textEdit->copy();
 }
 void MainWindow::AcceptWizardPage() {
+    qDebug() << "****************************";
+    qDebug() << "***   AcceptWizardPage   ***";
+    qDebug() << "****************************";
+
     smRutaDeTrabajo = pomWizard->getUbicacionDelProyecto();
     smNombreArchivoDeTrabajo = pomWizard->getNombreDelProyecto();
     smRutaNombreArchivoDeTrabajo = smRutaDeTrabajo + "\\" + smNombreArchivoDeTrabajo + ".occam";
+    qDebug() << "smRutaDeTrabajo" << smRutaDeTrabajo;
+    qDebug() << "smNombreArchivoDeTrabajo" << smNombreArchivoDeTrabajo;
+    qDebug() << "smRutaNombreArchivoDeTrabajo" << smRutaNombreArchivoDeTrabajo;
+
+
     if(!smRutaNombreArchivoDeTrabajo.isEmpty()) {
         QFile olArchivoALeerEnEditorDeTexto(smRutaNombreArchivoDeTrabajo);
         if(olArchivoALeerEnEditorDeTexto.open(QFile::ReadOnly | QFile::Text)) {
@@ -35,10 +46,11 @@ void MainWindow::AcceptWizardPage() {
     }
     pomWizard->close();
     disconnect(pomWizard, SIGNAL(accepted()), this, SLOT(AcceptWizardPage()));
-    delete pomWizard;
+//    delete pomWizard;
+    qDebug() << "Finalizado AcceptWizardPage";
+
 }
 void MainWindow::on_action_Nuevo_triggered() {
-    pomWizard = new ClassWizard;
     pomWizard->show();
     connect(pomWizard, SIGNAL(accepted()), this, SLOT(AcceptWizardPage()));
     //    smRutaDeTrabajo = pomWizard->getUbicacionDelProyecto() + "/" + pomWizard->getNombreDelProyecto() + ".occam";
