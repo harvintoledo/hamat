@@ -24,6 +24,9 @@ void ClaseGeneradorDeProyecto::GenerarProyectoOccam() {
     omBlockProyectoOccam += "/*\n";
     omBlockProyectoOccam += "* ************************************************************************************************\n";
     setWord(" ");
+    omBlockProyectoOccam += "* ***   RECINTO UNIVERSITARIO SIMON BOLIVAR                                                    ***\n";
+    omBlockProyectoOccam += "* ***   UNIVERSIDAD NACIONAL DE INGENIERIA - UNI                                               ***\n";
+    omBlockProyectoOccam += "* ***   ARQUITECTURA DE MAQUINAS COMPUTADORAS III                                              ***\n";
     QFile headerFile(omProyecto.getUbicacionDirectorio() + "/" + omProyecto.getNombreProyecto() + ".occam");
     if(!omProyecto.getNombreProyecto().isEmpty()) {
         block += ".NOMBREPROYECTO\n";
@@ -34,23 +37,23 @@ void ClaseGeneradorDeProyecto::GenerarProyectoOccam() {
         block += ".FECHA\n";
         block += omProyecto.getFechaDeGeneradoProyecto() + "\n";
         omProyecto.setFechaDeGeneradoProyecto(slFechaGeneracionDeProyecto);
-        setWord("Fecha de proyecto generado: " + omProyecto.getFechaDeGeneradoProyecto());
+        setWord("Fecha y hora de creacion de proyecto: " + omProyecto.getFechaDeGeneradoProyecto());
     }
     switch (omProyecto.getPlataforma()) {
     case ClaseProyecto::TP_JAVA_NETBEANS_O_ECLIPSE:
         block += ".PLATAFORMA\n";
         block += "JAVANEBEANSOECLIPSE\n";
-        setWord("Plataforma para lenguaje Java");
+        setWord("Plataforma: Plataforma para lenguaje Java");
         break;
     case ClaseProyecto::TP_CSHARP_VISUAL_STUDIO:
         block += ".PLATAFORMA\n";
         block += "VISUALSTUDIOCSHARP\n";
-        setWord("Plataforma para lenguaje C#");
+        setWord("Plataforma: Plataforma para lenguaje C#");
         break;
     case ClaseProyecto::TP_NINGUNA_PLATAFORMA:
         block += ".PLATAFORMA\n";
         block += "VISUALSTUDIOCSHARP\n";
-        setWord("Ninguna plataforma generada");
+        setWord("Plataforma: Ninguna plataforma generada");
         break;
         break;
     default:
@@ -120,17 +123,22 @@ void ClaseGeneradorDeProyecto::GenerarProyectoOccam() {
     case ClaseProyecto::TA_DOS_DIRECCIONES:
         block += ".ARQUITECTURA\n";
         block += "DOSDIRECCIONES\n";
-        setWord("Arquitectura de dos direcciones");
+        setWord("Arquitectura: Arquitectura de dos direcciones");
         break;
     case ClaseProyecto::TA_TRES_DIRECCIONES:
         block += ".ARQUITECTURA\n";
         block += "TRESDIRECCIONES\n";
-        setWord("Arquitectura de tres direcciones");
+        setWord("Arquitectura: Arquitectura de tres direcciones");
         break;
     case ClaseProyecto::TA_PILA:
         block += ".ARQUITECTURA\n";
         block += "PILA\n";
-        setWord("Arquitectura de pila");
+        setWord("Arquitectura: Arquitectura de pila");
+        break;
+    case ClaseProyecto::TA_NINGUNA_ARQUITECTURA:
+        block += ".ARQUITECTURA\n";
+        block += "PILA\n";
+        setWord("Arquitectura: Ninguna arquitectura");
         break;
     default:
         break;
@@ -162,6 +170,7 @@ void ClaseGeneradorDeProyecto::GeneraProyectoCompletoParaCSharp(QString opDirect
             olDirectorioProyecto.setPath(QString("%1/%2CS/%2CS")
             .arg(opDirectorioDeArchivo)
             .arg(omProyecto.getNombreProyecto()));
+            qDebug() << "olDirectorioProyecto.absolutePath()" <<olDirectorioProyecto.absolutePath();
             if(!olDirectorioProyecto.exists()) {
                 if(olDirectorioProyecto.mkdir(QString("%1/%2CS/%2CS")
                             .arg(opDirectorioDeArchivo)
@@ -169,18 +178,27 @@ void ClaseGeneradorDeProyecto::GeneraProyectoCompletoParaCSharp(QString opDirect
                     olDirectorioProyecto.setPath(QString("%1/%2CS/%2CS/%2")
                     .arg(opDirectorioDeArchivo)
                     .arg(omProyecto.getNombreProyecto()));
+
+                    qDebug() << "olDirectorioProyecto.absolutePath()" <<olDirectorioProyecto.absolutePath();
                     if(!olDirectorioProyecto.exists()) {
                         if(olDirectorioProyecto.mkdir(QString("%1/%2CS/%2CS/%2")
                                     .arg(opDirectorioDeArchivo)
                                     .arg(omProyecto.getNombreProyecto())))
                         blResultadoCreacionDeDirectorio = true;
+
+                        qDebug() << "olDirectorioProyecto.absolutePath()" <<olDirectorioProyecto.absolutePath();
                     }
                 }
             }
         }
     }
+    // Establecer directorio donde seran ubicados archivos CLSAnalizador y Memoria
+    olDirectorioProyecto.setPath(QString("%1/%2CS/%2CS/%2")
+    .arg(opDirectorioDeArchivo)
+    .arg(omProyecto.getNombreProyecto()));
     GenerarCLSAnalizadorCSharp(olDirectorioProyecto.absolutePath());
     GenerarCLSMemoriaCSharp(olDirectorioProyecto.absolutePath());
+
     olDirectorioProyecto.setPath(QString("%1/%2CS/%2CS")
     .arg(opDirectorioDeArchivo)
     .arg(omProyecto.getNombreProyecto()));
@@ -582,7 +600,7 @@ void ClaseGeneradorDeProyecto::GenerarCLSMemoriaCSharp(QString opDirectorioDeArc
     block += "    class CLSMemoria\n";
     block += "    {\n";
     block += "        private int indice;\n";
-    block += "       private int contenido;\n";
+    block += "        private int contenido;\n";
     block += "        public int getIndice()\n";
     block += "        {\n";
     block += "            return indice;\n";

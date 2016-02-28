@@ -142,17 +142,4 @@ void MainWindow::on_action_Generar_Plantilla_triggered() {
     // Obtener plataforma a generar para el tipo de plantilla
     // Obtener plataforma a generar para el tipo de plantilla
     // Establecer parametros generales y datos para plantilla
-    /*
-     *     void GenerarNetbeans();
-    void GenerarCSharp();
-    bool getPlataforma() {
-        return bmEsNetbeans;
-    }
-    bool getEstaDefinidaPlataforma() {
-        return bmPlataformaDefinida;
-    }
-    QString getRutaCompleta() {
-        return smRutaCompleta;
-    }
-     * */
 }
