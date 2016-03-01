@@ -263,6 +263,8 @@ void ClaseGeneradorDeProyecto::GeneraProyectoCompletoParaJavaMaven(QString opDir
             }
         }
     }
+    // Guardar archivos de codigo en directorio de paquete org, seguido por estructura para maven
+    olDirectorioProyecto.setPath(QString("%1/%2/src/main/java/org/%3").arg(opDirectorioDeArchivo).arg(omProyecto.getNombreProyecto()).arg(omProyecto.getNombreProyecto().toLower()));
     GenerarAnalizadorNetBeans(olDirectorioProyecto.absolutePath());
     GenerarMemoriaNetBeans(olDirectorioProyecto.absolutePath());
     GenerarMainNetBeans(olDirectorioProyecto.absolutePath());
