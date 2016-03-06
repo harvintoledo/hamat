@@ -1,0 +1,18 @@
+;Definicion de lenguaje ensamblador
+; Se contempla que se puedan definir las reglas léxicas, semánticas
+%reglas start
+operando: # | r# | (#) | (r#)
+operaciones: ID operando | ID operando, operando
+operacion_mov: MOV operando, operando
+operacion_add: ADD operando, operando
+#DEFINE MOVER AS MOV (r#|m),(#|R#|)
+; Ejemplo para código de pila
+#DEFINE SUMAR AS ADD 
+# Ejemplo para código de dos direcciones
+#define sumar as ADD (@ | &), ($ | & | @)
+
+#define SUMAR AS ADD (@ | &), ($ | & | @), ($ | & | @)
+; 
+;instruccion:operacion_mov { $$ = MOV($1, $2); }| operacion_add { $$ = ADD($1, $2); }
+
+%reglas end

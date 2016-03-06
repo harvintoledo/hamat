@@ -15,14 +15,22 @@ SOURCES += main.cpp\
     classwizard.cpp \
     clasemiembroproyecto.cpp \
     clasegeneradordeproyecto.cpp \
-    claseproyecto.cpp
+    claseproyecto.cpp \
+    clasemetaanalex.cpp \
+    clasemetaanasin.cpp \
+    clasemetaanasem.cpp \
+    claseinformacionlexema.cpp
 
 HEADERS  += mainwindow.h \
     classwizard.h \
     clasemiembroproyecto.h \
     clasegeneradordeproyecto.h \
     claseproyecto.h \
-    util.h
+    util.h \
+    clasemetaanalex.h \
+    clasemetaanasin.h \
+    clasemetaanasem.h \
+    claseinformacionlexema.h
 
 FORMS    += mainwindow.ui
 
