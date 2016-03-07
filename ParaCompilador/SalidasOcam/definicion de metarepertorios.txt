@@ -1,0 +1,21 @@
+.ARQUTECTURA 3D
+; Nota: los comentarios seran ignorados, empiezan con ';' (punto y coma) y terminan con salto de linea
+#definir #operacion MOVER MOV ; Definicion de operacion de transferencia de datos
+#definir #operacion SUMAR ADD ; Definicion de operacion aritmetica de suma
+#definir #operacion RESTAR SUB ; Definicion de operacion aritmetica de resta
+#definir #operacion MULTIPLICAR MUL ; Definicion de operacion aritmetica de multiplicacion
+#definir #operacion DIVIDIR DIV ; Definicion de operacion aritmetica de division
+#definir #operacion DISYUNCION AND ; Definicion de operacion logica de disyuncion AND
+#definir #operacion OR OR ; Enfatizando que la operacion OR sera la misma OR
+#definir #operacion ROTDER XRR ; Definicion de operacion de rotacion de bits a la derecha
+#definir #operacion ROTIZQ XRL ; Definicion de operacion de rotacion de bits a la izquierda
+MOVER R#, # ; Operacion de transferencia de datos entre inmediato origen a destino registro
+MOVER [#], R# ; Operacion de transferencia de datos entre registro origen a destino de memoria apuntada por un valor inmediato 
+MOVER R#, [#] ; Operacion de transferencia de datos entre memoria apuntada por un valor inmediato a un registro
+MOVER [R#], # ; Operacion de transferencia de datos entre 
+
+
+SUMAR R#, #
+SUMAR R#, [#]
+
+ 

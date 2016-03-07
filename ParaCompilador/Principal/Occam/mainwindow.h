@@ -8,6 +8,7 @@
 #include "QMessageBox"
 #include <QDebug>
 #include "classwizard.h"
+#include "clasegeneradordeproyecto.h"
 namespace Ui {
     class MainWindow;
 }
@@ -35,8 +36,10 @@ protected:
     smNombreArchivoDeTrabajo,
     smRutaNombreArchivoDeTrabajo;
     ClassWizard *pomWizard;
+
     // Variables para comportamiento de aplicacion
     bool bmPlantillaOcamAbierta,
     bmPlantillaCompilada;
+    ClaseGeneradorDeProyecto omGeneradorDeProyecto;
 };
 #endif // MAINWINDOW_H

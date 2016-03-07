@@ -12,7 +12,6 @@ ui(new Ui::MainWindow) {
     smRutaDeTrabajo =
     smRutaNombreArchivoDeTrabajo =
     smNombreArchivoDeTrabajo = "";
-    pomWizard = new ClassWizard;
 
 }
 MainWindow::~MainWindow() {
@@ -26,8 +25,8 @@ void MainWindow::AcceptWizardPage() {
     qDebug() << "***   AcceptWizardPage   ***";
     qDebug() << "****************************";
 
-    smRutaDeTrabajo = pomWizard->getUbicacionDelProyecto();
-    smNombreArchivoDeTrabajo = pomWizard->getNombreDelProyecto();
+    smRutaDeTrabajo = pomWizard->getProyecto().getUbicacionDirectorio();
+    smNombreArchivoDeTrabajo = pomWizard->getProyecto().getNombreProyecto();
     smRutaNombreArchivoDeTrabajo = smRutaDeTrabajo + "\\" + smNombreArchivoDeTrabajo + ".occam";
     qDebug() << "smRutaDeTrabajo" << smRutaDeTrabajo;
     qDebug() << "smNombreArchivoDeTrabajo" << smNombreArchivoDeTrabajo;
@@ -44,13 +43,16 @@ void MainWindow::AcceptWizardPage() {
             bmPlantillaOcamAbierta = true;
         }
     }
+    omGeneradorDeProyecto.setProyecto(pomWizard->getProyecto());
     pomWizard->close();
     disconnect(pomWizard, SIGNAL(accepted()), this, SLOT(AcceptWizardPage()));
-//    delete pomWizard;
+    delete pomWizard;
     qDebug() << "Finalizado AcceptWizardPage";
+    omGeneradorDeProyecto.GenerarProyectoOccam();
 
 }
 void MainWindow::on_action_Nuevo_triggered() {
+    pomWizard = new ClassWizard;
     pomWizard->show();
     connect(pomWizard, SIGNAL(accepted()), this, SLOT(AcceptWizardPage()));
     //    smRutaDeTrabajo = pomWizard->getUbicacionDelProyecto() + "/" + pomWizard->getNombreDelProyecto() + ".occam";
@@ -117,21 +119,22 @@ void MainWindow::on_action_Generar_Plantilla_triggered() {
         if(smRutaNombreArchivoDeTrabajo.isEmpty())
         olMessageBox.setText("Aún no se ha definido la ruta del archivo.");
         else {
-            if(pomWizard->getEstaDefinidaPlataforma()) {
-                if(pomWizard->getPlataforma()) {
-                    pomWizard->GenerarCSharp();
-                    olMessageBox.setText("Se exportara proyecto, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
-
-                }
-                else {
-                    pomWizard->GenerarNetbeans();
-                    olMessageBox.setText("Se exportara proyecto, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
-                }
-            }
-            else {
+            switch (omGeneradorDeProyecto.getProyecto().getPlataforma()) {
+            case ClaseProyecto::TP_CSHARP_VISUAL_STUDIO:
+                olMessageBox.setText("Se exportara proyecto a C#, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
+                omGeneradorDeProyecto.GenerarCSharp();
+                break;
+            case ClaseProyecto::TP_JAVA_NETBEANS_O_ECLIPSE:
+                olMessageBox.setText("Se exportara proyecto a java, la ruta completa del archivo es\n" + smRutaNombreArchivoDeTrabajo);
+                omGeneradorDeProyecto.GenerarNetbeans();
+                break;
+            case ClaseProyecto::TP_NINGUNA_PLATAFORMA:
                 olMessageBox.setText("No esta definida ninguna plataforma\n");
-
+                break;
+            default:
+                break;
             }
+
         }
     }
     olMessageBox.exec();
@@ -139,17 +142,4 @@ void MainWindow::on_action_Generar_Plantilla_triggered() {
     // Obtener plataforma a generar para el tipo de plantilla
     // Obtener plataforma a generar para el tipo de plantilla
     // Establecer parametros generales y datos para plantilla
-    /*
-     *     void GenerarNetbeans();
-    void GenerarCSharp();
-    bool getPlataforma() {
-        return bmEsNetbeans;
-    }
-    bool getEstaDefinidaPlataforma() {
-        return bmPlataformaDefinida;
-    }
-    QString getRutaCompleta() {
-        return smRutaCompleta;
-    }
-     * */
 }
