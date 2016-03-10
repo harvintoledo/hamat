@@ -23,13 +23,13 @@
 #incluir <EntradasSalidas>
 #incluir <ReservarMemoria>
 #incluir <FuncionesMatematicas>
-entero B = 10000; /* Base númerica de cáculo */
-entero LB = 4;    /* Log10(base)  */
-entero MaximoDivisor = 450;  /* aproximadamente raizcuadrada(2^31/B) */
+entero B = 10000; /* Base númerica de cáculo */ <idenfificador> <identificador> <op_asign> <numero> ";"
+entero LB = 4;    /* Log10(base)  */  <idenfificador> <identificador> <op_asign> <numero> ";"
+entero MaximoDivisor = 450;  /* aproximadamente raizcuadrada(2^31/B) */  <idenfificador> <identificador> <op_asign> <numero> ";"
 /*
 ** Establecer un valor real de un entero en formato de número real grande
 */
-procedimiento ConvertirAEntero (entero n, entero *x, entero ValorEntero) {
+procedimiento ConvertirAEntero (entero n, entero *x, entero ValorEntero) { <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero i;
     para (i = 1; i < n; i++) x[i] = 0;
     x[0] = ValorEntero;
@@ -47,7 +47,7 @@ entero EsCero (entero n, entero *x) {
 ** SumarEnMultiprecision de números reales grandes : x += y
 **  Como una suma convencional con acarreo
 */
-procedimiento SumarEnMultiprecision (entero n, entero *x, entero *y) {
+procedimiento SumarEnMultiprecision (entero n, entero *x, entero *y) { <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero acarreoDeDigito=0, i;
     para (i = n-1; i >= 0; i--) {
         x[i] += y[i]+acarreoDeDigito;
@@ -63,9 +63,9 @@ procedimiento SumarEnMultiprecision (entero n, entero *x, entero *y) {
 **  Como una multiplicación convencional con acarreo
 **  x debe ser mayor que y
 */
-procedimiento RestarEnMultiprecision (entero n, entero *x, entero *y) {
+procedimiento RestarEnMultiprecision (entero n, entero *x, entero *y) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero i;
-    para (i = n-1; i >= 0; i--) {
+    para (i = n-1; i >= 0; i--) { <idenfificador> <paren_izq> <idenfificador> <op_asign> <expresion_simple> ";" <expresion_simple> ";" <expresion_simple> <paren_der> <corch_izq>
         x[i] -= y[i];
         si (x[i] < 0) {
             si (i) {
@@ -80,9 +80,9 @@ procedimiento RestarEnMultiprecision (entero n, entero *x, entero *y) {
 ** x = x * q.
 **  Como una suma convencional con acarreo
 */
-procedimiento MultiplicarEnMultiprecision (entero n, entero *x, entero q) {
+procedimiento MultiplicarEnMultiprecision (entero n, entero *x, entero q) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero acarreoDeDigitoBase=0, xi, i;
-    para (i = n - 1; i >= 0; i--) {
+    para (i = n - 1; i >= 0; i--) {  <idenfificador> <paren_izq> <idenfificador> <op_asign> <expresion_simple> ";" <expresion_simple> ";" <expresion_simple> <paren_der> <corch_izq>
         xi  = x[i] * q;
         xi += acarreoDeDigitoBase;
         si (xi >= B) {
@@ -96,15 +96,15 @@ procedimiento MultiplicarEnMultiprecision (entero n, entero *x, entero q) {
 }
 /*
 ** División de un número real grande x por un número entero pequeño q
-** El resultado es y=x/d.
+** El resultado es y = x / d.
 **  Como una suma convencional con acarreo
 **  d es el límte de MaximoDivisor*MaximoDivisor.
 */
-procedimiento DividirEnMultiprecision(entero n, entero *x, entero d, entero *y) {
+procedimiento DividirEnMultiprecision(entero n, entero *x, entero d, entero *y) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero acarreoDeDigitoBase = 0, xi, q, i;
-    para (i = 0; i < n; i++) {
-        xi    = x[i]+acarreoDeDigitoBase*B;
-        q     = xi/d;
+    para (i = 0; i < n; i++) {  <idenfificador> <paren_izq> <idenfificador> <op_asign> <expresion_simple> ";" <expresion_simple> ";" <expresion_simple> <paren_der> <corch_izq>
+        xi    = x[i] + acarreoDeDigitoBase * B;
+        q     = xi / d;
         acarreoDeDigitoBase = xi - q * d;
         y[i]  = q;
     }
@@ -114,7 +114,7 @@ procedimiento DividirEnMultiprecision(entero n, entero *x, entero d, entero *y) 
 **  El resultado es un número real grande x (LongitudDeData n)
 **  buf1 y buf2 son dos almacenamientos de memoria de LongitudDeData n
 */
-procedimiento ArcoTangente (entero p, entero n, entero *x, entero *buf1, entero *buf2) {
+procedimiento ArcoTangente (entero p, entero n, entero *x, entero *buf1, entero *buf2) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero p2 = p * p, k = 3, esPositivo = 0;
     entero *uk = buf1, *vk = buf2;
     ConvertirAEntero (n, x, 0);
@@ -140,7 +140,7 @@ procedimiento ArcoTangente (entero p, entero n, entero *x, entero *buf1, entero 
 /*
 ** MostrarEnPantalla el numero real x
 */
-procedimiento MostrarEnPantalla (entero n, entero *x) {
+procedimiento MostrarEnPantalla (entero n, entero *x) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     entero i;
     EscribirConFormato ("%d.", x[0]);
     para (i = 1; i < n; i++) {
@@ -152,7 +152,7 @@ procedimiento MostrarEnPantalla (entero n, entero *x) {
 /*
 ** Cálculo de la constante Pi método ArcoTangente 
 */
-procedimiento principal () {
+procedimiento principal () { <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
     reloj_en_milesimas InicioCuentaReloj, FinCuentaReloj; // reloj_en_milesimas debería de estar definida en librería CuentaTiempo
     entero NumberoDeDigitosDeLaBase = 10000, NbArctan;
     entero p[10], m[10];

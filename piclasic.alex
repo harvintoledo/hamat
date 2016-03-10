@@ -24,8 +24,8 @@
 #incluir <ReservarMemoria>
 #incluir <FuncionesMatematicas>
 entero B = 10000; /* Base númerica de cáculo */
-entero LB = 4;    /* Log10(base)  */
-entero MaximoDivisor = 450;  /* aproximadamente raizcuadrada(2^31/B) */
+entero LB = 4;    /* Log10(base)  logaritmo de base 10 de base númerica*/
+entero MaximoDivisor = 450;  /* aproximadamente raizcuadrada(2^31/B) */ // La función raizcuadrada está incluida en librería FuncionesMatematicas
 /*
 ** Establecer un valor real de un entero en formato de número real grande
 */
@@ -70,7 +70,7 @@ procedimiento RestarEnMultiprecision (entero n, entero *x, entero *y) {
         si (x[i] < 0) {
             si (i) {
                 x[i] += B;
-                x[i-1]--;
+                x[i - 1] --;
             }
         }
     }
@@ -96,7 +96,7 @@ procedimiento MultiplicarEnMultiprecision (entero n, entero *x, entero q) {
 }
 /*
 ** División de un número real grande x por un número entero pequeño q
-** El resultado es y=x/d.
+** El resultado es y = x / d.
 **  Como una suma convencional con acarreo
 **  d es el límte de MaximoDivisor*MaximoDivisor.
 */
@@ -124,9 +124,9 @@ procedimiento ArcoTangente (entero p, entero n, entero *x, entero *buf1, entero 
 
     mientras (!EsCero(n, uk)) {
         si (p < MaximoDivisor)
-        DividirEnMultiprecision(n, uk, p2, uk);  /* One step para small p */
+        DividirEnMultiprecision(n, uk, p2, uk);  /* Un paso para un valor de p pequeño */
         sino {
-            DividirEnMultiprecision(n, uk, p, uk);   /* Two steps para large p (see division) */
+            DividirEnMultiprecision(n, uk, p, uk);   /* Dos pasos para un valor de p más grande */
             DividirEnMultiprecision(n, uk, p, uk);
         }
         /* uk = u(k-1)/(p^2) */
