@@ -154,9 +154,9 @@ procedimiento MostrarEnPantalla (entero n, entero *x) {
 */
 procedimiento principal () {
     reloj_en_milesimas InicioCuentaReloj, FinCuentaReloj; // reloj_en_milesimas debería de estar definida en librería CuentaTiempo
-    entero NumberoDeDigitosDeLaBase = 10000, NbArctan;
+    entero NumeroDeDigitosDeLaBase = 10000, NbArctan;
     entero p[10], m[10];
-    entero LongitudDeData = 1 + NumberoDeDigitosDeLaBase / LB, i;
+    entero LongitudDeData = 1 + NumeroDeDigitosDeLaBase / LB, i;
     entero *Pi      = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
     entero *ArcoTangente  = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
     entero *AlmacenDeMemoria1 = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
