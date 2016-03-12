@@ -1,0 +1,192 @@
+// piclasic.alex
+/****
+****
+***
+/
+
+/** 
+** Based en Programa de  
+** Pascal Sebah : September 1999
+**
+**        A very easy program to compute Pi with many digits.
+**        Un programa para calcular pi con varios digitos.
+**         
+** Formula:
+**
+**    Pi/4 =    ArcoTangente(1 / 2) + ArcoTangente(1 / 3)                     (Hutton 1)
+**    Pi/4 =  2 * ArcoTangente(1 / 3) + ArcoTangente(1 / 7)                     (Hutton 2)
+**    Pi/4 =  4 * ArcoTangente(1/ 5) - ArcoTangente(1 / 239)                   (Machin)
+**    Pi/4 = 12 * ArcoTangente(1 / 18) + 8 * ArcoTangente(1 / 57) - 5 * ArcoTangente(1/239) (Gauss)
+**
+*/
+#incluir <CuentaTiempo>
+#incluir <EntradasSalidas>
+#incluir <ReservarMemoria>
+#incluir <FuncionesMatematicas>
+entero B = 10000; /* Base númerica de cáculo */ <idenfificador> <identificador> <op_asign> <numero> ";"
+entero LB = 4;    /* Log10(base)  */  <idenfificador> <identificador> <op_asign> <numero> ";"
+entero MaximoDivisor = 450;  /* aproximadamente raizcuadrada(2^31/B) */  <idenfificador> <identificador> <op_asign> <numero> ";"
+/*
+** Establecer un valor real de un entero en formato de número real grande
+*/
+procedimiento ConvertirAEntero (entero n, entero *x, entero ValorEntero) { <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero i;
+    para (i = 1; i < n; i++) x[i] = 0;
+    x[0] = ValorEntero;
+}
+/*
+** Es el número real grande igual a cero ?
+*/
+entero EsCero (entero n, entero *x) {
+    entero i;
+    para (i = 0; i < n; i++)
+    si (x[i])    regresar 0;
+    regresar 1;
+}
+/*
+** SumarEnMultiprecision de números reales grandes : x += y
+**  Como una suma convencional con acarreo
+*/
+procedimiento SumarEnMultiprecision (entero n, entero *x, entero *y) { <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero acarreoDeDigito=0, i;
+    para (i = n-1; i >= 0; i--) {
+        x[i] += y[i]+acarreoDeDigito;
+        si (x[i] < B) acarreoDeDigito = 0;
+        sino {
+            acarreoDeDigito = 1;
+            x[i] -= B;
+        }
+    }
+}
+/*
+** RestarEnMultiprecision  de números reales grandes : x -= y
+**  Como una multiplicación convencional con acarreo
+**  x debe ser mayor que y
+*/
+procedimiento RestarEnMultiprecision (entero n, entero *x, entero *y) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero i;
+    para (i = n-1; i >= 0; i--) { <idenfificador> <paren_izq> <idenfificador> <op_asign> <expresion_simple> ";" <expresion_simple> ";" <expresion_simple> <paren_der> <corch_izq>
+        x[i] -= y[i];
+        si (x[i] < 0) {
+            si (i) {
+                x[i] += B;
+                x[i-1]--;
+            }
+        }
+    }
+}
+/*
+** Multiplicación de un numero real x por un valor entero pequeño q
+** x = x * q.
+**  Como una suma convencional con acarreo
+*/
+procedimiento MultiplicarEnMultiprecision (entero n, entero *x, entero q) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero acarreoDeDigitoBase=0, xi, i;
+    para (i = n - 1; i >= 0; i--) {  <idenfificador> <paren_izq> <idenfificador> <op_asign> <expresion_simple> ";" <expresion_simple> ";" <expresion_simple> <paren_der> <corch_izq>
+        xi  = x[i] * q;
+        xi += acarreoDeDigitoBase;
+        si (xi >= B) {
+            acarreoDeDigitoBase = xi / B;
+            xi -= (acarreoDeDigitoBase * B);
+        }
+        sino
+        acarreoDeDigitoBase = 0;
+        x[i] = xi;
+    }
+}
+/*
+** División de un número real grande x por un número entero pequeño q
+** El resultado es y = x / d.
+**  Como una suma convencional con acarreo
+**  d es el límte de MaximoDivisor*MaximoDivisor.
+*/
+procedimiento DividirEnMultiprecision(entero n, entero *x, entero d, entero *y) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero acarreoDeDigitoBase = 0, xi, q, i;
+    para (i = 0; i < n; i++) {  <idenfificador> <paren_izq> <idenfificador> <op_asign> <expresion_simple> ";" <expresion_simple> ";" <expresion_simple> <paren_der> <corch_izq>
+        xi    = x[i] + acarreoDeDigitoBase * B;
+        q     = xi / d;
+        acarreoDeDigitoBase = xi - q * d;
+        y[i]  = q;
+    }
+}
+/*
+** Encontrar la tangente inversa de un número p = ArcoTangente (1/p)
+**  El resultado es un número real grande x (LongitudDeData n)
+**  buf1 y buf2 son dos almacenamientos de memoria de LongitudDeData n
+*/
+procedimiento ArcoTangente (entero p, entero n, entero *x, entero *buf1, entero *buf2) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero p2 = p * p, k = 3, esPositivo = 0;
+    entero *uk = buf1, *vk = buf2;
+    ConvertirAEntero (n, x, 0);
+    ConvertirAEntero (n, uk, 1);    /* uk = 1/p */
+    DividirEnMultiprecision(n, uk, p, uk);
+    SumarEnMultiprecision (n, x, uk);              /* x  = uk */
+
+    mientras (!EsCero(n, uk)) {
+        si (p < MaximoDivisor)
+        DividirEnMultiprecision(n, uk, p2, uk);  /* One step para small p */
+        sino {
+            DividirEnMultiprecision(n, uk, p, uk);   /* Two steps para large p (see division) */
+            DividirEnMultiprecision(n, uk, p, uk);
+        }
+        /* uk = u(k-1)/(p^2) */
+        DividirEnMultiprecision(n, uk, k, vk);       /* vk = uk/k  */
+        si (esPositivo) SumarEnMultiprecision (n, x, vk); /* x = x+vk   */
+        sino RestarEnMultiprecision (n, x, vk);      /* x = x-vk   */
+        k+=2;
+        esPositivo = 1-esPositivo;
+    }
+}
+/*
+** MostrarEnPantalla el numero real x
+*/
+procedimiento MostrarEnPantalla (entero n, entero *x) {  <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    entero i;
+    EscribirConFormato ("%d.", x[0]);
+    para (i = 1; i < n; i++) {
+        EscribirConFormato ("%.4d", x[i]);
+        si (i % 25 == 0) EscribirConFormato ("%8d\n", i*4);
+    }
+    EscribirConFormato ("\n");
+}
+/*
+** Cálculo de la constante Pi método ArcoTangente 
+*/
+procedimiento principal () { <idenfificador> <idenfificador> <paren_izq> <parametros> <paren_der> <corch_izq>
+    reloj_en_milesimas InicioCuentaReloj, FinCuentaReloj; // reloj_en_milesimas debería de estar definida en librería CuentaTiempo
+    entero NumberoDeDigitosDeLaBase = 10000, NbArctan;
+    entero p[10], m[10];
+    entero LongitudDeData = 1 + NumberoDeDigitosDeLaBase / LB, i;
+    entero *Pi      = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
+    entero *ArcoTangente  = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
+    entero *AlmacenDeMemoria1 = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
+    entero *AlmacenDeMemoria2 = (entero *) ReservarMemoria(LongitudDeData * CantidadDeBytes(entero));
+    FinCuentaReloj = RelojDeSistema(); // RelojDeSistema debería de estar definida en librería CuentaTiempo
+    /*
+** Fórmula usada para este caso:
+**
+**   Pi/4 = 12 * ArcoTangente( 1 / 18) + 8 * ArcoTangente( 1 / 57) - 5 * ArcoTangente( 1 / 239 ) (Gauss)
+*/
+    NbArctan = 3;
+    m[0] = 12; m[1] = 8;  m[2] = -5;
+    p[0] = 18; p[1] = 57; p[2] = 239;
+    ConvertirAEntero (LongitudDeData, Pi, 0);
+    /*
+** Cálculo Pi / 4 = Sum(i) [m[i] * ArcoTangente(1 / p[i])]
+*/
+    para (i = 0; i < NbArctan; i++) {
+        ArcoTangente (p[i], LongitudDeData, ArcoTangente, AlmacenDeMemoria1, AlmacenDeMemoria2);
+        MultiplicarEnMultiprecision (LongitudDeData, ArcoTangente, abs(m[i]));
+        si (m[i] > 0) SumarEnMultiprecision (LongitudDeData, Pi, ArcoTangente);
+        sino RestarEnMultiprecision (LongitudDeData, Pi, ArcoTangente);
+    }
+    MultiplicarEnMultiprecision (LongitudDeData, Pi, 4);
+    InicioCuentaReloj = RelojDeSistema ();
+    MostrarEnPantalla (LongitudDeData, Pi);  /* MostrarEnPantalla fuera de Pi */
+    EscribirConFormato ("El tiempo de calculo ha sido : %9.2f segundos\n",
+    (doble)(InicioCuentaReloj - FinCuentaReloj)/ (doble) MILISEGUNDOS_EN_SEGUNDO ); // MILISEGUNDOS_EN_SEGUNDO debería de estar definida en librería CuentaTiempo
+    LiberarMemoria (Pi);
+    LiberarMemoria (ArcoTangente);
+    LiberarMemoria (AlmacenDeMemoria1);
+    LiberarMemoria (AlmacenDeMemoria2);
+}
