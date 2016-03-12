@@ -20,6 +20,8 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
     while( estado != TIPO_ESTADO_HECHO) {
 
     }
+
+
 }
 
 char ClaseMetaAnalex::obtenerSiguienteCaracter(void) {
