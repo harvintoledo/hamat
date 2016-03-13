@@ -3,7 +3,7 @@ typedef struct Symbol { /* Symbol table entry */
     short type; /* VAR, BLTIN, UNDEF */
     union {
         double val; /* if VAR */
-        double (*prt)(); /* if BLTIN */
+        double (*ptr)(); /* if BLTIN */
     } u;
     struct Symbol *next;
 } Symbol;
