@@ -158,7 +158,8 @@ palabraReservada[MAXIMONUMERODEPALABRASRESERVADAS] = {
     { "les", TIPO_LEXEMA_LES},
     { "shl", TIPO_LEXEMA_SHL},
     { "shr", TIPO_LEXEMA_SHR}
-};
+
+    };
 
 /* ExpType es utilizado para verificación de tipos */
 typedef enum {
