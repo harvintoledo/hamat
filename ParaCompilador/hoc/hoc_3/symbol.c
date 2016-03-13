@@ -1,12 +1,13 @@
 #include "hoc.h"
 #include "y.tab.h"
+#include "string.h"
 static Symbol *symlist = 0; /* Symbol table, linked list */
 Symbol *lookup(s) /* find s in symbol table */
 char *s; {
     Symbol *sp;
     
     for(sp = symlist; sp != (Symbol *)0; sp = sp->next)
-    if(stcmp(sp->name, s) == 0)
+    if(strcmp(sp->name, s) == 0)
     return sp;
     return 0; /* 0 ==> not found */
     
@@ -28,7 +29,7 @@ double d; {
 }
 char *emalloc(n)
 unsigned n; {
-    char *p, *malloc();
+    char *p;
     
     p = malloc(n);
     if(p == 0)
