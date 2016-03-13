@@ -53,8 +53,7 @@ typedef enum TipoLexema {
 static struct {
     char *cad;
     TipoLexema tok;
-}
-palabraReservada[MAXIMONUMERODEPALABRASRESERVADAS] = {
+} palabraReservada[MAXIMONUMERODEPALABRASRESERVADAS] = {
     //#instruccion MOV
     //#COMENTARIO: La instrucción MOV es la instrucción más utilizada en un microprocesador.
     // Los datos son transferidos desde un registro u operando llamado fuente a hacia un registro llamado destino.
@@ -158,8 +157,7 @@ palabraReservada[MAXIMONUMERODEPALABRASRESERVADAS] = {
     { "les", TIPO_LEXEMA_LES},
     { "shl", TIPO_LEXEMA_SHL},
     { "shr", TIPO_LEXEMA_SHR}
-
-    };
+};
 
 /* ExpType es utilizado para verificación de tipos */
 typedef enum {

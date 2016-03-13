@@ -20,11 +20,9 @@ SOURCES += main.cpp\
     clasemetaanasin.cpp \
     clasemetaanasem.cpp \
     claseinformacionlexema.cpp \
-    ytab.cpp \
-    init.cpp \
-    math.cpp \
-    symbol.cpp \
-    lexyy.cpp
+    test.cpp \
+    symbolmanager.cpp \
+    mathmanager.cpp
 
 HEADERS  += mainwindow.h \
     classwizard.h \
@@ -37,7 +35,11 @@ HEADERS  += mainwindow.h \
     clasemetaanasem.h \
     claseinformacionlexema.h \
     ytab.h \
-    hoc.h
+    hoc.h \
+    symbol.h \
+    test.h \
+    symbolmanager.h \
+    mathmanager.h
 
 FORMS    += mainwindow.ui
 
