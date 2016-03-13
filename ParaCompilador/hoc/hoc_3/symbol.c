@@ -1,6 +1,7 @@
 #include "hoc.h"
 #include "y.tab.h"
-#include "string.h"
+#include "string.h" /* Declaracion para strcpy y strcmp */
+#include "stdlib.h" /* Declaracion para malloc */
 static Symbol *symlist = 0; /* Symbol table, linked list */
 Symbol *lookup(s) /* find s in symbol table */
 char *s; {
