@@ -9,7 +9,7 @@ hoc.o:	hoc.h
 init.o symbol.o:	hoc.h y.tab.h
 
 pr:
-	@pr hoc3.y hoc.h init.c math.c symbol.c makefile
+	@pr hoc.y hoc.h init.c math.c symbol.c makefile
 
 clean:
 	rm -f $(OBJS) y.tab.[ch]
