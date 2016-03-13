@@ -12,7 +12,6 @@
 %type <val> expr asgn
 %right '='
 %left '+' '-'
-%left '+' '-'
 %left '*' '/'
 %left UNARYMINUS
 %right '^' /* exponentiation */
