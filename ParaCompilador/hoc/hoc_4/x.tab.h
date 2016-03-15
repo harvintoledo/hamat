@@ -62,7 +62,7 @@ typedef union YYSTYPE
 #line 7 "hoc.y"
  /* stack type */
     Symbol *sym; /* symbol table pointer */
-	Inst *inst; /* Machine instruction */
+    Inst *inst; /* Machine instruction */
 
 
 

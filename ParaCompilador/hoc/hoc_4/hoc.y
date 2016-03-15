@@ -6,7 +6,7 @@
 %}
 %union { /* stack type */
     Symbol *sym; /* symbol table pointer */
-	Inst *inst; /* Machine instruction */
+    Inst *inst; /* Machine instruction */
 }
 %token <sym> NUMBER VAR BLTIN UNDEF
 %type <val> expr asgn
@@ -52,7 +52,7 @@ char *argv[]; {
     setjmp(begin);
     signal(SIGFPE, fpecatch);
     for( initcode(); yyparse(); initcode())
-        executeprog(prog);
+        execute(prog);
     yyparse();
 }
 yylex() /* hoc3 */

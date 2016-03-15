@@ -45,7 +45,7 @@ Inst *code(f) /* Install one instruction or operand */
 
 /* Execution of the machine is simple: in fact, it's rather neat how small the routine is that "runs" the machine it's set up:*/
 execute(p) /* run de the machine */
-	Inst *p;
+    Inst *p;
 {
     for( pc = p; *pc != STOP; )
         (*(*pc++))();
@@ -99,6 +99,20 @@ division() {
     push(d1);
 }
 
+power() {
+    Datum d1, d2;
+    d2 = pop();
+    d1 = pop();
+    d1.val = Pow(d1.val, d2.val);
+    push(d1);
+}
+
+negate() {
+    Datum d;
+    d = pop();
+    d.val = -d.val;
+    push(d);
+}
 eval() /* evaluate variable on stack */
 {
     Datum d;

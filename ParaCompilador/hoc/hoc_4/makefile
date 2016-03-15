@@ -1,4 +1,4 @@
-YFLAGS = -d		# force creation of y.tab.h
+YFLAGS = -d	# force creation of y.tab.h
 OBJS = hoc.o code.o init.o math.o symbol.o  # abbrebiation
 
 hoc4:	$(OBJS)
