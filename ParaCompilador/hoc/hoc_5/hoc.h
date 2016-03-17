@@ -1,3 +1,4 @@
+#include <stdio.h>
 typedef struct Symbol { /* Symbol table entry */
     char *name;
     short type; /* VAR, BLTIN, UNDEF */
@@ -24,6 +25,6 @@ extern eval(), add(), sub(), mul(), division(), negate(), power();
 extern assign(), bltin(), varpush(), constpush(), print();
 extern prexpr();
 extern gt(), lt(), eq(), ge(), le(), ne(), and(), or(), not();
-extern ifcod(), whilecode();
+extern ifcode(), whilecode();
 
 
