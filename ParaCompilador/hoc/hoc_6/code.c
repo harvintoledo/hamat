@@ -270,6 +270,8 @@ ret()
 	int i;
 	for(i = 0; i < fp->nargs; i++)
 		pop(); /* pop arguments */
-	
+	pc = (Inst *)fp->retpc;
+	--fp;
+	returning = 1;
 }
 
