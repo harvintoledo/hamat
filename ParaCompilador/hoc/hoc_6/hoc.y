@@ -10,12 +10,12 @@
     int narg; /* Number of argument for a function */
     int narg; /* Number of argument for a function */
 }
-%token <sym> NUMBER PRINT VAR BLTIN UNDEF WHILE IF ELSE /* This version provides if-else and while statements like those C */
+%token <sym> NUMBER STRING PRINT VAR BLTIN UNDEF WHILE IF ELSE /* This version provides if-else and while statements like those C */
 %token <sym> FUNCTION PROCEDURE RETURN FUNC PROC READ
 %token <narg> ARG
 %type <inst> expr stmt asgn prlist stmtlist
 %type <inst> cond while if begin end
-%type procname
+%type <sym> procname
 %type <narg> arglist
 %right    '='
 %left    OR
@@ -99,7 +99,7 @@ prlist: expr { code(prexpr); }
 | prlist ',' STRING { code2(prstr, (Inst)$3); }
 ;
 defn: FUNC procname { $2->type = FUNCTION; indef = 1; } '(' ')' stmt { code(procret); define($2); indef = 0; }
-| PROC procname { $->type = PROCEDURE; indef = 1; }
+| PROC procname { $2->type = PROCEDURE; indef = 1; }
     '(' ')' stmt { code(procret); define($2); indef = 0; }
 ;
 procname: VAR
