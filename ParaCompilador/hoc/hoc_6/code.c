@@ -52,7 +52,7 @@ Inst f;
 execute(p) /* run de the machine */
 Inst *p;
 {
-    for( pc = p; *pc != STOP; )
+    for( pc = p; *pc != STOP && !returning; )
     (*(*pc++))();
 }
 constpush() /* push constant onto stack */
@@ -210,9 +210,12 @@ whilecode()
     d = pop();
     while(d.val) {
         execute(*((Inst **)(savepc))); /* body*/
+        if(!returning)
+            break;
         execute(savepc+2);
         d = pop();
     }
+    if(!returning)
     pc = *((Inst **)(savepc+1)); /* next statement */
 }
 
@@ -226,6 +229,7 @@ ifcode()
         execute(*((Inst **)(savepc)));
     else if(*((Inst **)(savepc+1))) /* Else part? */
         execute(*((Inst **)(savepc+1)));
+    if(!returning)
     pc = *((Inst **)(savepc+2)); /* next stmt */
 }
 
@@ -244,34 +248,90 @@ define(sp) /* put func/proc in symbol table */
 
 call()
 {
-	Symbol *sp = (Symbol *)pc[0]; /* symbol table entry */
-									/* for functions */
-	fp->sp = sp;
-	fp->nargs = (int) pc[1];
-	fp->retpc = pc + 2;
-	fp->argn = stackp - 1; /* last argument */
-	execute(sp->u.defn);
-	returning = 0;
+    Symbol *sp = (Symbol *)pc[0]; /* symbol table entry */
+                                    /* for functions */
+    fp->sp = sp;
+    fp->nargs = (int) pc[1];
+    fp->retpc = pc + 2;
+    fp->argn = stackp - 1; /* last argument */
+    execute(sp->u.defn);
+    returning = 0;
 }
 
 funcret() 
 {
-	Datum d;
-	if(fp->sp->type == PROCEDURE)
-		execerror(fp->sp->name, "(proc) returns value");
-	d = pop(); /* preserve function return  value */
-	ret();
-	push(d);
+    Datum d;
+    if(fp->sp->type == PROCEDURE)
+        execerror(fp->sp->name, "(proc) returns value");
+    d = pop(); /* preserve function return  value */
+    ret();
+    push(d);
 }
 
 /* The function ret() pops the arguments off the stack, restores the frame pointer fp, and sets the program counter. */
 ret()
 {
-	int i;
-	for(i = 0; i < fp->nargs; i++)
-		pop(); /* pop arguments */
-	pc = (Inst *)fp->retpc;
-	--fp;
-	returning = 1;
+    int i;
+    for(i = 0; i < fp->nargs; i++)
+        pop(); /* pop arguments */
+    pc = (Inst *)fp->retpc;
+    --fp;
+    returning = 1;
 }
 
+double *getarg() { /* return pointer to argument */
+    int nargs = (int) *pc++;
+    if(nargs > fp->nargs)
+        execerror(fp->sp->name, "not enough arguments");
+    return &fp->argn[narg-fp->nargs].val;
+}
+
+arg() /* push argument onto stack */
+{
+    Datum d;
+    d.val = *getarg();
+    push(d);
+}
+
+argassing() /* store top of stack in argument */
+{
+    Datum d;
+    d = pop();
+    push(d); /* leave value on stack */
+    *getarg() = d.val; 
+}
+
+prstr() /* print string value */
+{
+    printf("%s", (char *) *pc++);
+}
+
+prexpr()
+{
+    Datum d;
+    d = pop();
+    printf("%.8g ", d.val);
+}
+
+varread() /* read into variable */
+{
+    Datum d;
+    extern FILE *fin;
+    Symbol *var = (Symbol *) *pc++;
+    Again:
+    switch(fscanf(fin, "%lf", &var->u.val)) {
+        case EOF:
+            if(moreinput())
+                goto Again;
+            d.val = var->u.val = 0.0;
+            break;
+        case 0:
+            execerror("non-number read into", var.name);
+            break;
+        default:
+            d.val = 1.0;
+            break;
+    }
+    var->type = VAR; /* set a type of variable */
+    push(d); /* push into stack value of var */
+}
