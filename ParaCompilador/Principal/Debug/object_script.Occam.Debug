@@ -9,12 +9,12 @@ INPUT(
 ./debug\clasemetaanasin.o
 ./debug\clasemetaanasem.o
 ./debug\claseinformacionlexema.o
-./debug\ytab.o
-./debug\init.o
-./debug\math.o
-./debug\symbol.o
-./debug\lexyy.o
+./debug\test.o
+./debug\symbolmanager.o
+./debug\mathmanager.o
 ./debug\qrc_classwizard.o
 ./debug\moc_mainwindow.o
 ./debug\moc_classwizard.o
+./debug\moc_symbol.o
+./debug\moc_mathmanager.o
 );

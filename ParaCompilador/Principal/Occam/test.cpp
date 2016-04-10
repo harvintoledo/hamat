@@ -1,7 +1,6 @@
 #include "test.h"
 
-Test::Test(QObject *parent) : QObject(parent)
-{
-
+int ImprimeMensaje(char *s) {
+    printf("%s\n", s);
+    return 35;
 }
-

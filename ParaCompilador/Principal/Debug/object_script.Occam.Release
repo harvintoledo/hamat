@@ -9,12 +9,12 @@ INPUT(
 ./release\clasemetaanasin.o
 ./release\clasemetaanasem.o
 ./release\claseinformacionlexema.o
-./release\ytab.o
-./release\init.o
-./release\math.o
-./release\symbol.o
-./release\lexyy.o
+./release\test.o
+./release\symbolmanager.o
+./release\mathmanager.o
 ./release\qrc_classwizard.o
 ./release\moc_mainwindow.o
 ./release\moc_classwizard.o
+./release\moc_symbol.o
+./release\moc_mathmanager.o
 );

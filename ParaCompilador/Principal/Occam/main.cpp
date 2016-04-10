@@ -4,8 +4,10 @@
 #include <QLibraryInfo>
 #include <QTranslator>
 #include <QLocale>
+#include "test.h"
 int main(int argc, char *argv[]) {
         QApplication a(argc, argv);
+        printf("%d\n", ImprimeMensaje("Bienvenido a qt"));
         MainWindow w;
         w.show();
 
