@@ -1,0 +1,12 @@
+
+; comentario
+; % registro
+; $ memoria
+; ! inmediato
+
+#definir #operando ORIGEN %|$|!
+#definir #operando DESTINO %|$
+
+#definir #operacion MOVER MOV (%|$|!) , (%|$);
+#definir #operacion SUMAR ADD ORIGEN , DESTINO;
+#definir #operacion RESTAR SUB (%|$|!) , (%|$);
