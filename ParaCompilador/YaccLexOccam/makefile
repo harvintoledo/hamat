@@ -1,10 +1,10 @@
 YFLAGS = -d	# force creation of y.tab.h
-OBJS = hoc.o code.o init.o math.o symbol.o  # abbrebiation
+OBJS = occam.o code.o init.o math.o symbol.o  # abbrebiation
 
-hoc6:	$(OBJS)
-	cc $(OBJS) -lm -o hoc6
+occam:	$(OBJS)
+	cc $(OBJS) -lm -o occam
 
-hoc.o code.o init.o symbol.o:	hoc.h
+occam.o code.o init.o symbol.o:	occam.h
 
 code.o init.o symbol.o:	x.tab.h
 
@@ -13,7 +13,7 @@ x.tab.h:	y.tab.h
 	-cmp -s x.tab.h y.tab.h || cp y.tab.h x.tab.h
 
 pr:
-	@pr hoc.y hoc.h code.c init.c math.c symbol.c makefile
+	@pr occam.y occam.h code.c init.c math.c symbol.c makefile
 	@pr $?
 	@touch pr
 clean:

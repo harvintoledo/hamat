@@ -1,0 +1,30 @@
+#definir #instruccion mover
+#definir #instruccion sumar
+#definir #registros ax, bx, cx, dx, eax
+#definir @ memoria[direccion] #tipo doble
+#definir $ registro #tipo doble #
+
+mover @, $
+{
+	mem[direccion] = constante;
+}
+
+sumar $,$
+{
+	reg_destino = reg_destino + reg_origen;
+}
+
+%java
+%clase SumaRegistros
+%%
+private static void double<$1> funcion_sumar(double registro_origen<$1>, double registro_destino<$2>) {
+		reg_destino += origen;
+}
+%%
+
+
+%csharp
+%clase MueveRegistros
+%%
+
+%%
