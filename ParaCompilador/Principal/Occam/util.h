@@ -1,5 +1,15 @@
 #ifndef UTIL
 #define UTIL
+
+
+#ifndef VERDADERO
+#define VERDADERO                             1
+#endif
+
+#ifndef FALSO
+#define FALSO                                 0
+#endif
+
 #ifndef MAXIMONUMERODEPALABRASRESERVADAS
 #define MAXIMONUMERODEPALABRASRESERVADAS 100
 #endif
@@ -31,7 +41,9 @@ typedef enum {
     ENTRADANUMTIPOESTADO8, ENTRADANUMTIPOESTADO9, ENTRADANUMTIPOESTADO10, ENTRADANUMTIPOESTADO11,
     ENTRADANUMTIPOESTADO12, ENTRADANUMTIPOESTADO13, ENTRADANUMTIPOESTADO14, ENTRADANUMTIPOESTADO15,
     ENTRADANUMTIPOESTADO16, ENTRADANUMTIPOESTADO17,
-    ENOPERACION, ENID, ENCADENA, HECHO
+    ENOPERACION, ENID, ENCADENA, HECHO,
+    // Nuevos estados para nuevo algoritmo
+    ENDIRECTIVA, ENDIRECTIVA1, ENDIRECTIVA2, COMENT
 } TipoEstado;
 
 /* Estados del analizador lexico */
@@ -46,6 +58,8 @@ typedef enum TipoLexema {
     TIPO_LEXEMA_JMPNZ, TIPO_LEXEMA_CMP, TIPO_LEXEMA_TEST, TIPO_LEXEMA_NOT,
     TIPO_LEXEMA_LEA, TIPO_LEXEMA_LDS, TIPO_LEXEMA_LES, TIPO_LEXEMA_SHL,
     TIPO_LEXEMA_SHR,
+    TIPO_LEXEMA_DEFINIR,
+    TIPO_LEXEMA_OPERACION,
     /* lexemas de caracteres multiples */
     ID, IDNUM,  IDCADENA
 } TipoLexema;
@@ -156,7 +170,11 @@ static struct {
     { "lds", TIPO_LEXEMA_LDS},
     { "les", TIPO_LEXEMA_LES},
     { "shl", TIPO_LEXEMA_SHL},
-    { "shr", TIPO_LEXEMA_SHR}
+    { "shr", TIPO_LEXEMA_SHR},
+    // Nuevas palabras reservadas para nuevo algoritmo
+    { "definir", TIPO_LEXEMA_DEFINIR},
+    { "operacion", TIPO_LEXEMA_OPERACION}
+
 };
 
 /* ExpType es utilizado para verificación de tipos */

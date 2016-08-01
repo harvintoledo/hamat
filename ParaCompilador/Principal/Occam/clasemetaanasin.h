@@ -1,7 +1,6 @@
 #ifndef CLASEMETAANASIN_H
 #define CLASEMETAANASIN_H
-#include "nodoarbol.h"
-
+#include "globales.h"
 class ClaseMetaAnaSin
 {
 public:

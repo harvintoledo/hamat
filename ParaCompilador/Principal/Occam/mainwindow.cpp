@@ -12,7 +12,7 @@ ui(new Ui::MainWindow) {
     smRutaDeTrabajo =
     smRutaNombreArchivoDeTrabajo =
     smNombreArchivoDeTrabajo = "";
-
+    ui->textEdit->setText("<font color=#ff0000 size = 12>Algoritmo simulador de pila </font>");
 }
 MainWindow::~MainWindow() {
     delete ui;

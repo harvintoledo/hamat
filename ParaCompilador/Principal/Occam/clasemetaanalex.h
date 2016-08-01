@@ -3,6 +3,7 @@
 #include <QString>
 #include "claseinformacionlexema.h"
 #include "util.h"
+
 class ClaseMetaAnalex {
 public:
     ClaseMetaAnalex();

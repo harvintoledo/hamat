@@ -22,8 +22,7 @@ SOURCES += main.cpp\
     claseinformacionlexema.cpp \
     test.cpp \
     symbolmanager.cpp \
-    mathmanager.cpp \
-    nodoarbol.cpp
+    mathmanager.cpp
 
 HEADERS  += mainwindow.h \
     classwizard.h \
@@ -41,7 +40,7 @@ HEADERS  += mainwindow.h \
     test.h \
     symbolmanager.h \
     mathmanager.h \
-    nodoarbol.h
+    globales.h
 
 FORMS    += mainwindow.ui
 
