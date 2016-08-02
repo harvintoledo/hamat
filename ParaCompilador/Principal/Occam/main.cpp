@@ -5,6 +5,7 @@
 #include <QTranslator>
 #include <QLocale>
 #include "test.h"
+#include "clasemetaanalex.h"
 int main(int argc, char *argv[]) {
         QApplication a(argc, argv);
         printf("%d\n", ImprimeMensaje("Bienvenido a qt"));

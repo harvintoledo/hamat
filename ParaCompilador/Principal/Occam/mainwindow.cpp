@@ -24,6 +24,8 @@ ui(new Ui::MainWindow) {
                           "#definir #operacion SUMAR ADD ORIGEN , DESTINO;"
                           "#definir #operacion RESTAR SUB (%|$|!) , (%|$);\n");
 
+    omMetaAnalex.setBuffer(ui->textEdit->toPlainText());
+
 }
 MainWindow::~MainWindow() {
     delete ui;

@@ -39,6 +39,14 @@ public:
     TipoLexema buscarPalabraReservada(char *s);
 
     char cadenaDeLexema[MAXIMALONGITUDDELEXEMA+1];
+    void setBuffer(QString spBuffer) {
+        slBuffer = spBuffer;
+    }
+
+    QString getAnalisisLexico() {
+        return slAnalisisLexicoResult;
+    }
+
 private:
     // Variable booleana para indicar que analisis léxico está correcto
     bool bmGood;
@@ -49,7 +57,8 @@ private:
     imPosicionActualCaracter;
     char almacenadorDeLinea[MAXIMALONGITUDDEALAMACENAMIENTO];
     FILE *pArchivoOrigen;
-    QString slBuffer;
+    QString slBuffer,
+    slAnalisisLexicoResult;
     QChar ObtenerCaracter();
 
 };

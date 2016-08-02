@@ -1,6 +1,8 @@
 #include "clasemetaanalex.h"
 ClaseMetaAnalex::ClaseMetaAnalex() {
     imPosicionActualCaracter = 0;
+    slBuffer = "";
+    slAnalisisLexicoResult = "";
 }
 InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
     /* indice para el almacenamiento del lexema de cadena */
@@ -19,18 +21,44 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
         case INICIO:
             if(c == ';')
             estado = COMENT;
-            else if(c == '#')
+            else if(c == '#') {
                 estado = ENDIRECTIVA1;
-            else if(c == '%')
+            }
+            else if(c == '%') {
                 estado = ENREGISTRO;
-            else if(c == '$')
+                lexemaActual.lexema = TIPO_LEXEMA_REGISTRO;
+            }
+            else if(c == '$') {
                 estado = ENMEMORIA;
-            else if(c == '!')
+                lexemaActual.lexema = TIPO_LEXEMA_MEMORIA;
+            }
+            else if(c == '!') {
                 estado = ENINMEDIATO;
-            else if(c == '|')
+                lexemaActual.lexema = TIPO_LEXEMA_INMEDIATO;
+            }
+            else if(c == '|') {
                 estado = ENSELECCION;
+                lexemaActual.lexema = TIPO_LEXEMA_SELECCION;
+            }
             else if(isalpha(c))
-                estado = ENID;
+            estado = ENID;
+            else
+            /* ignorar espacios en blanco */
+            if( c == ' ' || c == '\t' || c == '\n' ) {
+                bGuardarEnIdentificador = FALSO;
+                switch(c) {
+                case ' ':
+                    //fprintf(pArchivoDestino, " ");
+                    // imprimir espacio en evaluador
+                    break;
+                case '\t':
+                    break;
+                case '\n':
+                   // fprintf(pArchivoDestino, "<br>\n");
+                    // imprimir espacio en evaludador
+                    break;
+                }
+            }
             break;
         case COMENT:
             bGuardarEnIdentificador = FALSO;
@@ -43,19 +71,19 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
             break;
         case ENDIRECTIVA1:
             if(isalpha(c))
-                estado = ENDIRECTIVA2;
+            estado = ENDIRECTIVA2;
             break;
         case ENDIRECTIVA2:
             if(isalnum(c))
-                estado = ENDIRECTIVA2;
+            estado = ENDIRECTIVA2;
             else
-                estado = HECHO;
+            estado = HECHO;
             break;
         case ENID:
             if(isalnum(c))
-                estado = ENID;
+            estado = ENID;
             else
-                estado = HECHO;
+            estado = HECHO;
             break;
         case HECHO:
             break;
@@ -63,37 +91,30 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
             break;
         } // fin del switch principal para estados
         if( (bGuardarEnIdentificador) && (indiceCadenaLexema <= MAXIMALONGITUDDELEXEMA))
-                cadenaDeLexema[indiceCadenaLexema++] = c;
+        cadenaDeLexema[indiceCadenaLexema++] = c;
         if( estado == HECHO)
         {
             cadenaDeLexema[indiceCadenaLexema] = '\0';
-
             if( lexemaActual.lexema == ID)
             {
                 lexemaActual.lexema = buscarPalabraReservada(cadenaDeLexema);
             }
-
             if( cadenaDeLexema != NULL || strlen(cadenaDeLexema) != 0)
             {
                 switch( lexemaActual.lexema )
                 {
-
                 case TIPO_LEXEMA_REGISTRO:
                     strcpy(lexemaActual.informacion, "%");
                     break;
-
                 case TIPO_LEXEMA_MEMORIA:
                     strcpy(lexemaActual.informacion, "$");
                     break;
-
                 case TIPO_LEXEMA_INMEDIATO:
                     strcpy(lexemaActual.informacion, "!");
                     break;
-
                 case TIPO_LEXEMA_SELECCION:
                     strcpy(lexemaActual.informacion, "|");
                     break;
-
                 default:
                     strcpy(lexemaActual.informacion, cadenaDeLexema);
                 }
@@ -101,14 +122,14 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
             lexemaActual.lineanumero = lineanumero;
         }
     } // fin del while principal para los estados del automata
+    return lexemaActual;
 }
 char ClaseMetaAnalex::obtenerSiguienteCaracter(void) {
     if(!(lineaposicion < tamAlmacenamiento) ) {
         lineanumero++;
         // Obtener el caracter desde archivo o cadena ya preparada
-//        if( fgets(almacenadorDeLinea, MAXIMALONGITUDDEALAMACENAMIENTO - 1, pArchivoOrigen) ) {
+        //        if( fgets(almacenadorDeLinea, MAXIMALONGITUDDEALAMACENAMIENTO - 1, pArchivoOrigen) ) {
         if( ObtenerCaracter() != '\0' ) {
-
             // fprintf(pArchivoDestino, "<br>%s",almacenadorDeLinea);
             tamAlmacenamiento = strlen( almacenadorDeLinea);
             lineaposicion = 0;
@@ -134,14 +155,11 @@ TipoLexema ClaseMetaAnalex::buscarPalabraReservada(char *s) {
     return palabraReservada[i].tok;
     return ID;
 } /* fin de la funcion buscarPalabraReservada */
-
 QChar ClaseMetaAnalex::ObtenerCaracter() {
     QChar c;
     c = slBuffer.at(imPosicionActualCaracter);
     imPosicionActualCaracter++;
     if(imPosicionActualCaracter >= slBuffer.length())
-        c = '\0';
+    c = '\0';
     return c;
 }
-
-

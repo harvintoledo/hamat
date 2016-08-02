@@ -9,6 +9,7 @@
 #include <QDebug>
 #include "classwizard.h"
 #include "clasegeneradordeproyecto.h"
+#include "clasemetaanalex.h"
 namespace Ui {
     class MainWindow;
 }
@@ -36,6 +37,7 @@ protected:
     smNombreArchivoDeTrabajo,
     smRutaNombreArchivoDeTrabajo;
     ClassWizard *pomWizard;
+    ClaseMetaAnalex omMetaAnalex;
 
     // Variables para comportamiento de aplicacion
     bool bmPlantillaOcamAbierta,
