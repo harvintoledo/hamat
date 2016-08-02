@@ -66,7 +66,8 @@ typedef enum TipoLexema {
     TIPO_LEXEMA_REGISTRO,
     TIPO_LEXEMA_MEMORIA,
     TIPO_LEXEMA_INMEDIATO,
-    TIPO_LEXEMA_SELECCION
+    TIPO_LEXEMA_SELECCION,
+    TIPO_LEXEMA_COMENTARIO
 } TipoLexema;
 /* tabla de busquedas para las palabras reservadas */
 static struct {

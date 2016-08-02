@@ -46,10 +46,10 @@ public:
     QString getAnalisisLexico() {
         return slAnalisisLexicoResult;
     }
-
+    void imprimirLexema(TipoLexema, const char *);
 private:
     // Variable booleana para indicar que analisis léxico está correcto
-    bool bmGood;
+    bool bmGood, bmImprimeAnalisisLexico;
     QString smInstruccion;
     int lineaposicion,
     tamAlmacenamiento,
