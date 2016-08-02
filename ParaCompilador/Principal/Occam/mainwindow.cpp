@@ -26,6 +26,40 @@ ui(new Ui::MainWindow) {
 
     omMetaAnalex.setBuffer(ui->textEdit->toPlainText());
 
+    NodoListaLexema *listaLexemas, *torax, *temporal;
+        InformacionLexema lex;
+        listaLexemas = NULL;
+
+        int lineanumero = 0;
+
+    while( lex.lexema != FINDEARCHIVO)
+        {
+            lex = omMetaAnalex.obtenerLexemaInformacion();
+            /* si la lista esta todavia sin tokens */
+            if(listaLexemas == NULL )  {
+                listaLexemas = nuevoNodoLexema(lex);
+                listaLexemas->anterior = NULL;
+                listaLexemas->siguiente = NULL;
+            }
+            /* construir un nuevo nodo y agregarlo a la lista de tokens */
+            else
+            {
+
+                torax = nuevoNodoLexema(lex);
+                torax->anterior = NULL;
+                torax->siguiente = NULL;
+
+                temporal = listaLexemas;
+                /* buscar la cola de la lista de tokens */
+                while( temporal->siguiente != NULL)
+                temporal=temporal->siguiente;
+
+                temporal->siguiente = torax;
+                torax->anterior = temporal;
+            }
+
+        } /* fin de sentencia while*/
+
 }
 MainWindow::~MainWindow() {
     delete ui;

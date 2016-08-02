@@ -55,7 +55,7 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
                 case '\t':
                     break;
                 case '\n':
-                   // fprintf(pArchivoDestino, "<br>\n");
+                    // fprintf(pArchivoDestino, "<br>\n");
                     // imprimir espacio en evaludador
                     break;
                 }
@@ -94,17 +94,13 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
         } // fin del switch principal para estados
         if( (bGuardarEnIdentificador) && (indiceCadenaLexema <= MAXIMALONGITUDDELEXEMA))
         cadenaDeLexema[indiceCadenaLexema++] = c;
-        if( estado == HECHO)
-        {
+        if( estado == HECHO) {
             cadenaDeLexema[indiceCadenaLexema] = '\0';
-            if( lexemaActual.lexema == ID)
-            {
+            if( lexemaActual.lexema == ID) {
                 lexemaActual.lexema = buscarPalabraReservada(cadenaDeLexema);
             }
-            if( cadenaDeLexema != NULL || strlen(cadenaDeLexema) != 0)
-            {
-                switch( lexemaActual.lexema )
-                {
+            if( cadenaDeLexema != NULL || strlen(cadenaDeLexema) != 0) {
+                switch( lexemaActual.lexema ) {
                 case TIPO_LEXEMA_REGISTRO:
                     strcpy(lexemaActual.informacion, "%");
                     break;
@@ -132,49 +128,39 @@ InformacionLexema ClaseMetaAnalex::obtenerLexemaInformacion(void) {
     return lexemaActual;
 }
 void ClaseMetaAnalex::imprimirLexema(TipoLexema lex, const char *cadena) {
-  switch(lex) {
-
+    switch(lex) {
     case TIPO_LEXEMA_REGISTRO:
-
-//      fprintf(pArchivoDestino, "<span class=\"nohemi-palabrareservada\">%s</span>", cadena);
-      break;
-  case TIPO_LEXEMA_MEMORIA:
-//      strcpy(lexemaActual.informacion, "$");
-      break;
-  case TIPO_LEXEMA_INMEDIATO:
-//      strcpy(lexemaActual.informacion, "!");
-      break;
-  case TIPO_LEXEMA_SELECCION:
-//      strcpy(lexemaActual.informacion, "|");
-      break;
+        //      fprintf(pArchivoDestino, "<span class=\"nohemi-palabrareservada\">%s</span>", cadena);
+        break;
+    case TIPO_LEXEMA_MEMORIA:
+        //      strcpy(lexemaActual.informacion, "$");
+        break;
+    case TIPO_LEXEMA_INMEDIATO:
+        //      strcpy(lexemaActual.informacion, "!");
+        break;
+    case TIPO_LEXEMA_SELECCION:
+        //      strcpy(lexemaActual.informacion, "|");
+        break;
     case FINDEARCHIVO:
-//      fprintf(pArchivoDestino, "EOF");
-      break;
-
+        //      fprintf(pArchivoDestino, "EOF");
+        break;
     case ID:
-//      fprintf(pArchivoDestino, "<span class=\"nohemi-identificador\">%s</span>", cadena);
-      break;
-
+        //      fprintf(pArchivoDestino, "<span class=\"nohemi-identificador\">%s</span>", cadena);
+        break;
     case IDNUM:
-//      fprintf(pArchivoDestino, "<span class=\"nohemi-numero\">%s</span>", cadena);
-      break;
-
+        //      fprintf(pArchivoDestino, "<span class=\"nohemi-numero\">%s</span>", cadena);
+        break;
     case IDCADENA:
-//      fprintf(pArchivoDestino, "<span class=\"nohemi-cadena\">&quot;%s&quot;</span>", cadena);
-      break;
-
+        //      fprintf(pArchivoDestino, "<span class=\"nohemi-cadena\">&quot;%s&quot;</span>", cadena);
+        break;
     case ERROR:
-//      fprintf(pArchivoDestino, "ERROR: %s\n", cadena);
-      break;
-
+        //      fprintf(pArchivoDestino, "ERROR: %s\n", cadena);
+        break;
     default:
-//      fprintf(pArchivoDestino, "Lexema DESCONOCIDO: %s\n", cadena);
-      ;
-
-  } /* fin del switch */
-
+        //      fprintf(pArchivoDestino, "Lexema DESCONOCIDO: %s\n", cadena);
+        ;
+    } /* fin del switch */
 } /* fin de la funcion imprimirLexema */
-
 char ClaseMetaAnalex::obtenerSiguienteCaracter(void) {
     if(!(lineaposicion < tamAlmacenamiento) ) {
         lineanumero++;
