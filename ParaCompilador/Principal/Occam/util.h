@@ -43,7 +43,8 @@ typedef enum {
     ENTRADANUMTIPOESTADO16, ENTRADANUMTIPOESTADO17,
     ENOPERACION, ENID, ENCADENA, HECHO,
     // Nuevos estados para nuevo algoritmo
-    ENDIRECTIVA, ENDIRECTIVA1, ENDIRECTIVA2, COMENT
+    ENDIRECTIVA, ENDIRECTIVA1, ENDIRECTIVA2, COMENT,
+    ENREGISTRO, ENMEMORIA, ENINMEDIATO, ENSELECCION
 } TipoEstado;
 
 /* Estados del analizador lexico */
@@ -61,7 +62,11 @@ typedef enum TipoLexema {
     TIPO_LEXEMA_DEFINIR,
     TIPO_LEXEMA_OPERACION,
     /* lexemas de caracteres multiples */
-    ID, IDNUM,  IDCADENA
+    ID, IDNUM,  IDCADENA,
+    TIPO_LEXEMA_REGISTRO,
+    TIPO_LEXEMA_MEMORIA,
+    TIPO_LEXEMA_INMEDIATO,
+    TIPO_LEXEMA_SELECCION
 } TipoLexema;
 /* tabla de busquedas para las palabras reservadas */
 static struct {

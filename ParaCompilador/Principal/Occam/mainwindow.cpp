@@ -12,7 +12,18 @@ ui(new Ui::MainWindow) {
     smRutaDeTrabajo =
     smRutaNombreArchivoDeTrabajo =
     smNombreArchivoDeTrabajo = "";
-    ui->textEdit->setText("<font color=#ff0000 size = 12>Algoritmo simulador de pila </font>");
+    ui->textEdit->setText("; comentario\n"
+                          "; % registro\n"
+                          "; $ memoria\n"
+                          "; ! inmediato\n"
+                          "\n"
+                          "#definir #operando ORIGEN %|$|!\n"
+                          "#definir #operando DESTINO %|$\n"
+                          "\n"
+                          "#definir #operacion MOVER MOV (%|$|!) , (%|$);\n"
+                          "#definir #operacion SUMAR ADD ORIGEN , DESTINO;"
+                          "#definir #operacion RESTAR SUB (%|$|!) , (%|$);\n");
+
 }
 MainWindow::~MainWindow() {
     delete ui;

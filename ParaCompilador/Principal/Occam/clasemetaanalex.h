@@ -45,9 +45,12 @@ private:
     QString smInstruccion;
     int lineaposicion,
     tamAlmacenamiento,
-    lineanumero;
+    lineanumero,
+    imPosicionActualCaracter;
     char almacenadorDeLinea[MAXIMALONGITUDDEALAMACENAMIENTO];
     FILE *pArchivoOrigen;
+    QString slBuffer;
+    QChar ObtenerCaracter();
 
 };
 
